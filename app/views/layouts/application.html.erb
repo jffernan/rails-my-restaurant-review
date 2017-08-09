@@ -12,8 +12,10 @@
     <nav>
       <% if logged_in? %>
         <a href = "/">Home</a>
-        <%= link_to "Welcome, <%= current_user.email", user_path(@user)%>/a>
+        <%= link_to "#{current_user.email}", user_path(current_user) %>
+        <strong>Reviews</strong>
         <a href = "/logout">Logout</a>
+        <h3>Welcome, <%=current_user.email %>!</h3>
       <% else %>
         <a href = "/">Home</a>
         <a href = '/signup'>Signup</a>
