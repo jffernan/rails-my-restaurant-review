@@ -10,18 +10,21 @@
 
   <body>
     <nav>
+      <%= link_to "Home", root_path %>
       <% if logged_in? %>
-        <a href = "/">Home</a>
+        <%= link_to "Profile", user_path(current_user) %>
         <%= link_to "#{current_user.email}", user_path(current_user) %>
         <strong>Reviews</strong>
-        <a href = "/logout">Logout</a>
+        <%= link_to "Users",    '#' %>
+        <%= link_to "Settings", '#' %>
+        <%= link_to "Log out", logout_path, method: :delete %>
       <% else %>
-        <a href = "/">Home</a>
-        <a href = '/signup'>Signup</a>
+        <%= link_to "Sign Up", signup_path %>
       <% end %>
 
-      <strong id="notice"><%= notice %></strong>
-
+      <% flash.each do |name, msg| -%>
+        <strong><%= content_tag :div, msg, class: name %></strong>
+      <% end -%>
     </nav>
 
     <div class = "container">

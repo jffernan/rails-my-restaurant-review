@@ -23,8 +23,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to @user, notice: "Signup successful!"
+      log_in @user
+      redirect_to @user, success: "Signup successful!" #Temporary flash message after redirect
     else
       render :new
     end
