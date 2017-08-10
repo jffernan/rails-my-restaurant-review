@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user, notice: "User successfully created!"
+      redirect_to @user, notice: "Signup successful!"
     else
       render :new
     end
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'User successfully updated!'
+      redirect_to @user, notice: "User successfully updated!"
     else
       render :edit
     end

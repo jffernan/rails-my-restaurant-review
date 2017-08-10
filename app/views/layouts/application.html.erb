@@ -9,21 +9,19 @@
   </head>
 
   <body>
-    <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-    <% end -%>
-
     <nav>
       <% if logged_in? %>
         <a href = "/">Home</a>
         <%= link_to "#{current_user.email}", user_path(current_user) %>
         <strong>Reviews</strong>
         <a href = "/logout">Logout</a>
-        <h3>Welcome, <%=current_user.email %>!</h3>
       <% else %>
         <a href = "/">Home</a>
         <a href = '/signup'>Signup</a>
       <% end %>
+
+      <strong id="notice"><%= notice %></strong>
+
     </nav>
 
     <div class = "container">
