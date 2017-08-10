@@ -1,2 +1,7 @@
 <h3>Welcome to My Restaurant Review!</h3>
 <p>Here you can post reviews of your favorite (and not so favorite) restaurants.  Bon appetit!</p>
+<!--NEED link go to Reviews page
+-->
+<% if !logged_in? %>
+<a href = '/login'>Login</a>
+<% end %>

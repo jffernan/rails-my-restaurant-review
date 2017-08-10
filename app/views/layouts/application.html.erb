@@ -9,6 +9,10 @@
   </head>
 
   <body>
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+
     <nav>
       <% if logged_in? %>
         <a href = "/">Home</a>
@@ -19,7 +23,6 @@
       <% else %>
         <a href = "/">Home</a>
         <a href = '/signup'>Signup</a>
-        <a href = '/login'>Login</a>
       <% end %>
     </nav>
 
