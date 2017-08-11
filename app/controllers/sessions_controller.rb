@@ -26,4 +26,11 @@ class SessionsController < ApplicationController
     log_out
     redirect_to login_path, notice: "Log out successful!"
   end
+
+  protected
+
+  def auth_hash
+    request.env['omniauth.auth']
+  end
+
 end
