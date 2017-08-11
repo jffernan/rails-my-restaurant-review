@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#omniauth is a generalized Rack framework for multiple-provider authentication.
+gem 'omniauth', '~> 1.6', '>= 1.6.1'
+#Official OmniAuth strategy for GitHub
+gem 'omniauth-github', '~> 1.3'
 #gem to add fake seeds to test db
 gem 'faker',          '1.7.3'
 #pry for testing
