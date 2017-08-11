@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#Autoload dotenv in Rails
+gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 #omniauth is a generalized Rack framework for multiple-provider authentication.
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 #Official OmniAuth strategy for GitHub
