@@ -1,9 +1,9 @@
-User.create!(email: "example@railstutorial.org",
+User.create!(email: "johndoe@gmail.com",
              password:              "foobar",
              password_confirmation: "foobar")
 
 99.times do |n|
-  email = "example-#{n+1}@railstutorial.org"
+  email = "johndoe-#{n+1}@gmail.com"
   password = "password"
   User.create!(email: email,
                password:              password,
