@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, except: [:home, :new, :create] #filter prevernt unauth. access/use
-  before_action :set_user,       only: [:show, :edit, :update, :destroy]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_login, only: [:home, :new, :create]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def home
   end
@@ -52,13 +52,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password,
                                    :password_confirmation)
-    end
-
-    def logged_in_user #before filter confirm logged-in user
-      unless logged_in?
-        flash[:alert] = "Please log in to access this page."
-        redirect_to login_url
-      end
     end
 
     def correct_user #confirms correct user to edit/update
