@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.all.alphabetical_order #show all users in alphabetical order
   end
 
   def show
@@ -56,6 +56,8 @@ class UsersController < ApplicationController
 
     def correct_user #confirms correct user to edit/update
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to user_path(current_user),
+      alert: "Sorry NO access to that page!" unless current_user?(@user)
     end
+
 end

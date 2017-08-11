@@ -15,4 +15,8 @@ class User < ApplicationRecord
     end
   end
 
+  def self.alphabetical_order #ActiveRecord method to alphabetize lists
+    User.order(email: :asc)
+  end
+
 end

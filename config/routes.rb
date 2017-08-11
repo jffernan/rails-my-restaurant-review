@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
 
+  get '/auth/github/callback' => 'sessions#create' #must be name of provider
+  get '/auth/failure', to: redirect('/')
   delete '/logout', to: 'sessions#destroy'
-  get '/auth/github/callback', to: 'sessions#create'
 
 end

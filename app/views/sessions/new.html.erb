@@ -9,6 +9,7 @@
   <%= f.submit "Login" %>
   <br></br>
 <% end %>
-<%= link_to "Login Via GitHub", '/auth/github' %>
-<br></br>
+<h3>If you have a Github account, 'click' below for quick login:</h3>
+<%= button_to "Login via GitHub", '/auth/github' %>
+</br>
 <%= link_to 'Back', root_path %>
