@@ -20,4 +20,8 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+/config/omniauth_readme/.env
+
 .env
+# Ignore application configuration
+/config/application.yml
