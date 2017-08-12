@@ -15,10 +15,11 @@ class User < ApplicationRecord
     end
   end
 
+  has_many :reviews, dependent: :destroy #delete user=>deletes their reviews from db
+  has_many :restaurants, through: :reviews
+
   def self.alphabetical_order #ActiveRecord method to alphabetize lists
     User.order(email: :asc)
   end
-
-  has_many :reviews, dependent: :destroy #delete user=>deletes their reviews from db
 
 end
