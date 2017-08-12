@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'restaurants/index'
+
   root 'users#home' #home
 
   resources :users
