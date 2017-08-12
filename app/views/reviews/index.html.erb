@@ -1,0 +1,17 @@
+<!-- app/views/reviews/index.html.erb -->
+<h3>Here is a list of all restaurant reviews (Click on a 'link'):</h3>
+<ul>
+  <%@reviews.each do |review|%>
+  <li>
+    <a href="/reviews/<%=review.id%>"><%=review.rest_name%>
+    </a> by
+    <% if current_user == review.user %>
+      you
+    <% else %>
+      <%= link_to review.user.email, user_reviews_path(review.user) %>
+    <% end %>
+  </li>
+  <%end%>
+</ul>
+  <%= link_to "Back", root_path %>
+(S)ee all restaurants
