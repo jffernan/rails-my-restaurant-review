@@ -1,20 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'reviews/index'
-
-  get 'reviews/show'
-
-  get 'reviews/new'
-
-  get 'reviews/create'
-
-  get 'reviews/edit'
-
-  get 'reviews/update'
-
-  get 'reviews/destroy'
-
-  root 'users#home'
+  root 'users#home' #home
 
   resources :users
 
@@ -27,5 +13,11 @@ Rails.application.routes.draw do
   get '/auth/github/callback' => 'sessions#create' #must be name of provider
   get '/auth/failure', to: redirect('/')
   delete '/logout', to: 'sessions#destroy'
+
+  resources :users, only: [:show] do #nested resource, parent: user => many reviews
+    resources :reviews, only: [:show, :index] #child: review LiMIT user to see ONLY another user's review(s)
+  end
+
+  resources :reviews #current user can CRUD
 
 end

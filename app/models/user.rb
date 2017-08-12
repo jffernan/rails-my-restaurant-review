@@ -19,4 +19,6 @@ class User < ApplicationRecord
     User.order(email: :asc)
   end
 
+  has_many :reviews, dependent: :destroy #delete user=>deletes their reviews from db
+
 end
