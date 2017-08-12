@@ -1,10 +1,8 @@
-<!-- app/views/reviews/index.html.erb -->
 <h3>Here is a list of all restaurant reviews (Click on a 'link'):</h3>
 <ul>
   <%@reviews.each do |review|%>
   <li>
-    <a href="/reviews/<%=review.id%>"><%=review.rest_name%>
-    </a> by
+    <%= link_to review.restaurant_name, @review %> by
     <% if current_user == review.user %>
       you
     <% else %>

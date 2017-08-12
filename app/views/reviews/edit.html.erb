@@ -1,2 +1,10 @@
-<legend>Edit Your Restaurant Review Below:</legend>
+<h3>Edit Your Restaurant Review Below:</h3>
 <%= render 'form' %>
+<strong>Delete Review:
+  <br></br>
+  <%= button_to 'Delete Review', review_path(@review),
+              method: :delete,
+              data: { confirm: 'This will delete your review PERMANENTLY! Continue?' } %>
+</strong>
+</br>
+<%= link_to 'Back', @review %>

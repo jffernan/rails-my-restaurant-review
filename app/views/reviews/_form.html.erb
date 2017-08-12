@@ -1,17 +1,29 @@
-<form action="/reviews" method="post">
+<%= form_for @review do |f| %>
   <fieldset>
-    <legend>Create New Restaurant Review Below:</legend>
-    <input type="text" name="rest_name" id="rest_name" placeholder="Restaurant Name:"><br></br>
-      <textarea id="content" name="content" rows="5" cols="98" placeholder="Enter your review comments here:"></textarea>
-      <br></br>
-    <input type="text" name="cuisine" id="cuisine" placeholder="Cuisine:"><br></br>
-      Choose Rating for the restaurant from the following (4) choices:
-      <input type="radio" name="rating" value="Excellent"><label for="Excellent"> Excellent</label>
-      <input type="radio" name="rating" value="Good"><label for="Good"> Good</label>
-      <input type="radio" name="rating" value="Average"><label for="Average"> Average</label>
-      <input type="radio" name="rating" value="Poor"><label for="Poor"> Poor</label><br></br>
-    <input type="submit" id="submit" value="Save Review">
+    <%= f.label restaurant_name %>
+    <%= f.text_field restaurant_name %>
+    <br></br>
+    <%= f.label :content %>
+    <%= f.text_area :content rows="5" cols="98" placeholder="Enter your restaurant here:" %>
+    <br></br>
+    <%= f.label :cuisine %>
+    <%= f.text_field :cuisine %>
+    <br></br>
+    Choose Rating for the restaurant from the following (4) choices:
+    <%= f.label :rating, 'Excellent', :value => 'Excellent' %>
+    <%= f.radio_button :rating, 'Excellent' %>
+    <%= f.label :rating, 'Good', :value => 'Good' %>
+    <%= f.radio_button :rating, 'Good' %>
+    <%= f.label :rating, 'Average', :value => 'Average' %>
+    <%= f.radio_button :rating, 'Average' %>
+    <%= f.label :rating, 'Poor', :value => 'Poor' %>
+    <%= f.radio_button :rating, 'Poor' %>
+    <br></br>
+    <%= f.label :review_date %>
+    <%= f.date_field :review_date %>
+    <br></br>
+    <%= f.submit "Save Review" %>
   </fieldset>
-</form>
+<% end %>
 <br></br>
 <%= link_to 'Back', @user%>

@@ -6,10 +6,10 @@
 <% else %>
   <h4>Click on one of the following links below to:</h4> <!--CRUDS-->
     <ul>
-      <li>(C)reate new review</li>
-      <li>(R)ead your review</li>
-      <li>(U)pdate review</li>
-      <li>(D)elete review</li>
-      <li>(S)ee all reviews posted by users</li>
+      <li><%= link_to "(C)reate new review", new_review_path %></li>
+      <li><%= link_to "(R)ead your reviews", user_path(current_user) %></li>
+      <li><%= link_to "(U)pdate review", user_path(current_user) %></li>
+      <li><%= link_to "(D)elete review", user_path(current_user) %></li>
+      <li><%= link_to "(S)ee All Reviews", @reviews_path %></li>
     </ul>
 <% end %>
