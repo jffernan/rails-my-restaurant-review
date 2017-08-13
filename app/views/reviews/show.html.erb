@@ -14,6 +14,8 @@
 
 <% if current_user == @review.user %><!--review belongs to current user or not?-->
   <%= link_to "Edit Review", edit_review_path %>
+  <%= link_to "Back", @user %>
 <% end %>
 <br></br>
-<%= link_to "Back", @user %>
+<%= link_to "Back", @reviews %>
+<%= link_to "All Restaurants", restaurants_index_path %>

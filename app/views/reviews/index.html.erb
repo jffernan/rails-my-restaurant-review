@@ -2,7 +2,7 @@
 <ul>
   <%@reviews.each do |review|%>
   <li>
-    <%= link_to review.restaurant_name, @review %> by
+    <%= link_to review.restaurant_name, @review %> reviewed by
     <% if current_user == review.user %>
       you
     <% else %>
@@ -12,4 +12,4 @@
   <%end%>
 </ul>
   <%= link_to "Back", root_path %>
-(S)ee all restaurants
+  <%= link_to "All Restaurants", restaurants_index_path %>

@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :require_login, except: [:index, :show]
 
   def index
@@ -10,7 +11,6 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id])
   end
 
   def new
@@ -20,31 +20,35 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)  #private STRONG params bottom
     if @review.save
-      redirect_to @review
+      redirect_to @review, success: "New review created!"
     else
       render 'new'
     end
   end
 
-
   def update
-    @review = Review.find(params[:id])
     if @review.update(review_params) #update a record that already exists, accepts hash containing attributes
-      redirect_to @review
+      redirect_to @review, notice: "Review updated!"
     else
       render 'edit'
     end
   end
 
+  def edit
+  end
+
   def destroy
-    @review = Review.find(params[:id])
     @review.destroy
-    redirect_to reviews_path
+    redirect_to @user_path, notice: "Review deleted!"
   end
 
   private
-  def review_params #strong parameters tell Rails which params are permitted into our controller actions. SECURES against bad data
-    params.require(:review).permit(:content, :cuisine, :rating)
+  def set_review
+    @review = Review.find(params[:id])
+  end
+
+  def review_params #strong params tell which are permitted into controller actions SECURES against bad data
+    params.require(:review).permit(:content, :cuisine, :rating, :review_date)
   end
 
 end

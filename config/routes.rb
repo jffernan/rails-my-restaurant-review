@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'restaurants/index'
-
   root 'users#home' #home
 
   resources :users
@@ -22,4 +20,5 @@ Rails.application.routes.draw do
 
   resources :reviews #current user can CRUD
 
+  get 'restaurants/index', to: "restaurants#index"
 end

@@ -1,2 +1,14 @@
-<h1>Restaurants#index</h1>
-<p>Find me in app/views/restaurants/index.html.erb</p>
+<h3>Here is a list of all restaurants (Click on a 'link'):</h3>
+<ol>
+  <%@restaurants.each do |restaurant|%>
+  <li>
+    <%= link_to @review.restaurant_name, @review %> reviewed by
+    <% if current_user == @review.user %>
+      you
+    <% else %>
+      <%= link_to @review.user_email, @user_reviews_path(@review.user) %>
+    <% end %>
+  </li>
+  <%end%>
+</ol>
+<%= link_to "Back", root_path %>
