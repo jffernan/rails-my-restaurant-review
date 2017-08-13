@@ -20,10 +20,10 @@
     <%= f.text_area :content rows="5" cols="98" placeholder="Enter your restaurant here:" %>
     <br></br>
     <%= f.label :cuisine %>
-    <%= f.text_field :cuisine, list: "cuisines_autocomplete" %>
-      <datalist id="cuisines_autocomplete">
-        <% Review.cuisine.all.each do |cuisine| %>
-        <option value="<%= review.cuisine %>">
+    <%= f.text_field :cuisine, list: 'cuisines' %>
+      <datalist id="cuisines">
+        <% Review.all.each do |review| %>
+          <option value="<%= review.cuisine %>"></option>
         <% end %>
       </datalist>
     <br></br>
