@@ -1,6 +1,8 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :restaurant
+  has_many :review_cuisines
+  has_many :cuisines, through: :review_cuisines
 
   validates_presence_of :cuisine, :rating, :review_date
   validates :content, presence: true, length: { minimum: 10 }
@@ -21,8 +23,8 @@ class Review < ApplicationRecord
     Review.order(restaurant_name: :asc) #Alphabetize by Restaurant name
   end
 
-  def self.top_reviews #scope method
-    where(rating: 'Excellent')
+  def self.top_reviews #class level ActiveRecord scope method for top reviews
+    where(rating: 'Excellent') #top reviews = reviews with Excellent rating
   end
 
 end
