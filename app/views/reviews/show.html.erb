@@ -3,7 +3,7 @@
   <li>Comments: <%= @review.content %></li>
   <li>Cuisine: <%= @review.cuisine %></li>
   <li>Rating: <%= @review.rating %></li>
-  <li><%= @review.review_date.strftime("Date Reviewed: %m/%d/%Y") %></li> <!--Date MO/DY?YEAR-->
+  <li><%= @review.review_date.strftime("Date Reviewed: %m/%d/%Y") %></li> <!--Date MO/DY/YEAR-->
 <% if current_user != @review.user %> <!--show only another's username-->
   <li>Reviewed by: <strong><%= @review.user.email %></strong></li>
   <li>For more info about this restaurant,
