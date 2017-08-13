@@ -15,6 +15,13 @@ class Review < ApplicationRecord
      self.restaurant = Restaurant.find_or_create_by(name: name)
   end
 
+  def cuisines_attributes=(cuisine_attributes) #custom attribute writer: cuisine
+    cuisine_attributes.values.each do |cuisine_attribute|
+      cuisine = Cuisine.find_or_create_by(cuisine_attribute)
+      self.cuisines << cuisine
+    end
+  end
+
   #def user_email
     #self.user.email #class method to access user email
   #end

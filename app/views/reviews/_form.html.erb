@@ -13,20 +13,17 @@
     </div>
   <% end %>
   <fieldset>
-  <!-- nested form writing to assoc. Restaurant model use custom attr writer restaurant_name-->
+  <!-- Following nested form writing to assoc. Restaurant model use custom attr writer restaurant_name-->
     <%= f.label :restaurant_name, "Restaurant Name" %>
     <%= f.text_field :restaurant_name %>
     <br></br>
     <%= f.label :content %>
     <%= f.text_area :content rows="5" cols="98" placeholder="Enter your restaurant here:" %>
-    <br></br>
-    <%= f.label :cuisine %>
-    <%= f.text_field :cuisine, list: 'cuisines' %>
-      <datalist id="cuisines">
-        <% Review.all.each do |review| %>
-          <option value="<%= review.cuisine %>"></option>
-        <% end %>
-      </datalist>
+    <br></br> <!--Following user submits nested_attribute, cuisine -->
+    <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name %>
+    <%= f.fields_for :cuisines, review.cuisines.build do |cuisines_fields| %>
+      <%= cuisines_fields.text_field :name %>
+    <% end %>
     <br></br>
     Choose Rating for the restaurant from the following (4) choices:
     <%= f.label :rating, 'Excellent', :value => 'Excellent' %>

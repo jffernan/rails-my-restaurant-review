@@ -51,8 +51,8 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
-  def review_params #strong params tell which are permitted into controller actions SECURES against bad data
-    params.require(:review).permit(:restaurant_name, :content, :cuisine, :rating, :review_date)
+  def review_params #strong params tell which attrs permitted into controller actions SECURES against bad data
+    params.require(:review).permit(:restaurant_name, :content, cuisine_ids:[], cuisines_attributes: [:name], :rating, :review_date)
   end
 
 end
