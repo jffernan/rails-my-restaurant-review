@@ -10,7 +10,7 @@ class Restaurant < ApplicationRecord
     self.review
   end
 
-  def user_email
+  def user_email #??????????????
     self.user.email
   end
 end

@@ -5,7 +5,7 @@ class Review < ApplicationRecord
   validates_presence_of :cuisine, :rating, :review_date
   validates :content, presence: true, length: { minimum: 10 }
 
-  def restaurant_name
+  def restaurant_name #custom attribute writer to nested form for new review
     self.try(:restaurant).try(:name)
   end
 
