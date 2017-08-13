@@ -48,7 +48,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params #strong params tell which are permitted into controller actions SECURES against bad data
-    params.require(:review).permit(:content, :cuisine, :rating, :review_date)
+    params.require(:review).permit(:restaurant_name, :content, :cuisine, :rating, :review_date)
   end
 
 end

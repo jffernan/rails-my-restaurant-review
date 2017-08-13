@@ -13,14 +13,19 @@
     </div>
   <% end %>
   <fieldset>
-    <%= f.label restaurant_name %>
-    <%= f.text_field restaurant_name %>
+    <%= f.label :restaurant_name, "Restaurant Name" %>
+    <%= f.text_field :restaurant_name %>
     <br></br>
     <%= f.label :content %>
     <%= f.text_area :content rows="5" cols="98" placeholder="Enter your restaurant here:" %>
     <br></br>
     <%= f.label :cuisine %>
-    <%= f.text_field :cuisine %>
+    <%= f.text_field :cuisine, list: "cuisines_autocomplete" %>
+      <datalist id="cuisines_autocomplete">
+        <% Review.cuisine.all.each do |cuisine| %>
+        <option value="<%= review.cuisine %>">
+        <% end %>
+      </datalist>
     <br></br>
     Choose Rating for the restaurant from the following (4) choices:
     <%= f.label :rating, 'Excellent', :value => 'Excellent' %>
