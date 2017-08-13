@@ -2,8 +2,9 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :restaurant
 
-  validates_presence_of :content, :rating, :cuisine, :review_date
-
+  validates_presence_of :cuisine, :rating, :review_date
+  validates :content, presence: true, length: { minimum: 10 }
+  
   def restaurant_name
     self.restaurant.name #class method to access restaurant name
   end
