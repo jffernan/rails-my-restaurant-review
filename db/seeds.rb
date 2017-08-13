@@ -18,3 +18,9 @@
                 rating: rating,
                 review_date: review_date)
 end
+
+Cuisine.create(name: 'American')
+Cuisine.create(name: 'Fast Food')
+Cuisine.create(name: 'Chinese')
+Cuisine.create(name: 'Mexican')
+Cuisine.create(name: 'Steak')

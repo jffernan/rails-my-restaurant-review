@@ -15,6 +15,9 @@ class ReviewsController < ApplicationController
 
   def new
     @review = review.new
+    #3.times do
+      #@review.cuisines.build(:name => "New Cuisine")
+    #end
   end
 
   def create

@@ -21,7 +21,7 @@
     <%= f.text_area :content rows="5" cols="98" placeholder="Enter your restaurant here:" %>
     <br></br> <!--Following user submits nested_attribute, cuisine -->
     <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name %>
-    <%= f.fields_for :cuisines, review.cuisines.build do |cuisines_fields| %>
+    <%= f.fields_for :cuisines, @review.cuisines.build do |cuisines_fields| %>
       <%= cuisines_fields.text_field :name %>
     <% end %>
     <br></br>

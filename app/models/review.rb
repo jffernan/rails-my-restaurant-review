@@ -17,7 +17,7 @@ class Review < ApplicationRecord
 
   def cuisines_attributes=(cuisine_attributes) #custom attribute writer: cuisine
     cuisine_attributes.values.each do |cuisine_attribute|
-      cuisine = Cuisine.find_or_create_by(cuisine_attribute)
+      cuisine = Cuisine.find_or_create_by(cuisine_attribute) #avoid duplicate cuisines
       self.cuisines << cuisine
     end
   end
