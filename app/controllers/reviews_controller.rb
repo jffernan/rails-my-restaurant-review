@@ -42,6 +42,10 @@ class ReviewsController < ApplicationController
     redirect_to @user_path, notice: "Review deleted!"
   end
 
+  def top_reviews
+    @reviews = Review.top_reviews.alphabetical_order #ALL excellent reviews
+  end
+
   private
   def set_review
     @review = Review.find(params[:id])

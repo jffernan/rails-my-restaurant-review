@@ -21,4 +21,8 @@ class Review < ApplicationRecord
     Review.order(restaurant_name: :asc) #Alphabetize by Restaurant name
   end
 
+  def self.top_reviews #scope method
+    where(rating: 'Excellent')
+  end
+
 end
