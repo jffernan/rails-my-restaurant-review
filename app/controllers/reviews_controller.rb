@@ -15,16 +15,15 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    #3.times do
-      #@review.cuisines.build(:name => "New Cuisine")
-    #end
   end
 
   def create
-    @review = Review.new(review_params)  #private STRONG params bottom
+    @review = Review.new(review_params)
+    @review.user_id = current_user.id
     if @review.save
       redirect_to @review, success: "New review created!"
     else
+      flash.now[:alert] = "Save Review unsuccesful! Please try again!"
       render 'new'
     end
   end
@@ -33,6 +32,7 @@ class ReviewsController < ApplicationController
     if @review.update(review_params) #update a record that already exists, accepts hash containing attributes
       redirect_to @review, notice: "Review updated!"
     else
+      flash.now[:alert] = "Review Update unsuccesful! Please try again!"
       render 'edit'
     end
   end

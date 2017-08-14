@@ -1,42 +1,26 @@
 <%= form_for @review do |f| %>
-  <% if @review.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@review.errors.count, "error") %>
-        prohibited this review from being saved:
-      </h2>
-      <ul>
-      <% @review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <!-- Following nested form writing to assoc. Restaurant model use custom attr writer restaurant_name-->
+    <!-- Following nested form writing to assoc. Restaurant model use custom attr writer restaurant_name-->
   </br>
-    <%= f.label :restaurant_name, "Restaurant Name" %>
+    <%= f.label :restaurant_name, "Restaurant Name:" %> &ensp;
     <%= f.text_field :restaurant_name %>
     <br></br>
-    <%= f.label :content %>
-    <%= f.text_area :content, placeholder: "Enter your restaurant here:" %>
-    <br></br> <!--Following user submits nested_attribute, cuisine rows="5" cols="98"-->
-    <%= f.label :cuisine %>
+    <%= f.text_area :content, placeholder: "Enter Review Comments:", rows: 5, cols: 98 %>
+    <br></br> <!--Following user submits nested_attribute, cuisine -->
+    <%= f.label :cuisine, "Cuisine:" %> &ensp;
     <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name %>
-    <%= f.fields_for :cuisines, @review.cuisines.build do |cuisines_fields| %>
-      <%= cuisines_fields.text_field :name %>
-    <% end %>
+
     <br></br>
-    Choose Rating for the restaurant from the following (4) choices below:
-    <%= f.label :rating, 'Excellent', :value => 'Excellent' %>
+    Restaurant Rating: &ensp;
+    <%= f.label :rating, 'Excellent:', value: 'Excellent' %>
     <%= f.radio_button :rating, 'Excellent' %>
-    <%= f.label :rating, 'Good', :value => 'Good' %>
+    <%= f.label :rating, 'Good:', value: 'Good' %>
     <%= f.radio_button :rating, 'Good' %>
-    <%= f.label :rating, 'Average', :value => 'Average' %>
+    <%= f.label :rating, 'Average:', value: 'Average' %>
     <%= f.radio_button :rating, 'Average' %>
-    <%= f.label :rating, 'Poor', :value => 'Poor' %>
+    <%= f.label :rating, 'Poor:', value: 'Poor' %>
     <%= f.radio_button :rating, 'Poor' %>
     <br></br>
-    <%= f.label :review_date %>
+    <%= f.label :review_date, "Review Date:" %> &ensp;
     <%= f.date_field :review_date %>
     <br></br>
     <%= f.submit "Save Review" %>

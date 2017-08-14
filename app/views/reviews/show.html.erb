@@ -1,21 +1,29 @@
-<h3>Here is the review of "<%= @review.restaurant_name %>":</h3>
+<fieldset>
+<legend>
+  <h3>Here is the review of "<%= @review.restaurant_name %>"</h3>
+</legend>
 <ul>
   <li>Comments: <%= @review.content %></li>
-  <li>Cuisine: <%= @review.cuisine %></li>
+  <li>Cuisine:
+    <% @review.cuisines.each do |cuisine| %>
+      <%= @cuisine %>,
+      <% end %>
+  </li>
   <li>Rating: <%= @review.rating %></li>
   <li><%= @review.review_date.strftime("Date Reviewed: %m/%d/%Y") %></li> <!--Date MO/DY/YEAR-->
 <% if current_user != @review.user %> <!--show only another's username-->
   <li>Reviewed by: <strong><%= @review.user.email %></strong></li>
-  <li>For more info about this restaurant,
-    <a href = "http://www.google.com/#{@review.restaurant_name}" value = "Google Search">Google
+<% end %>
+  <li>For more info about this restaurant, visit their website:
+    <a href = 'http://www.<%= "#{@review.restaurant_name}" %>.com' value = "#{@review.restaurant_name}"><%= @review.restaurant_name %>
     </a>
-<% end %>
 </ul>
-
+</fieldset>
+</br>
 <% if current_user == @review.user %><!--review belongs to current user or not?-->
+  <%= link_to "Back", @user_reviews_path %>
   <%= link_to "Edit Review", edit_review_path %>
-  <%= link_to "Back", @user %>
-<% end %>
-<br></br>
+  <% else %>
 <%= link_to "Back", @reviews %>
-<%= link_to "All Restaurants", restaurants_index_path %>
+<%= link_to "All Restaurants", restaurants_path %>
+<% end %>
