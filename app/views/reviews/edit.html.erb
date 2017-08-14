@@ -1,10 +1,16 @@
-<h3>Edit Your Restaurant Review Below:</h3>
+<fieldset>
+<legend>
+  <h3>Edit Your Restaurant Review Below:</h3>
+</legend>
 <%= render 'form' %>
+</fieldset>
 <strong>Delete Review:
-  <br></br>
+  </br>
+  <fieldset>
   <%= button_to 'Delete Review', review_path(@review),
               method: :delete,
               data: { confirm: 'This will delete your review PERMANENTLY! Continue?' } %>
+</fieldset>
 </strong>
 </br>
 <%= link_to 'Back', @review %>

@@ -11,13 +11,13 @@
   <body>
     <nav>
       <%= link_to "Home", root_path %>
-      <%= link_to "Restaurant Reviews", @reviews_path %>
+      <%= link_to "See Reviews", @reviews_path %>
       <% if logged_in? %>
         <%= link_to "#{current_user.email}", user_path(current_user) %>
         <%= link_to "New Review", new_review_path %>
         <%= link_to "See Users", users_path %>
         <%= link_to "Settings", edit_user_path(current_user) %>
-        <%= link_to "Log out", logout_path, method: :delete %>
+        <%= link_to "Logout", logout_path, method: :delete %>
       <% else %>
         <%= link_to "Sign Up", signup_path %>
       <% end %>

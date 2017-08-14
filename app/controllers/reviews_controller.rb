@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = review.new
+    @review = Review.new
     #3.times do
       #@review.cuisines.build(:name => "New Cuisine")
     #end
@@ -55,7 +55,8 @@ class ReviewsController < ApplicationController
   end
 
   def review_params #strong params tell which attrs permitted into controller actions SECURES against bad data
-    params.require(:review).permit(:restaurant_name, :content, cuisine_ids:[], cuisines_attributes: [:name], :rating, :review_date)
+    #params.require(:review).permit(:restaurant_name, :content, cuisine_ids:[], cuisines_attributes: [:name], :rating, :review_date)
+    params.require(:review).permit(:restaurant_name, :content, :rating, :review_date, cuisine_ids:[], cuisines_attributes: [:name])
   end
 
 end

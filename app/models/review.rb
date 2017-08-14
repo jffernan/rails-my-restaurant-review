@@ -22,9 +22,9 @@ class Review < ApplicationRecord
     end
   end
 
-  #def user_email
-    #self.user.email #class method to access user email
-  #end
+  def user
+    self.user = User.find(params[:user_id]) #class method to access user email
+  end
 
   def self.alphabetical_order #ActiveRecord method to alphabetize lists
     Review.order(restaurant_name: :asc) #Alphabetize by Restaurant name

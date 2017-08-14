@@ -12,20 +12,21 @@
       </ul>
     </div>
   <% end %>
-  <fieldset>
   <!-- Following nested form writing to assoc. Restaurant model use custom attr writer restaurant_name-->
+  </br>
     <%= f.label :restaurant_name, "Restaurant Name" %>
     <%= f.text_field :restaurant_name %>
     <br></br>
     <%= f.label :content %>
-    <%= f.text_area :content rows="5" cols="98" placeholder="Enter your restaurant here:" %>
-    <br></br> <!--Following user submits nested_attribute, cuisine -->
+    <%= f.text_area :content, placeholder: "Enter your restaurant here:" %>
+    <br></br> <!--Following user submits nested_attribute, cuisine rows="5" cols="98"-->
+    <%= f.label :cuisine %>
     <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name %>
     <%= f.fields_for :cuisines, @review.cuisines.build do |cuisines_fields| %>
       <%= cuisines_fields.text_field :name %>
     <% end %>
     <br></br>
-    Choose Rating for the restaurant from the following (4) choices:
+    Choose Rating for the restaurant from the following (4) choices below:
     <%= f.label :rating, 'Excellent', :value => 'Excellent' %>
     <%= f.radio_button :rating, 'Excellent' %>
     <%= f.label :rating, 'Good', :value => 'Good' %>
@@ -39,7 +40,4 @@
     <%= f.date_field :review_date %>
     <br></br>
     <%= f.submit "Save Review" %>
-  </fieldset>
 <% end %>
-<br></br>
-<%= link_to 'Back', @user%>
