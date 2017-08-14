@@ -18,21 +18,8 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy #delete user=>deletes their reviews from db
   has_many :restaurants, through: :reviews
 
-  def review
-    self.review = Review.find(params[:id])
-  end
-
-  def restaurant_name #custom attribute writer to nested form for new review
-    self.try(:restaurant).try(:name)
-  end
-
-  def restaurant_name=(name)
-     self.restaurant = Restaurant.find_or_create_by(name: name)
-  end
-
   def self.alphabetical_order #ActiveRecord method to alphabetize lists
     User.order(email: :asc)
-    Review.order(restaurant_name: :asc)
   end
 
 end

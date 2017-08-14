@@ -3,11 +3,11 @@ class ReviewsController < ApplicationController
   before_action :require_login, except: [:index, :show]
 
   def index
-    if params[:user_id] #show specific users' reviews
-      @reviews = User.find(params[:user_id]).reviews.alphabetical_order
-    else
-      @reviews = Review.all.alphabetical_order #show ALL reviews
-    end
+    @reviews = Review.all.alphabetical_order #show ALL reviews
+  end
+
+  def user_reviews #specific users' reviews
+    @reviews = current_user.reviews.all.alphabetical_order
   end
 
   def show

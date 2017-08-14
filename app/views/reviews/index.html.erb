@@ -1,16 +1,5 @@
 <h3>Here is a list of all restaurant reviews (Click on a 'link'):</h3>
-<ul>
-  <%@reviews.each do |review|%>
-  <li>
-    <%= link_to review.restaurant_name, @review %> reviewed by
-    <% if current_user == review.user %>
-      you
-    <% else %>
-      <%= link_to review.user.email, user_reviews_path(review.user) %>
-    <% end %>
-  </li>
-  <%end%>
-</ul>
+
   <%= link_to "Back", root_path %>
   <%= link_to "All Restaurants", restaurants_index_path %>
   <%= link_to "Top Reviews", reviews_top_reviews_path %>

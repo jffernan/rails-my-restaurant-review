@@ -15,7 +15,6 @@
       <% if logged_in? %>
         <%= link_to "#{current_user.email}", user_path(current_user) %>
         <%= link_to "New Review", new_review_path %>
-        <%= link_to "See Users", users_path %>
         <%= link_to "Settings", edit_user_path(current_user) %>
         <%= link_to "Logout", logout_path, method: :delete %>
       <% else %>

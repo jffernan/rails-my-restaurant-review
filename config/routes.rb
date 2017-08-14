@@ -20,7 +20,8 @@ Rails.application.routes.draw do
 
   resources :reviews #current user can CRUD
 
-get 'reviews/top_reviews', to: "reviews#top_reviews"
+  get '/reviews/top_reviews', to: "reviews#top_reviews"
+  get '/users/:user_id/reviews', to: "reviews#user_reviews"
 
-  get 'restaurants/index', to: "restaurants#index"
+  get '/restaurants/index', to: "restaurants#index"
 end

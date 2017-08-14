@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @reviews = current_user.reviews.all.alphabetical_order
   end
 
   def new
