@@ -6,7 +6,7 @@
   <li>Comments: <%= @review.content %></li>
   <li>Cuisine(s):
     <% @review.cuisines.each do |cuisine| %>
-      <%= cuisine.name %>,
+      <%= cuisine.name %>
       <% end %>
   </li>
   <li>Rating: <%= @review.rating %></li>
@@ -14,7 +14,7 @@
 <% if current_user != @review.user %> <!--show only another's username-->
   <li>Reviewed by: <strong><%= @review.user.email %></strong></li>
 <% end %>
-  <li>For more info about this restaurant, visit their website:
+  <li>For more info about this restaurant, search for their website:
     <a href = 'http://www.<%= "#{@review.restaurant_name}" %>.com' value = "#{@review.restaurant_name}"><%= @review.restaurant_name %>
     </a>
 </ul>

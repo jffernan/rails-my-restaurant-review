@@ -4,7 +4,10 @@ class Review < ApplicationRecord
   has_many :review_cuisines
   has_many :cuisines, through: :review_cuisines
 
-  validates_presence_of :rating, :review_date
+  validates_presence_of :restaurant_name, :cuisine,
+                        :cuisine_ids, :review_date, :rating,
+                         cuisines_attributes: [:name]
+
   validates :content, presence: true, length: { minimum: 10 }
 
   def restaurant_name #custom attribute writer to nested form for new review

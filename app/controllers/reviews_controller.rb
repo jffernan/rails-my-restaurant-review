@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    @cuisines = @review.cuisines.build
+    #@cuisines = @review.cuisines.build
   end
 
   def create
@@ -42,7 +42,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to @user_path, notice: "Review deleted!"
+    redirect_to '/', notice: "Review deleted!"
   end
 
   def top_reviews
