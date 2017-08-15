@@ -24,7 +24,11 @@ class Review < ApplicationRecord
   end
 
   def self.alphabetical_order #ActiveRecord method to alphabetize lists
-    Review.order(restaurant_name: :asc) #Alphabetize by Restaurant name
+    Review.order(:restaurant_name) #Alphabetize ASC by Restaurant name
+  end
+
+  def self.order_by_date
+    Review.order(date_visited: :desc) #ActiveRecord method to order by most recent date
   end
 
   def self.top_reviews #class level ActiveRecord scope method for top reviews

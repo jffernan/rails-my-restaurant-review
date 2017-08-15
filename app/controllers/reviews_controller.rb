@@ -3,10 +3,9 @@ class ReviewsController < ApplicationController
   before_action :require_login, except: [:index, :show]
 
   def index
-    #@review = Review.find(params[:id])
-    @reviews = Review.all #.alphabetical_order #show ALL reviews
+    @reviews = Review.all.order_by_date #call AR method to order by most recent date
+    #@reviews = Review.all.sort(restaurant_name)
     #@reviews = current_user.reviews.all.alphabetical_order
-    #specific users' reviews
   end
 
   def show

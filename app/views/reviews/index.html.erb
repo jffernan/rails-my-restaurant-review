@@ -1,17 +1,18 @@
 <fieldset>
 <legend>
-  <h3>Here is a list of restaurant reviews (Click on a 'link'):</h3>
+  <h3>List of restaurant reviews by date visited (Click on a 'link'):</h3>
 </legend>
 <ul>
   <% @reviews.each do |review| %>
     <li>
       <%= link_to review.try(:restaurant).try(:name), review %>
-      reviewed by
+      visited on <%= review.date_visited.strftime("%m/%d/%Y") %>
+      by
       <% if current_user == review.user %>
-        you
+        you.
       <% else %>
-        <%= review.user.email %>
-    <% end %>
+        <%= review.user.email %>.
+      <% end %>
     </li>
   <% end %>
 </ul>

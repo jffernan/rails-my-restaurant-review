@@ -1,14 +1,23 @@
-<h3>Here is a list of all restaurants (Click on a 'link'):</h3>
-<ol>
-  <%@restaurants.each do |restaurant|%>
-  <li>
-    <%= link_to @review.restaurant_name, @review %> reviewed by
-    <% if current_user == @review.user %>
-      you
-    <% else %>
-      <%= link_to @review.user_email, @user_reviews_path(@review.user) %>
-    <% end %>
-  </li>
-  <%end%>
-</ol>
+<fieldset>
+<legend>
+  <h3>List of all restaurants reviewed by name (Click on a 'link'):</h3>
+</legend>
+<ul>
+  <% @reviews.each do |review| %>
+    <li>
+      <%= link_to review.try(:restaurant).try(:name), review %>
+      visited on <%= review.date_visited.strftime("%m/%d/%Y") %>
+      by
+      <% if current_user == review.user %>
+        you.
+      <% else %>
+        <%= review.user.email %>.
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+</fieldset>
+</br>
 <%= link_to "Back", root_path %>
+<%= link_to "See Reviews", reviews_path %>
+<%= link_to "Top Reviews", reviews_top_reviews_path %>

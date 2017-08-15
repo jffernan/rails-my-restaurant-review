@@ -1,6 +1,6 @@
 <fieldset>
 <legend>
-  <h3>Here is the review of "<%= @review.restaurant_name %>"</h3>
+  <h3>Review of "<%= @review.restaurant_name %>"</h3>
 </legend>
 <ul>
   <li>Comments: <%= @review.content %></li>
@@ -22,9 +22,9 @@
 </fieldset>
 </br>
 <% if current_user == @review.user %><!--review belongs to current user or not?-->
-  <%= link_to "Back", @reviews %>
+  <%= link_to "Back", reviews_path %>
   <%= link_to "Edit Review", edit_review_path %>
   <% else %>
-<%= link_to "Back", @reviews %>
+<%= link_to "Back", reviews_path %>
 Need Link to All Restaurants
 <% end %>
