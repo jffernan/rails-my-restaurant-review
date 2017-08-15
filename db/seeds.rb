@@ -1,4 +1,4 @@
-20.times do |n|
+5.times do |n|
   email = Faker::Internet.unique.safe_email
   password = "password"
   password_confirmation = "password"
@@ -7,16 +7,36 @@
                password_confirmation: password)
   restaurant_name = Faker::Company.name
   content =  Faker::Lorem.sentence
-  cuisine = Faker::Lorem.word
-  rating = "Average"
-  review_date = "08/12/2017"
+  date_visited = Time.now.strftime("%m/%d/%Y")
   #creator = User.offset(rand(User.count)).first
   Review.create!(user: user,
                 restaurant_name: restaurant_name,
                 content: content,
-                cuisine: cuisine,
-                rating: rating,
-                review_date: review_date)
+                cuisine: "Fast Food"
+                rating: "Average"
+                date_visited: date_visited)
+
+  Review.create!(user: user,
+                restaurant_name: restaurant_name,
+                content: content,
+                cuisine: "Gourmet"
+                rating: "Excellent"
+                date_visited: date_visited)
+
+  Review.create!(user: user,
+                restaurant_name: restaurant_name,
+                content: content,
+                cuisine: "Organic"
+                rating: "Good"
+                date_visited: date_visited)
+
+  Review.create!(user: user,
+                restaurant_name: restaurant_name,
+                content: content,
+                cuisine: "Mexican"
+                rating: "Poor"
+                date_visited: date_visited)
+
 end
 
 Cuisine.create(name: 'American')

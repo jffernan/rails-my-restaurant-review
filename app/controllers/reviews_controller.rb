@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
 
   def index
     #@review = Review.find(params[:id])
-    @reviews = Review.all.alphabetical_order #show ALL reviews
+    @reviews = Review.all #.alphabetical_order #show ALL reviews
     #@reviews = current_user.reviews.all.alphabetical_order
     #specific users' reviews
   end
@@ -56,7 +56,7 @@ class ReviewsController < ApplicationController
 
   def review_params #strong params tell which attrs permitted into controller actions SECURES against bad data
     #params.require(:review).permit(:restaurant_name, :content, cuisine_ids:[], cuisines_attributes: [:name], :rating, :review_date)
-    params.require(:review).permit(:restaurant_name, :content, :rating, :review_date, :cuisine_ids => [], :cuisines_attributes => [:name])
+    params.require(:review).permit(:restaurant_name, :content, :rating, :date_visited, :cuisine_ids => [], :cuisines_attributes => [:name])
   end
 
 end

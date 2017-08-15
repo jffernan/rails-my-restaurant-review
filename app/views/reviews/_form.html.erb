@@ -32,8 +32,8 @@
     <%= f.label :rating, 'Poor:', value: 'Poor' %>
     <%= f.radio_button :rating, 'Poor' %>
     <br></br>
-    <%= f.label :review_date, "Review Date:" %> &ensp;
-    <%= f.date_field :review_date %>
+    <%= f.label :date_visited, "Date Visited (or today, #{Time.now.strftime("%m/%d/%Y")}):" %> &ensp;
+    <%= f.date_field :date_visited %>
     <br></br>
     <%= f.submit "Save Review" %>
 <% end %>

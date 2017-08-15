@@ -10,7 +10,8 @@
       <% end %>
   </li>
   <li>Rating: <%= @review.rating %></li>
-  <li><%= @review.review_date.strftime("Date Reviewed: %m/%d/%Y") %></li> <!--Date MO/DY/YEAR-->
+  <li><%= @review.date_visited.strftime("Date Visited: %m/%d/%Y") %></li> <!--Date MO/DY/YEAR-->
+  <li><%= @review.updated_at.strftime("Date Reviewed: %m/%d/%Y") %></li> <!--Date MO/DY/YEAR-->
 <% if current_user != @review.user %> <!--show only another's username-->
   <li>Reviewed by: <strong><%= @review.user.email %></strong></li>
 <% end %>
@@ -21,9 +22,9 @@
 </fieldset>
 </br>
 <% if current_user == @review.user %><!--review belongs to current user or not?-->
-  <%= link_to "Back", @user_reviews_path %>
+  <%= link_to "Back", @reviews %>
   <%= link_to "Edit Review", edit_review_path %>
   <% else %>
 <%= link_to "Back", @reviews %>
-<%= link_to "All Restaurants", restaurants_path %>
+Need Link to All Restaurants
 <% end %>

@@ -5,7 +5,7 @@
 <ul>
   <% @reviews.each do |review| %>
     <li>
-      <%= review.try(:restaurant).try(:name) %>
+      <%= link_to review.try(:restaurant).try(:name), review %>
       reviewed by
       <% if current_user == review.user %>
         you
