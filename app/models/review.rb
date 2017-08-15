@@ -4,9 +4,7 @@ class Review < ApplicationRecord
   has_many :review_cuisines
   has_many :cuisines, through: :review_cuisines
 
-  validates_presence_of :restaurant_name, :cuisine,
-                        :cuisine_ids, :date_visited, :rating,
-                         cuisines_attributes: [:name]
+  validates_presence_of :restaurant_name, :date_visited, :rating
 
   validates :content, presence: true, length: { minimum: 10 }
 

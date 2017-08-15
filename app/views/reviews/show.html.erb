@@ -10,8 +10,8 @@
       <% end %>
   </li>
   <li>Rating: <%= @review.rating %></li>
-  <li><%= @review.date_visited.strftime("Date Visited: %m/%d/%Y") %></li> <!--Date MO/DY/YEAR-->
-  <li><%= @review.updated_at.strftime("Date Reviewed: %m/%d/%Y") %></li> <!--Date MO/DY/YEAR-->
+  <li><%= @review.date_visited.strftime("Date Visited: %m/%d/%Y") %></li>
+  <li><%= @review.updated_at.strftime("Date Reviewed: %m/%d/%Y") %></li>
 <% if current_user != @review.user %> <!--show only another's username-->
   <li>Reviewed by: <strong><%= @review.user.email %></strong></li>
 <% end %>
