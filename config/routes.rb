@@ -15,13 +15,12 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :users, only: [:show] do #nested resource, parent: user => many reviews
-    resources :reviews, only: [:show, :index] #child: review LiMIT user to see ONLY another user's review(s)
+    resources :reviews, only: [:index, :show] #child: review LiMIT user to see ONLY another user's review(s)
   end
 
   resources :reviews #current user can CRUD
 
   get '/reviews/top_reviews', to: "reviews#top_reviews"
-  get '/users/:user_id/reviews', to: "reviews#user_reviews"
 
   get '/restaurants/index', to: "restaurants#index"
 end

@@ -5,7 +5,7 @@
 <ul>
 <li>Current User Email: <%= @user.email %></li>
 <li>Restaurant Reviews:
-  <%= link_to "User's Reviews Page", user_reviews_path(:user_id) %>
+  <%= link_to "User's Reviews Page", user_review_path(:user_id) %>
 </li>
 <% if current_user == @user %>
   <li> Change User Settings:

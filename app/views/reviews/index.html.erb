@@ -1,5 +1,22 @@
-<h3>Here is a list of all restaurant reviews (Click on a 'link'):</h3>
-
-  <%= link_to "Back", root_path %>
-  <%= link_to "All Restaurants", restaurants_index_path %>
-  <%= link_to "Top Reviews", reviews_top_reviews_path %>
+<fieldset>
+<legend>
+  <h3>Here is a list of restaurant reviews (Click on a 'link'):</h3>
+</legend>
+<ul>
+  <% @reviews.each do |review| %>
+    <li>
+      <%= review.try(:restaurant).try(:name) %>
+      reviewed by
+      <% if current_user == review.user %>
+        you
+      <% else %>
+        <%= review.user.email %>
+    <% end %>
+    </li>
+  <% end %>
+</ul>
+</fieldset>
+</br>
+<%= link_to "Back", root_path %>
+<%= link_to "All Restaurants", restaurants_index_path %>
+<%= link_to "Top Reviews", reviews_top_reviews_path %>

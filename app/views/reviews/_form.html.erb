@@ -1,3 +1,15 @@
+<%= form_for(@review) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+      <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <%= form_for @review do |f| %>
     <!-- Following nested form writing to assoc. Restaurant model use custom attr writer restaurant_name-->
   </br>
@@ -7,8 +19,11 @@
     <%= f.text_area :content, placeholder: "Enter Review Comments:", rows: 5, cols: 98 %>
     <br></br> <!--Following user submits nested_attribute, cuisine -->
     <%= f.label :cuisine, "Cuisine:" %> &ensp;
+    <%= f.fields_for(:cuisines) do |cuisine_form| %>
+      <%= cuisine_form.label :name %>
+      <%= cuisine_form.text_field :name, placeholder: "Enter New Cuisine:" %>
+    <% end %>
     <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name %>
-
     <br></br>
     Restaurant Rating: &ensp;
     <%= f.label :rating, 'Excellent:', value: 'Excellent' %>

@@ -4,9 +4,9 @@
 </legend>
 <ul>
   <li>Comments: <%= @review.content %></li>
-  <li>Cuisine:
+  <li>Cuisine(s):
     <% @review.cuisines.each do |cuisine| %>
-      <%= @cuisine %>,
+      <%= cuisine.name %>,
       <% end %>
   </li>
   <li>Rating: <%= @review.rating %></li>

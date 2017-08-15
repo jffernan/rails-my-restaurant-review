@@ -8,11 +8,18 @@ class Review < ApplicationRecord
   validates :content, presence: true, length: { minimum: 10 }
 
   def restaurant_name #custom attribute writer to nested form for new review
-    self.try(:restaurant).try(:name)
+    self.restaurant.name if self.restaurant
   end
 
   def restaurant_name=(name)
      self.restaurant = Restaurant.find_or_create_by(name: name)
+  end
+
+  def cuisines_attributes=(cuisine_attributes) #custom attribute writer: cuisine
+    cuisine_attributes.values.each do |cuisine_attribute|
+      cuisine = Cuisine.find_or_create_by(cuisine_attribute)#avoid duplicate cuisines
+      self.cuisines << cuisine
+    end
   end
 
   def self.alphabetical_order #ActiveRecord method to alphabetize lists
