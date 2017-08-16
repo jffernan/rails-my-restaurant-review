@@ -3,11 +3,11 @@ class ReviewsController < ApplicationController
   before_action :require_login, except: [:index, :show, :top_reviews]
 
   def index
-    @reviews = Review.all.order_by_date #call AR method to order by most recent date
-  end
-
-  def top_reviews
-    @reviews = Review.top_reviews.all #List ALL excellent reviews
+    if params[:rating]
+      @reviews = Review.where(:rating => params[:rating]).order_by_date
+    else
+      @reviews = Review.all.order_by_date #call AR method to order by most recent date
+    end
   end
 
   def show

@@ -1,6 +1,6 @@
 <fieldset>
 <legend>
-  <h3>All Restaurants reviewed (Click on a 'link'):</h3>
+  <h3>All Restaurants Reviewed (Click on a 'link'):</h3>
 </legend>
 <ul>
   <% @reviews.each do |review| %>
@@ -25,4 +25,4 @@
   <%= link_to "User Page", user_path(current_user) %>
 <% end %>
 <%= link_to "See Reviews", reviews_path %>
-<%= link_to "Top Reviews", topreviews_reviews_path %>
+<%= link_to "Top Reviews", reviews_path(rating: "Excellent") %>

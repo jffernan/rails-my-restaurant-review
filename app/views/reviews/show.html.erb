@@ -9,13 +9,13 @@
       <%= cuisine.name %>
       <% end %>
   </li>
-  <li>Rating: <%= @review.rating %></li>
+  <li>Rating: <strong><%= @review.rating %></strong></li>
   <li><%= @review.date_visited.strftime("Date Visited: %m/%d/%Y") %></li>
   <li><%= @review.updated_at.strftime("Date Reviewed: %m/%d/%Y") %></li>
 <% if current_user != @review.user %> <!--show only another's username-->
   <li>Reviewed by: <strong><%= @review.user.email %></strong></li>
 <% end %>
-  <li>For more info about this restaurant, search for their website:
+  <li>For more info about this restaurant, 'click' to web search for:
     <a href = 'http://www.<%= "#{@review.restaurant_name}" %>.com' value = "#{@review.restaurant_name}"><%= @review.restaurant_name %>
     </a></li>
   <% if current_user == @review.user %>
@@ -30,5 +30,4 @@
 <% else %>
   <%= link_to "Back", reviews_path %>
   <%= link_to "All Restaurants", restaurants_index_path %>
-  <%= link_to "Top Reviews", topreviews_reviews_path %>
 <% end %>
