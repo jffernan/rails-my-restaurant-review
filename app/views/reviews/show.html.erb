@@ -26,7 +26,7 @@
   <li>Reviewed by: <strong><%= @review.user.email %></strong></li>
 <% end %>
   <li>For more info about this restaurant, 'click' to web search for:
-    <a href = 'http://www.<%= "#{@review.restaurant_name}" %>.com' value = "#{@review.restaurant_name}"><%= @review.restaurant_name %>
+    <a href = 'http://www.<%= "#{@review.restaurant_name.gsub!(/\s+/, '')}" %>.com' value = "#{@review.restaurant_name}"><%= @review.restaurant_name %>
     </a></li>
   <% if current_user == @review.user %>
     <li><%= link_to "Edit Review", edit_review_path %></li>

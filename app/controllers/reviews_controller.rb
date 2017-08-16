@@ -4,9 +4,9 @@ class ReviewsController < ApplicationController
 
   def index
     if params[:rating]
-      @reviews = Review.where(:rating => params[:rating]).order_by_date
+      @reviews = Review.where(:rating => params[:rating]).order_by_date_visited
     else
-      @reviews = Review.all.order_by_date #call AR method to order by most recent date
+      @reviews = Review.all.order_by_date_visited #call AR method to order by most recent visit date
     end
   end
 

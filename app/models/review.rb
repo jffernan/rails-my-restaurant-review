@@ -26,11 +26,11 @@ class Review < ApplicationRecord
   scope :rating, -> { where(rating: "Excellent") } #class ActiveRecord scope method for ALL Excellent reviews
 
   def self.order_by_submitted_date
-    Review.order(updated_at: :desc) #ActiveRecord method to order by most recent date
+    Review.order(updated_at: :desc) #ActiveRecord method to order by most recent submit date
   end
 
-  def self.order_by_date
-    Review.order(date_visited: :desc) #ActiveRecord method to order by most recent date
+  def self.order_by_date_visited
+    Review.order(date_visited: :desc) #ActiveRecord method to order by most recent visit date
   end
 
 end

@@ -6,13 +6,6 @@
   <% @reviews.each do |review| %>
     <li>
       <%= link_to review.try(:restaurant).try(:name), review %>
-      visited on <%= review.date_visited.strftime("%m/%d/%Y") %>
-      by
-      <% if current_user == review.user %>
-        <strong>you</strong>.
-      <% else %>
-        <%= review.user.email %>.
-      <% end %>
       &ensp;
       (Submitted <%= time_ago_in_words(review.updated_at) %> ago.)
     </li>
