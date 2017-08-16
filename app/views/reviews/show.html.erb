@@ -17,14 +17,18 @@
 <% end %>
   <li>For more info about this restaurant, search for their website:
     <a href = 'http://www.<%= "#{@review.restaurant_name}" %>.com' value = "#{@review.restaurant_name}"><%= @review.restaurant_name %>
-    </a>
+    </a></li>
+  <% if current_user == @review.user %>
+    <li><%= link_to "Edit Review", edit_review_path %></li>
+  <% end %>
 </ul>
 </fieldset>
 </br>
 <% if current_user == @review.user %><!--review belongs to current user or not?-->
+  <%= link_to "Back", user_path(current_user) %>
+  <%= link_to "New Review", new_review_path %>
+<% else %>
   <%= link_to "Back", reviews_path %>
-  <%= link_to "Edit Review", edit_review_path %>
-  <% else %>
-<%= link_to "Back", reviews_path %>
-Need Link to All Restaurants
+  Need Link to All Restaurants
+  <%= link_to "Top Reviews", top_reviews_reviews_path %>
 <% end %>

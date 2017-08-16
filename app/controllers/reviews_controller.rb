@@ -4,8 +4,10 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all.order_by_date #call AR method to order by most recent date
-    #@reviews = Review.all.sort(restaurant_name)
-    #@reviews = current_user.reviews.all.alphabetical_order
+  end
+
+  def top_reviews
+    @reviews = Review.all#.top_reviews#ALL excellent reviews
   end
 
   def show
@@ -42,10 +44,6 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     redirect_to '/', notice: "Review deleted!"
-  end
-
-  def top_reviews
-    @reviews = Review.top_reviews.alphabetical_order #ALL excellent reviews
   end
 
   private

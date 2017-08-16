@@ -7,14 +7,15 @@
                password_confirmation: password)
   restaurant_name = Faker::Company.name
   content =  Faker::Lorem.sentence
-  cuisine = ["Upscale", "American", "Fast Food", "Chinese", "Mexican", "Steak"].sample
+  cuisine_ids = ["Upscale", "American", "Fast Food", "Chinese", "Mexican", "Steak"].sample
+  cuisines = ["Upscale", "American", "Fast Food", "Chinese", "Mexican", "Steak"].sample
   date_visited = Faker::Date.backward(185)
   rating = ["Excellent", "Good", "Average", "Poor"].sample
 
   Review.create!(user: user,
                 restaurant_name: restaurant_name,
                 content: content,
-                cuisine: cuisine,
+                cuisines: cuisine,
                 date_visited: date_visited,
                 rating: rating)
 end

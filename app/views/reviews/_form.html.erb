@@ -17,10 +17,10 @@
     <%= f.text_area :content, placeholder: "Enter Review Comments:", rows: 5, cols: 98 %>
     <br></br> <!--Following user submits nested_attribute, cuisine -->
     <%= f.label :cuisine, "Cuisine(s):" %> &ensp;
+    <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name %>
     <%= f.fields_for :cuisines, @review.cuisines.build do |cuisine_form| %>
       <%= cuisine_form.text_field :name, placeholder: "Enter Cuisine Or Choose:" %>
     <% end %>
-    <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name %>
     <br></br>
     Restaurant Rating: &ensp;
     <%= f.label :rating, 'Excellent:', value: 'Excellent' %>
