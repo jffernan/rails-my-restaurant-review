@@ -9,7 +9,7 @@
       visited on <%= review.date_visited.strftime("%m/%d/%Y") %>
       by
       <% if current_user == review.user %>
-        you.
+        <strong>you.</strong>
       <% else %>
         <%= review.user.email %>.
       <% end %>

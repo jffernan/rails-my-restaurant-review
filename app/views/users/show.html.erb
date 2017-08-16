@@ -6,7 +6,7 @@
 <li>Current User Email: <%= @user.email %></li>
   </br>
   <% if @user.reviews.any? %>
-    <li>Restaurant Reviews Submitted By User (<%= @user.reviews.count %>):
+    <li>Restaurant Reviews Submitted By User (Total: <%= @user.reviews.count %>)
     </li>
   </br>
       <ol>
