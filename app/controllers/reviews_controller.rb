@@ -43,7 +43,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to '/', notice: "Review deleted!"
+    redirect_to user_path(current_user), notice: "Review deleted!"
   end
 
   private

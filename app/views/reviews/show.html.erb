@@ -9,7 +9,17 @@
       <%= cuisine.name %>
       <% end %>
   </li>
-  <li>Rating: <strong><%= @review.rating %></strong></li>
+  <li>Rating:
+    <% if @review.rating == "Excellent" %>
+      <strong>**<%= link_to "#{@review.rating}", reviews_path(rating: "Excellent") %>**</strong>
+    <% elsif @review.rating == "Good" %>
+      <strong>**<%= @review.rating %>*</strong>
+    <% elsif @review.rating == "Average" %>
+      <strong>*<%= @review.rating %>*</strong>
+    <% else %>
+      <strong>*<%= @review.rating %></strong>
+    <% end %>
+  </li>
   <li><%= @review.date_visited.strftime("Date Visited: %m/%d/%Y") %></li>
   <li><%= @review.updated_at.strftime("Date Reviewed: %m/%d/%Y") %></li>
 <% if current_user != @review.user %> <!--show only another's username-->
