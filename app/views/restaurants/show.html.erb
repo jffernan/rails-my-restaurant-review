@@ -3,7 +3,9 @@
   <h3>Restaurant Page</h3>
 </legend>
 <ul>
-<li>Current Restaurant Name: <%= @restaurant.name %></li>
+<li>Name: <strong><%= @review.cuisine %> Restaurant</strong></li>
+  </br>
+<li>Cuisine Type(s): <%= @re %></li>
   </br>
   <% if @restaurant.reviews.any? %>
     <li>Reviews Submitted For Restaurant (Total: <%= @restaurant.reviews.count %>)
@@ -11,7 +13,6 @@
   </br>
       <ol>
         <%= render @reviews %>
-      </br>
       </ol>
   <% end %>
 </ul>

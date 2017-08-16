@@ -12,6 +12,7 @@
     <nav>
       <%= link_to "Home", root_path %>
       <%= link_to "See Reviews", reviews_path %>
+      <%= link_to "See Restaurants", restaurants_path %>
       <% if logged_in? %>
         <%= link_to "#{current_user.email.upcase_first}", user_path(current_user) %>
         <%= link_to "New Review", new_review_path %>

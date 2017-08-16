@@ -19,7 +19,7 @@
     <%= f.label :cuisine, "Choose Cuisine(s):" %> &ensp;
     <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name %>
     <%= f.fields_for :cuisines, @review.cuisines.build do |cuisine_form| %>
-      <%= cuisine_form.text_field :name, placeholder: "Enter New Cuisine:" %>
+      <%= cuisine_form.text_field :name, placeholder: "Enter New Cuisine:", include_blank: true %>
     <% end %>
     <br></br>
     Restaurant Rating: &ensp;

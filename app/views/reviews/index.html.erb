@@ -20,6 +20,18 @@
 </ul>
 </fieldset>
 </br>
+<% if logged_in? %>
+  <fieldset>
+    <legend>
+      <h3>Filter Reviews By User</h3>
+    </legend>
+    <%= form_tag("/reviews", method: "get") do %>
+      <%= select_tag "user", options_from_collection_for_select(@users, "id", "email"), include_blank: "All Users" %>
+      <%= submit_tag "Filter" %>
+    <% end %>
+  </fieldset>
+</br>
+<% end %>
 <%= link_to "Back", root_path %>
 <% if logged_in? %>
   <%= link_to "User Page", user_path(current_user) %>

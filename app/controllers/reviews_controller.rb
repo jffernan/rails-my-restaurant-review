@@ -3,7 +3,10 @@ class ReviewsController < ApplicationController
   before_action :require_login, except: [:index, :show, :top_reviews]
 
   def index
-    if params[:rating]
+    @users = User.all.alphabetical_order
+    if !params[:user].blank?
+      @reviews = Review.by_user(params[:user])
+    elsif params[:rating]
       @reviews = Review.where(:rating => params[:rating]).order_by_date_visited
     else
       @reviews = Review.all.order_by_date_visited #call AR method to order by most recent visit date

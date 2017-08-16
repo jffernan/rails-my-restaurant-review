@@ -23,6 +23,10 @@ class Review < ApplicationRecord
     end
   end
 
+  def self.by_user(user_id)
+    where(user: user_id)
+  end
+
   scope :rating, -> { where(rating: "Excellent") } #class ActiveRecord scope method for ALL Excellent reviews
 
   def self.order_by_submitted_date
