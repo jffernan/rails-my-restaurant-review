@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   #get '/users/:user_id/reviews', to: "reviews#my_reviews"
   resources :reviews do
     collection do
-      get 'top_reviews'
+      get 'top_reviews', as: '/topreviews'
     end
   end
 

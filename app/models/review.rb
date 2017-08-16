@@ -23,12 +23,16 @@ class Review < ApplicationRecord
     end
   end
 
+  def self.order_by_submitted_date
+    Review.order(updated_at: :desc) #ActiveRecord method to order by most recent date
+  end
+
   def self.order_by_date
     Review.order(date_visited: :desc) #ActiveRecord method to order by most recent date
   end
 
-  def self.top_reviews #class level ActiveRecord scope method for top reviews
-    where(rating: 'Excellent') #top reviews = reviews with Excellent rating
+  def top_reviews #class level ActiveRecord scope method for top reviews
+    scope :rating, -> { where(:rating => "Excellent") } #top reviews = reviews with Excellent rating
   end
 
 end

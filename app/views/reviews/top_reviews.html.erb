@@ -1,15 +1,28 @@
-<h3>Here is a list of TOP restaurant reviews (Click on a 'link'):</h3>
+<fieldset>
+<legend>
+  <h3>Here is a list of TOP restaurant reviews (Click on a 'link'):</h3>
+</legend>
 <ul>
   <%@review.top_reviews.each do |review|%>
   <li>
     <%= link_to review.restaurant_name, @review %> reviewed by
+    visited on <%= review.date_visited.strftime("%m/%d/%Y") %>
+    by
     <% if current_user == review.user %>
-      you
+      <strong>you.</strong>
     <% else %>
-      <%= link_to review.user.email, user_reviews_path(review.user) %>
+      <%= review.user.email %>
     <% end %>
+    &ensp;
+    (Submitted <%= time_ago_in_words(review.updated_at) %> ago.)
   </li>
   <%end%>
 </ul>
-  <%= link_to "Back", root_path %>
-  <%= link_to "All Restaurants", restaurants_index_path %>
+</fieldset>
+</br>
+<%= link_to "Back", root_path %>
+  <% if logged_in? %>
+    <%= link_to "User Page", user_path(current_user) %>
+  <% end %>
+<%= link_to "See Reviews", reviews_path %>
+<%= link_to "All Restaurants", restaurants_index_path %>

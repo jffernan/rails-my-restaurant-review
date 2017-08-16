@@ -11,7 +11,7 @@
       <% if current_user == review.user %>
         <strong>you.</strong>
       <% else %>
-        <%= review.user.email %>.
+        <%= review.user.email %>
       <% end %>
       &ensp;
       (Submitted <%= time_ago_in_words(review.updated_at) %> ago.)
@@ -25,4 +25,4 @@
   <%= link_to "User Page", user_path(current_user) %>
 <% end %>
 <%= link_to "All Restaurants", restaurants_index_path %>
-<%= link_to "Top Reviews", top_reviews_reviews_path %>
+<%= link_to "Top Reviews", topreviews_reviews_path %>

@@ -1,13 +1,13 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, except: [:index, :show]
+  before_action :require_login, except: [:index, :show, :top_reviews]
 
   def index
     @reviews = Review.all.order_by_date #call AR method to order by most recent date
   end
 
   def top_reviews
-    @reviews = Review.all#.top_reviews#ALL excellent reviews
+    @reviews = Review.top_reviews.all #List ALL excellent reviews
   end
 
   def show
