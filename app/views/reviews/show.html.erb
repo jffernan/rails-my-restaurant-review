@@ -1,6 +1,10 @@
 <fieldset>
 <legend>
-  <h3>Review of "<%= @review.restaurant_name %>"</h3>
+  <h3>
+    <% if current_user == @review.user %>
+      Your
+    <% end %>
+    Review of "<%= @review.restaurant_name %>"</h3>
 </legend>
 <ul>
   <li>Comments: <%= @review.content %></li>
@@ -39,5 +43,5 @@
   <%= link_to "New Review", new_review_path %>
 <% else %>
   <%= link_to "Back", reviews_path %>
-  <%= link_to "All Restaurants", restaurants_index_path %>
+  <%= link_to "All Restaurants", restaurants_path %>
 <% end %>

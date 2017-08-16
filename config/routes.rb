@@ -20,6 +20,10 @@ Rails.application.routes.draw do
 
   resources :reviews #current user can CRUD
 
-  get '/restaurants/index', to: "restaurants#index"
+  resources :restaurants, except: [:new, :create, :edit, :update, :destroy]
+
+  resources :restaurants, only: [:show] do
+    resources :reviews, only: [:index, :show]
+  end
 
 end

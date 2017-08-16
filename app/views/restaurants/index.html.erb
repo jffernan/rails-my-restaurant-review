@@ -1,13 +1,11 @@
 <fieldset>
 <legend>
-  <h3>All Restaurants Reviewed (Click on a 'link'):</h3>
+  <h3>Restaurants Directory (Click on a 'link'):</h3>
 </legend>
 <ul>
-  <% @reviews.each do |review| %>
+  <% @restaurants.each do |restaurant| %>
     <li>
-      <%= link_to review.try(:restaurant).try(:name), review %>
-      &ensp;
-      (Submitted <%= time_ago_in_words(review.updated_at) %> ago.)
+      <%= link_to restaurant.name, restaurant %>
     </li>
   <% end %>
 </ul>

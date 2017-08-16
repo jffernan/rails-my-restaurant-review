@@ -1,0 +1,25 @@
+<fieldset>
+<legend>
+  <h3>Restaurant Page</h3>
+</legend>
+<ul>
+<li>Current Restaurant Name: <%= @restaurant.name %></li>
+  </br>
+  <% if @restaurant.reviews.any? %>
+    <li>Reviews Submitted For Restaurant (Total: <%= @restaurant.reviews.count %>)
+    </li>
+  </br>
+      <ol>
+        <%= render @reviews %>
+      </br>
+      </ol>
+  <% end %>
+</ul>
+</fieldset>
+</br>
+<%= link_to "Back", restaurants_path %>
+<% if logged_in? %>
+  <%= link_to "User Page", user_path(current_user) %>
+<% end %>
+<%= link_to "See Reviews", reviews_path %>
+<%= link_to "Top Reviews", reviews_path(rating: "Excellent") %>
