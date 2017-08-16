@@ -8,6 +8,8 @@ class Review < ApplicationRecord
 
   validates :content, presence: true, length: { minimum: 10 }
 
+  scope :rating, -> { where(rating: "Excellent") } #class ActiveRecord scope method for ALL Excellent reviews
+
   def restaurant_name #custom attribute writer to nested form for new review
     self.restaurant.name if self.restaurant
   end
@@ -27,7 +29,9 @@ class Review < ApplicationRecord
     where(user: user_id)
   end
 
-  scope :rating, -> { where(rating: "Excellent") } #class ActiveRecord scope method for ALL Excellent reviews
+  def self.by_rating(rating)
+    where(rating: "Excellent")
+  end
 
   def self.order_by_submitted_date
     Review.order(updated_at: :desc) #ActiveRecord method to order by most recent submit date

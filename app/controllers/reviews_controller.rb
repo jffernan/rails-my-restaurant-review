@@ -4,10 +4,10 @@ class ReviewsController < ApplicationController
 
   def index
     @users = User.all.alphabetical_order
-    if !params[:user].blank?
+    if params[:user]
       @reviews = Review.by_user(params[:user])
     elsif params[:rating]
-      @reviews = Review.where(:rating => params[:rating]).order_by_date_visited
+      @reviews = Review.by_rating(params[:rating]).order_by_date_visited
     else
       @reviews = Review.all.order_by_date_visited #call AR method to order by most recent visit date
     end

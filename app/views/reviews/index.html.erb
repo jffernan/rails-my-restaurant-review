@@ -26,7 +26,7 @@
       <h3>Filter Reviews By User</h3>
     </legend>
     <%= form_tag("/reviews", method: "get") do %>
-      <%= select_tag "user", options_from_collection_for_select(@users, "id", "email"), include_blank: "All Users" %>
+      <%= select_tag "user", options_from_collection_for_select(@users, "id", "email"), include_blank: false %>
       <%= submit_tag "Filter" %>
     <% end %>
   </fieldset>
