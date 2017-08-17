@@ -1,4 +1,4 @@
-<li id="review-<%= review.id %>">
+<li>
   <%= link_to review.try(:restaurant).try(:name), review %>
   visited on <%= review.date_visited.strftime("%m/%d/%Y") %>.&ensp;
   (Submitted <%= time_ago_in_words(review.updated_at) %> ago.)
