@@ -3,15 +3,14 @@ class RestaurantsController < ApplicationController
   before_action :require_login, except: [:index, :show]
 
   def index
-    #@reviews = Review.all.order_by_submitted_date#.order_by_date
     @restaurants = Restaurant.all.alphabetical_order #show ALL restaurants
-    #@reviews = @restaurant.reviews
-    #@review = @restaurant.review
-    #@reviews = @restaurant.reviews
   end
 
   def show
     @reviews = @restaurant.reviews
+    @cuisines = Cuisine.all
+    @cuisine = Cuisine.find(params[:id])
+
   end
 
   private

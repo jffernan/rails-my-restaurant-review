@@ -1,14 +1,14 @@
 <fieldset>
 <legend>
-  <h3>Restaurant Directory:</h3>
+  <h3>Restaurant Directory</h3>
 </legend>
-  <ul>
+  <ol>
     <% @restaurants.each do |restaurant| %>
       <li>
         <%= link_to restaurant.name, restaurant %>
       </li>
     <% end %>
-  </ul>
+  </ol>
 </fieldset>
 </br>
 <%= link_to "Back", root_path %>

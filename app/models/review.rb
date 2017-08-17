@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :user
-  belongs_to :restaurant
+  belongs_to :restaurant, dependent: :destroy
   has_many :review_cuisines
   has_many :cuisines, through: :review_cuisines
 
@@ -31,10 +31,6 @@ class Review < ApplicationRecord
 
   def self.by_rating(rating)
     where(rating: "Excellent")
-  end
-
-  def self.order_by_submitted_date
-    Review.order(updated_at: :desc) #ActiveRecord method to order by most recent submit date
   end
 
   def self.order_by_date_visited

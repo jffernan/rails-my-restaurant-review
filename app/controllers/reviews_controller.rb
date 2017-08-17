@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
   def index
     @users = User.all.alphabetical_order
     if params[:user]
-      @reviews = Review.by_user(params[:user])
+      @reviews = Review.by_user(params[:user]) #Filter to search reviews by user
     elsif params[:rating]
       @reviews = Review.by_rating(params[:rating]).order_by_date_visited
     else
