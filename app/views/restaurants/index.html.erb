@@ -11,9 +11,5 @@
   </ol>
 </fieldset>
 </br>
-<%= link_to "Back", root_path %>
-<% if logged_in? %>
-  <%= link_to "User Page", user_path(current_user) %>
-<% end %>
+
 <%= link_to "See Reviews", reviews_path %>
-<%= link_to "Top Reviews", reviews_path(rating: "Excellent") %>

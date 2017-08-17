@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, except: [:index, :show, :top_reviews]
+  before_action :require_login, except: [:index, :show]
 
   def index
     @users = User.all.alphabetical_order
