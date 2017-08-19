@@ -15,19 +15,19 @@
   </li>
   <li>Rating:
     <% if @review.rating == "Excellent" %>
-      <strong>**<%= link_to "#{@review.rating}", reviews_path(rating: "Excellent") %>**</strong>
+      <b>**<%= link_to "#{@review.rating}", reviews_path(rating: "Excellent") %>**</b>
     <% elsif @review.rating == "Good" %>
-      <strong>**<%= @review.rating %>*</strong>
+      <b>**<%= @review.rating %>*</b>
     <% elsif @review.rating == "Average" %>
-      <strong>*<%= @review.rating %>*</strong>
+      <b>*<%= @review.rating %>*</b>
     <% else %>
-      <strong>*<%= @review.rating %></strong>
+      <b>*<%= @review.rating %></b>
     <% end %>
   </li>
   <li><%= @review.date_visited.strftime("Date Visited: %m/%d/%Y") %></li>
   <li><%= @review.updated_at.strftime("Date Reviewed: %m/%d/%Y") %></li>
 <% if current_user != @review.user %> <!--show only another's username-->
-  <li>Reviewed by: <strong><%= @review.user.email %></strong></li>
+  <li>Reviewed by: <b><%= @review.user.email %></b></li>
 <% end %>
   <li>For more info about this restaurant, 'click' to web search for:
     <a href = 'http://www.<%= "#{@review.restaurant_name.gsub!(/\s+/, '')}" %>.com' value = "#{@review.restaurant_name}"><%= @review.restaurant_name %></a>
@@ -37,7 +37,7 @@
   <% end %>
 </ul>
 </fieldset>
-</br>
+<br/>
 <% if current_user == @review.user %><!--review belongs to current user or not?-->
   <%= link_to "Back", user_path(current_user) %>
   <%= link_to "New Review", new_review_path %>

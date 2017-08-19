@@ -3,7 +3,7 @@
   <h3>Log In</h3>
 </legend>
 <%= form_for(:session, url: login_path) do |f| %><!--:user-->
-  </br>
+  <br/>
   <%= f.label :email %>
   <%= f.text_field :email %>
   <br></br>
@@ -11,7 +11,7 @@
   <%= f.password_field :password %>
   <br></br>
   <%= f.submit "Login" %>
-  </br>
+  <br/>
 <% end %>
 </fieldset>
 <br></br>
@@ -19,9 +19,9 @@
 <legend>
   <h3>If you have a Github account, 'click' below for quick login</h3>
 </legend>
-</br>
+<br/>
 <%= button_to "Login via GitHub", '/auth/github' %>
-</br>
+<br/>
 </fieldset>
-</br>
+<br/>
 <%= link_to 'Back', root_path %>

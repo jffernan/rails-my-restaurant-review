@@ -3,19 +3,19 @@
   <h3>Restaurant Page</h3>
 </legend>
 <ul>
-<li>Name: <strong><%= @restaurant.name %> Restaurant</strong></li>
-  </br>
+  <li>Name: <b><%= @restaurant.name %> Restaurant</b></li>
+    <br/>
   <% if @restaurant.reviews.any? %>
     <li>Reviews Submitted For Restaurant (Total: <%= @restaurant.reviews.count %>)
     </li>
-  </br>
+    <br/>
       <ol>
         <%= render @reviews %>
       </ol>
   <% end %>
 </ul>
 </fieldset>
-</br>
+<br/>
 <%= link_to "Back", restaurants_path %>
 <% if logged_in? %>
   <%= link_to "User Page", user_path(current_user) %>

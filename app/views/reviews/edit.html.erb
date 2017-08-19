@@ -4,17 +4,17 @@
 </legend>
 <%= render 'form' %>
 </fieldset>
-</br>
+<br/>
 <fieldset>
 <legend>
   <h3>Delete Review</h3>
 </legend>
-</br>
+<br/>
   <%= button_to 'Delete Review', review_path(@review),
               method: :delete,
               data: { confirm: 'This will delete your review PERMANENTLY! Continue?' } %>
-</br>
+<br/>
 </fieldset>
-</br>
+<br/>
 <%= link_to 'Back', @review %>
 <%= link_to "New Review", new_review_path %>

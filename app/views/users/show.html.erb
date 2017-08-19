@@ -4,26 +4,26 @@
 </legend>
 <ul>
 <li>Current User Email: <%= @user.email %></li>
-  </br>
+  <br/>
   <% if @user.reviews.any? %>
     <li>Restaurant Reviews Submitted By User (Total: <%= @user.reviews.count %>)
     </li>
-  </br>
+  <br/>
       <ol>
         <%= render @reviews %>
-      </br>
+      <br/>
       </ol>
   <% end %>
 <% if current_user == @user %>
   <li><%= link_to "Submit New Review", new_review_path %></li>
-  </br>
+  <br/>
   <li> Change User Settings:
     <%= link_to "Edit User", edit_user_path %>
   </li>
 <% end %>
 </ul>
 </fieldset>
-</br>
+<br/>
 <%= link_to 'Back', root_path %>
 <%= link_to "All Users", users_path %>
 <%= link_to "See Reviews", reviews_path %>
