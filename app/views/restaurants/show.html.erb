@@ -19,6 +19,10 @@
         <%= render @reviews %>
       </ol>
   <% end %>
+  <br/>
+  <li>For more info about this restaurant, 'click' to web search for:
+    <a href = 'http://www.<%= "#{@restaurant.name}" %>.com'><%= @restaurant.name %></a>
+  </li>
 </ul>
 </fieldset>
 <br/>
