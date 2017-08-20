@@ -5,8 +5,14 @@
 <ul>
   <li>Name: <b><%= @restaurant.name %> Restaurant</b></li>
     <br/>
+  <li>Cuisine Type(s): <!--show ALL cuisines from ALL reviews of specific restaurant-->
+    <% @restaurant.cuisines.each do |cuisine| %>
+      <%= cuisine.name %> <!-- has many to has-many relationship -->
+    <% end %>
+  </li>
+    <br/>
   <% if @restaurant.reviews.any? %>
-    <li>Reviews Submitted For Restaurant (Total: <%= @restaurant.reviews.count %>)
+    <li>(<%= @restaurant.reviews.count %>) Reviews Submitted:
     </li>
     <br/>
       <ol>

@@ -1,6 +1,6 @@
 <fieldset>
 <legend>
-  <h3>Restaurant Reviews (Total: <%= @reviews.count %>)</h3>
+  <h3>(<%= @reviews.count %>) Restaurant Reviews:</h3>
 </legend>
 <ul>
   <% @reviews.each do |review| %>
@@ -14,7 +14,7 @@
         <%= review.user.email %>
       <% end %>
       &ensp;
-      (Submitted <%= time_ago_in_words(review.updated_at) %> ago.)
+      (Posted <%= time_ago_in_words(review.updated_at) %> ago.)
     </li>
   <% end %>
 </ul>

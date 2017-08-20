@@ -1,10 +1,9 @@
 <fieldset>
 <legend>
-  <h3>
-    <% if current_user == @review.user %>
-      Your
+  <h3><% if current_user == @review.user %>
+    Your
     <% end %>
-    Review of "<%= @review.restaurant_name %>"</h3>
+    Review of "<%= @review.restaurant_name %> Restaurant":</h3>
 </legend>
 <ul>
   <li>Comments: <%= @review.content %></li>
