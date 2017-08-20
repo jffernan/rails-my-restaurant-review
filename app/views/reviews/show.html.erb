@@ -6,7 +6,7 @@
     Review of "<%= link_to "#{@current_restaurant.name}", restaurant_path(@current_restaurant) %> Restaurant":</h3>
 </legend>
 <ul>
-  <li>Comments: <%= @review.content %></li>
+  <li>Comments: "<%= @review.content %>"</li>
   <li>Cuisine(s):
     <% @review.cuisines.each do |cuisine| %>
       <%= cuisine.name %>
@@ -44,4 +44,3 @@
   <%= link_to "Back", reviews_path %>
   <%= link_to "All Restaurants", restaurants_path %>
 <% end %>
-s
