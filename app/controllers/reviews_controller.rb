@@ -14,11 +14,12 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @current_restaurant ||= Restaurant.find_by(id: @review[:restaurant_id])
+    @review.restaurant_id = @current_restaurant.id
   end
 
   def new
     @review = Review.new
-    #@cuisines = @review.cuisines.build
   end
 
   def create

@@ -3,7 +3,7 @@
   <h3><% if current_user == @review.user %>
     Your
     <% end %>
-    Review of "<%= @review.restaurant_name %> Restaurant":</h3>
+    Review of "<%= link_to "#{@current_restaurant.name}", restaurant_path(@current_restaurant) %> Restaurant":</h3>
 </legend>
 <ul>
   <li>Comments: <%= @review.content %></li>
@@ -44,3 +44,4 @@
   <%= link_to "Back", reviews_path %>
   <%= link_to "All Restaurants", restaurants_path %>
 <% end %>
+s
