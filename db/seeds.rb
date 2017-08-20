@@ -3,6 +3,7 @@ Cuisine.create(name: 'Fast Food')
 Cuisine.create(name: 'Chinese')
 Cuisine.create(name: 'Mexican')
 Cuisine.create(name: 'Steak')
+Cuisine.create(name: 'Buffet')
 
 5.times do |n|
   email = Faker::Internet.unique.safe_email
