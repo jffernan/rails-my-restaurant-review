@@ -10,7 +10,7 @@ class Review < ApplicationRecord
 
   scope :rating, -> { where(rating: "Excellent") } #class ActiveRecord scope method for ALL Excellent reviews
 
-  def restaurant_name #No db column for restaurant_name in Reviews table"
+  def restaurant_name #No db column for restaurant_name in Reviews table
     self.restaurant.name if self.restaurant
   end
 
@@ -18,8 +18,8 @@ class Review < ApplicationRecord
      self.restaurant = Restaurant.find_or_create_by(name: name) #Restaurant (parent)
   end
 
-  def cuisines_attributes=(cuisine_attributes) #custom attribute writer to save attr through Cuisine (parent)
-    cuisine_attributes.values.each do |cuisine_attribute| #
+  def cuisines_attributes=(cuisine_attributes) #custom attribute writer to save attr through Cuisine (parent); colc not needed for CAW.
+    cuisine_attributes.values.each do |cuisine_attribute| #shadowing attr cuisine-name to check Cuisine exists & in-memory for Review model.
       cuisine = Cuisine.find_or_create_by(cuisine_attribute) #avoid duplicate cuisines
       self.cuisines << cuisine
     end
