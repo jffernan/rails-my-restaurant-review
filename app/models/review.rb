@@ -10,22 +10,22 @@ class Review < ApplicationRecord
 
   scope :rating, -> { where(rating: "Excellent") } #class ActiveRecord scope method for ALL Excellent reviews
 
-  def restaurant_name #custom attribute writer to nested form for new review
+  def restaurant_name #No db column for restaurant_name in Reviews table"
     self.restaurant.name if self.restaurant
   end
 
-  def restaurant_name=(name)
-     self.restaurant = Restaurant.find_or_create_by(name: name)
+  def restaurant_name=(name) #custom attribute writer to nested form for new Review (child)
+     self.restaurant = Restaurant.find_or_create_by(name: name) #Restaurant (parent)
   end
 
-  def cuisines_attributes=(cuisine_attributes) #custom attribute writer: cuisine
-    cuisine_attributes.values.each do |cuisine_attribute|
-      cuisine = Cuisine.find_or_create_by(cuisine_attribute)#avoid duplicate cuisines
+  def cuisines_attributes=(cuisine_attributes) #custom attribute writer to save attr through Cuisine (parent)
+    cuisine_attributes.values.each do |cuisine_attribute| #
+      cuisine = Cuisine.find_or_create_by(cuisine_attribute) #avoid duplicate cuisines
       self.cuisines << cuisine
     end
   end
 
-  def self.by_user(user_id)
+  def self.by_user(user_id) #For filter search by User
     where(user: user_id)
   end
 
