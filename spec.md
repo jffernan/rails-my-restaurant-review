@@ -10,8 +10,8 @@ Specs:
 - [X] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes) => done. Filter to see Reviews by User. Top Reviews to see all 'excellent' reviews.
 - [X] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item) => done. Assoc. models Restaurant & Cuisine.
 - [X] Include signup => Used gem bcrypt with has_secure_password method in user.rb model and further built out authentication & authorization.
-- [X] Include login => Used gem bcrypt with has_secure_password method in user.rb model and further built out authentication & authorization.
-- [X] Include logout => Used gem bcrypt with has_secure_password method in user.rb model and further built out authentication & authorization.
+- [X] Include login => => done.
+- [X] Include logout => => done.
 - [X] Include third party signup/login (how e.g. Devise/OmniAuth) => done. GitHub Via OmniAuth.
 - [X] Include nested resource show or index (URL e.g. users/2/recipes) => done. parent: user => many reviews (child); parent: restaurant => many reviews (child).
 - [X] Include nested resource "new" form (URL e.g. recipes/1/ingredients) => done. parent: user => many reviews (child); parent: restaurant => many reviews (child).
