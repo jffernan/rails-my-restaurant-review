@@ -9,6 +9,7 @@
     <legend>
       <h3>Delete Profile</h3>
     </legend>
+  <br/>
   <%= button_to 'Delete User', user_path(@user),
               method: :delete,
               data: { confirm: 'This will delete your User profile & ALL your reviews! Continue?' } %>

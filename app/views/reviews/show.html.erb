@@ -39,8 +39,8 @@
 <br/>
 <% if current_user == @review.user %><!--review belongs to current user or not?-->
   <%= link_to "Back", user_path(current_user) %>
-  <%= link_to "New Review", new_review_path %>
 <% else %>
   <%= link_to "Back", reviews_path %>
-  <%= link_to "All Restaurants", restaurants_path %>
 <% end %>
+<%= render '/users/links' %>
+<%= link_to "New Review", new_review_path %>
