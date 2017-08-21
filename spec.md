@@ -20,5 +20,5 @@ Specs:
 Confirm:
 - [X] The application is pretty DRY => DRY done.
 - [X] Limited logic in controllers => DRY done + KISS.
-- [X] Views use helper methods if appropriate => done.
-- [X] Views use partials if appropriate => done.
+- [X] Views use helper methods if appropriate => done. Sessions Helper.
+- [X] Views use partials if appropriate => done. _form, _links, _review.
