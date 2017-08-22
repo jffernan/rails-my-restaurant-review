@@ -6,7 +6,9 @@
     Review of "<%= link_to "#{@current_restaurant.name}", restaurant_path(@current_restaurant) %> Restaurant":</h3>
 </legend>
 <ul>
-  <li>Comments: "<%= @review.content %>"</li>
+  <li>
+    Comments: "<%= @review.content %>"
+  </li>
   <li>Cuisine(s):
     <% @review.cuisines.each do |cuisine| %>
       <%= cuisine.name %>
@@ -28,11 +30,14 @@
 <% if current_user != @review.user %> <!--show only another's username-->
   <li>Reviewed by: <b><%= @review.user.email %></b></li>
 <% end %>
-  <li>For more info about this restaurant, 'click' to web search for:
+  <li>
+    For more info about this restaurant, 'click' to web search for:
     <a href = 'http://www.<%= "#{@current_restaurant.name}" %>.com'><%= @current_restaurant.name %></a>
   </li>
   <% if current_user == @review.user %>
-    <li><%= link_to "Edit Review", edit_review_path %></li>
+    <li>
+      <%= link_to "Edit Review", edit_review_path %>
+    </li>
   <% end %>
 </ul>
 </fieldset>

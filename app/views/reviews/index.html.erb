@@ -1,6 +1,8 @@
 <fieldset>
 <legend>
-  <h3>(<%= @reviews.count %>) Restaurant Reviews:</h3>
+  <h3>
+    (<%= @reviews.count %>) Restaurant Reviews:
+  </h3>
 </legend>
 <ul>
   <% @reviews.each do |review| %>
@@ -23,7 +25,9 @@
 <% if logged_in? %>
   <fieldset>
     <legend>
-      <h3>Filter Reviews By User</h3>
+      <h3>
+        Filter Reviews By User
+      </h3>
     </legend>
     <%= form_tag("/reviews", method: "get") do %>
       <%= select_tag "user", options_from_collection_for_select(@users, "id", "email"), include_blank: false %>

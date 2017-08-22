@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if auth_hash = request.env['omniauth.auth'] #login via OmniAuth
       user = User.find_or_create_by_omniauth(auth_hash)
       log_in user
-      redirect_to @user, notice: "Login successful!"
+      redirect_to user_path(current_user), notice: "Login successful!"
 
     else #standard login
       user = User.find_by(email: params[:session][:email].downcase)
