@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      redirect_to '/', success: "Signup successful!" #Temporary flash message after redirect
+      redirect_to '/', success: "Signup successful!" #Temporary flash message after redirect home
     else
       render :new
     end
