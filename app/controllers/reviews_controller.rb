@@ -22,6 +22,9 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
+  def edit
+  end
+
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
@@ -40,9 +43,6 @@ class ReviewsController < ApplicationController
       flash.now[:alert] = "Review Update unsuccesful! Please try again!"
       render 'edit'
     end
-  end
-
-  def edit
   end
 
   def destroy

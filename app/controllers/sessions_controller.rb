@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         redirect_to user_path(current_user), notice: "Login successful!" #redirect to user page
       else
         flash.now[:alert] = "Login unsuccesful! Please try again or signup!" #flash.now works w/ render
-        render :new #Render reload is NOT request
+        render :new #Render page reload is NOT request
       end
     end
   end
