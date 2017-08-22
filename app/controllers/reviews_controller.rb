@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
 
   def show
     @current_restaurant ||= Restaurant.find_by(id: @review[:restaurant_id])
-    @review.restaurant_id = @current_restaurant.id
+    @review.restaurant_id = @current_restaurant.id #Keep track of current_restaurant when goto to Restaurant directory
   end
 
   def new
@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     if @review.save
-      redirect_to @review, success: "New review created!"
+      redirect_to @review, success: "New review created!" #Goto Review show page
     else
       flash.now[:alert] = "Save Review unsuccesful! Please try again!"
       render 'new'
@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params) #update a record that already exists, accepts hash containing attributes
-      redirect_to @review, notice: "Review updated!"
+      redirect_to @review, notice: "Review updated!" #Goto Review show page
     else
       flash.now[:alert] = "Review Update unsuccesful! Please try again!"
       render 'edit'
