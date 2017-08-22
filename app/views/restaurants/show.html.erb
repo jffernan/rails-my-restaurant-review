@@ -30,9 +30,9 @@
 </ul>
 </fieldset>
 <br/>
-<%= link_to "Back", restaurants_path %>
 <% if logged_in? %>
-  <%= link_to "User Page", user_path(current_user) %>
+  <%= render '/reviews/links' %>
+<% else %>
+  <%= link_to "Back", restaurants_path %>
 <% end %>
 <%= link_to "All Reviews", reviews_path %>
-<%= link_to "Top Reviews", reviews_path(rating: "Excellent") %>
