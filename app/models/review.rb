@@ -26,6 +26,10 @@ class Review < ApplicationRecord
   def self.by_user(user_id) #For filter search by User
     where(user: user_id)
   end
+  
+  def self.by_rating(rating) #Top reviews where Excellent rating
+    where(rating: "Excellent")
+  end
 
   def self.order_by_date_visited
     Review.order(date_visited: :desc) #ActiveRecord method to order by most recent visit date
