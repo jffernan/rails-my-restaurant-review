@@ -24,9 +24,8 @@ Rails.application.routes.draw do
 
   resources :restaurants, only: [:show] do
     resources :reviews, only: [:index, :show]
-
-  get 'top_reviews', to: 'reviews#index', as: :top_reviews
-
   end
+  
+  get '/top_reviews', to: 'reviews#index', as: :top_reviews
 
 end
