@@ -54,7 +54,7 @@ class ReviewsController < ApplicationController
 
   private
   def set_review
-    @review = Review.find(user_id: params[:user_id])
+    @review = Review.find(params[:id])
   end
 
   def review_params #strong params tell which attrs permitted into controller actions SECURES against bad data
