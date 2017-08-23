@@ -3,9 +3,9 @@ class ReviewsController < ApplicationController
   before_action :require_login, except: [:index, :show]
 
   def index
-    @users = User.all.alphabetical_order
+    @users = User.all.alphabetical_order #need for user filter
     if params[:user_id]
-      @reviews = User.find(params[:user_id]).reviews
+      @reviews = User.find(params[:user_id]).reviews #Show all reviews for link_to specific user
     elsif params[:user]
       @reviews = Review.by_user(params[:user]) #Filter to search reviews by user
     elsif params[:rating]
