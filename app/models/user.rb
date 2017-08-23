@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
   has_many :reviews, dependent: :destroy #delete user=>deletes their reviews from db
-  has_many :restaurants, through: :reviews
+  has_many :restaurants, through: :reviews, dependent: :destroy #delete user=>delete restaurant from db
 
   before_save { self.email = email.downcase } #AR callback
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
