@@ -8,8 +8,6 @@ class Review < ApplicationRecord
 
   validates :content, presence: true, length: { minimum: 10 }
 
-  scope :rating, -> { where(rating: "Excellent") } #class ActiveRecord scope method for ALL Excellent reviews
-
   def restaurant_name #No db column for restaurant_name in Reviews table
     self.restaurant.name if self.restaurant
   end
@@ -29,12 +27,10 @@ class Review < ApplicationRecord
     where(user: user_id)
   end
 
-  def self.top_reviews(rating) #Top reviews where Excellent rating
-    where(rating: "Excellent")
-  end
-
   def self.order_by_date_visited
     Review.order(date_visited: :desc) #ActiveRecord method to order by most recent visit date
   end
+  
+  scope :top_reviews, -> { where(rating: "Excellent") } #AR scope method for ALL Excellent reviews URL: 'top_reviews'
 
 end
