@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
   end
   
   def top_reviews
-    @reviews = Review.top_reviews.all
+    @reviews = Review.top_reviews.all.order_by_date_visited
   end
 
   def show
