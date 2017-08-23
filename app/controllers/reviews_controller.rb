@@ -15,6 +15,10 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def excellent_reviews
+    @reviews = Review.top_reviews.all.order_by_date_visited
+  end
+
   def show
     @current_restaurant ||= Restaurant.find_by(id: @review[:restaurant_id])
     @review.restaurant_id = @current_restaurant.id #Keep track of current_restaurant when goto to Restaurant directory
