@@ -4,10 +4,12 @@ class ReviewsController < ApplicationController
 
   def index
     @users = User.all.alphabetical_order
-    if params[:user]
+    if params[:user_id]
+      @reviews = User.find(params[:user_id]).reviews
+    elsif params[:user]
       @reviews = Review.by_user(params[:user]) #Filter to search reviews by user
     elsif params[:rating]
-      @reviews = Review.by_rating(params[:rating]).order_by_date_visited
+      @reviews = Review.top_reviews(params[:rating]).order_by_date_visited
     else
       @reviews = Review.all.order_by_date_visited #call AR method to order by most recent visit date
     end
@@ -19,7 +21,7 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = Review.new
+    @review = Review.new(user_id: params[:user_id])
   end
 
   def edit
@@ -56,7 +58,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params #strong params tell which attrs permitted into controller actions SECURES against bad data
-    params.require(:review).permit(:restaurant_name, :content, :rating, :date_visited, :cuisine_ids => [], :cuisines_attributes => [:name]) #ALT: cuisine_ids:[], cuisines_attributes: [:name]
+    params.require(:review).permit(:user_id, :restaurant_name, :content, :rating, :date_visited, :cuisine_ids => [], :cuisines_attributes => [:name]) #ALT: cuisine_ids:[], cuisines_attributes: [:name]
   end
 
 end

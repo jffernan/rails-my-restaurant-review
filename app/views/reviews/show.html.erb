@@ -34,11 +34,9 @@
     For more info about this restaurant, 'click' to web search for:
     <a href = 'http://www.<%= "#{@current_restaurant.name}" %>.com'><%= @current_restaurant.name %></a>
   </li>
-  <% if current_user == @review.user %>
-    <li>
-      <%= link_to "Edit Review", edit_review_path %>
-    </li>
-  <% end %>
+  <li>
+      <%= link_to "Edit Review", edit_user_review_path(@review.user, @review) if @review.user %>
+  </li>
 </ul>
 </fieldset>
 <br/>
@@ -48,4 +46,4 @@
   <%= link_to "Back", reviews_path %>
 <% end %>
 <%= render '/users/links' %>
-<%= link_to "New Review", new_review_path %>
+<%= link_to "New Review", new_user_review_path(@review.user, @review) if @review.user %>

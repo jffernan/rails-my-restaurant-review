@@ -29,7 +29,7 @@ class Review < ApplicationRecord
     where(user: user_id)
   end
 
-  def self.by_rating(rating) #Top reviews where Excellent rating
+  def self.top_reviews(rating) #Top reviews where Excellent rating
     where(rating: "Excellent")
   end
 

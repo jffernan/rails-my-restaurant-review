@@ -11,6 +11,7 @@
   <% end %>
     <!-- Following nested form writing to assoc. Restaurant model use custom attr writer restaurant_name-->
   <br/>
+    <%= f.hidden_field :user_id %>
     <%= f.label :restaurant_name, "Restaurant Name:" %> &ensp;
     <%= f.text_field :restaurant_name %>
     <br></br>
