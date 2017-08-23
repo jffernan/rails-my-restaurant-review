@@ -31,6 +31,6 @@ class Review < ApplicationRecord
     Review.order(date_visited: :desc) #ActiveRecord method to order by most recent visit date
   end
   
-  scope :top_reviews, -> { where(rating: "Excellent") } #AR scope method for ALL Excellent reviews URL: 'top_reviews'
+  scope :top_reviews, -> { where(rating: 'Excellent') } #AR scope method for ALL Excellent reviews URL: 'top_reviews'
 
 end
