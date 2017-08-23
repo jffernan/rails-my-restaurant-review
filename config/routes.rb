@@ -26,6 +26,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :show]
   end
   
-  get '/reviews/top_reviews', to: 'reviews#index', as: :top_reviews
+  get '/reviews/top_reviews', to: 'reviews#top_reviews', as: :top_reviews
 
 end
