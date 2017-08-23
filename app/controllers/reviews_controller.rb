@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     elsif params[:user]
       @reviews = Review.by_user(params[:user]) #Filter to search reviews by user
     elsif params[:rating]
- -      @reviews = Review.by_rating(params[:rating]).order_by_date_visited
+      @reviews = Review.by_rating(params[:rating]).order_by_date_visited
     else
       @reviews = Review.all.order_by_date_visited #call AR method to order by most recent visit date
     end
