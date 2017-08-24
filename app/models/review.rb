@@ -28,7 +28,7 @@ class Review < ApplicationRecord
   end
 
   def self.top_reviews(rating) #Top reviews where Excellent rating
-    all.where(rating: "Excellent")
+    where(rating: "Excellent")
   end
 
   def self.order_by_date_visited
