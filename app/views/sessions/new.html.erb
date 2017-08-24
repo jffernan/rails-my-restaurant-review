@@ -3,7 +3,7 @@
   <h3>Log In</h3>
 </legend>
 <%= form_for(:session, url: login_path) do |f| %><!--:user login-->
-  <br/>
+  <br/> <!-- errors message will not work w/ form_for since no AR object -->
   <%= f.label :email %>
   <%= f.text_field :email %>
   <br></br>
