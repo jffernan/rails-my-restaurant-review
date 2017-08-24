@@ -25,7 +25,12 @@ Rails.application.routes.draw do
   resources :restaurants, only: [:show] do
     resources :reviews, only: [:index, :show]
   end
+<<<<<<< HEAD
 
   get '/reviews/top_reviews', to: 'reviews#excellent_reviews', as: :top_reviews
+=======
+  
+  get '/reviews/top_reviews', to: 'reviews#top_reviews', as: :top_reviews
+>>>>>>> 78af98e4893f687c8797bc5532f69ecec4cc685d
 
 end

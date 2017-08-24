@@ -14,6 +14,10 @@ class ReviewsController < ApplicationController
       @reviews = Review.all.order_by_date_visited #call AR method to order by most recent visit date
     end
   end
+  
+  def top_reviews
+    @reviews = Review.top_reviews.all.order_by_date_visited
+  end
 
   def excellent_reviews
     @reviews = Review.top_reviews.all.order_by_date_visited
