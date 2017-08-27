@@ -10,9 +10,7 @@
     Comments: "<%= @review.content %>"
   </li>
   <li>Cuisine(s):
-    <% @review.cuisines.each do |cuisine| %>
-      <%= cuisine.name %>
-      <% end %>
+    <%= @review.cuisines.map{|cuisine| cuisine.name}.join(', ').to_s + "." %>
   </li>
   <li>Rating:
     <% if @review.rating == "Excellent" %>

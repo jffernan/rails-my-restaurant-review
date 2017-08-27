@@ -9,6 +9,7 @@ class RestaurantsController < ApplicationController
   def show
     @reviews = @restaurant.reviews
     @cuisines = @restaurant.cuisines
+
   end
 
   private

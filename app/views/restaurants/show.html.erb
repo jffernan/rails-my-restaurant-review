@@ -6,9 +6,7 @@
   <li>Name: <b><%= @restaurant.name %> Restaurant</b></li>
     <br/>
   <li>Cuisine Type(s): <!--show ALL cuisines from ALL reviews of specific restaurant-->
-    <% @restaurant.cuisines.each do |cuisine| %>
-      <%= cuisine.name %> <!-- has many to has-many relationship -->
-    <% end %>
+    <%= @restaurant.cuisines.map{|cuisine| cuisine.name}.join(', ').to_s + "." %>
   </li>
     <br/>
   <% if @restaurant.reviews.any? %>
