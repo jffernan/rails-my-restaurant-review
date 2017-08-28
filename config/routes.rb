@@ -26,8 +26,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :show]
   end
 
-  get '/reviews/top_reviews', to: 'reviews#index'
-  
   #testing friendly_id gem
   #get "/users/:email", :to => "users#show", :constraints => { :email => /.+@.+\..*/ } 
 
