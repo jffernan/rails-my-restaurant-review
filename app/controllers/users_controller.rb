@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.alphabetical_order #show all users in alphabetical order
+    @users = User.all.alphabetical_order.page(params[:page])
   end
 
   def show
