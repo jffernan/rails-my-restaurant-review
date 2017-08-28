@@ -10,8 +10,9 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 
   extend FriendlyId
-  friendly_id :email
-  
+  scope :active, -> {where(:active => true)}
+  friendly_id :email, :use => [:finders]
+    
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 
