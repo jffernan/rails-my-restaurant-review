@@ -3,8 +3,7 @@
   <h3>
     (<%= @reviews.count %>) Restaurant Reviews:
   </h3>
-  <%= paginate @reviews %>
-</legend>
+ </legend>
 <ul>
   <% @reviews.each do |review| %>
     <li>
@@ -20,6 +19,8 @@
     </li>
   <% end %>
 </ul>
+<%= page_entries_info @reviews %>
+<%= paginate @reviews, window:2 %>
 </fieldset>
 <br/>
 <% if logged_in? %>
