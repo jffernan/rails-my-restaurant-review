@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#add admin features
+gem 'activeadmin', github: 'activeadmin'
+#paginate index pages
 gem 'kaminari'
 gem 'friendly_id', '~> 5.1'
 #Rails app configuration using ENV and a single YAML file
