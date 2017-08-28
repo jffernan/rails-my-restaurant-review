@@ -1,6 +1,6 @@
 <fieldset>
 <legend>
-  <h3>(<%= @users.count %>) Users:</h3>
+  <h3>Users:</h3>
 </legend>
 <ul>
   <li>
@@ -14,6 +14,8 @@
     </li>
   <% end %>
 </ul>
+<%= page_entries_info @users %>
+<%= paginate @users, window:2 %>
 </fieldset>
 <br/>
 <%= link_to 'Back', user_path(current_user) %>
