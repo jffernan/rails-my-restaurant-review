@@ -1,6 +1,7 @@
 <fieldset>
 <legend>
   <h3>Restaurant Directory (<%= @restaurants.count %>)</h3>
+  <%= paginate @restaurants %>
 </legend>
   <ol>
     <% @restaurants.each do |restaurant| %>
