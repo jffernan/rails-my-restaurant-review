@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   get '/reviews/top_reviews', to: 'reviews#index'
   
-  get "/users/:email", :to => "users#show", :constraints => { :email => /.+@.+\..*/ }
+  #testing friendly_id gem
+  #get "/users/:email", :to => "users#show", :constraints => { :email => /.+@.+\..*/ } 
 
 end
