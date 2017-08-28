@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
         @reviews = Review.top_reviews(params[:rating]).order_by_date_visited
       end
     else
-      @reviews = Review.all.order_by_date_visited #call AR method to order by most recent visit date
+      @reviews = Review.all.order_by_date_visited.page(params[:page]) #call AR method to order by most recent visit date
     end
   end
 
