@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
   before_action :require_login, except: [:index, :show]
 
   def index
-    @restaurants = Restaurant.all.alphabetical_order #show ALL restaurants
+    @restaurants = Restaurant.all.alphabetical_order.page(params[:page]) #show ALL restaurants
   end
 
   def show
