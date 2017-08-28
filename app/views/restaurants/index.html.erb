@@ -9,9 +9,9 @@
       </li>
     <% end %>
   </ol>
-</fieldset>
 <%= page_entries_info @restaurants %>
 <%= paginate @restaurants, window:2 %>
+</fieldset>
 <br/>
 <%= render '/reviews/links' %>
 <%= link_to "All Reviews", reviews_path %>
