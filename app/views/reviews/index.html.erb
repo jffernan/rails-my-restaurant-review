@@ -3,6 +3,7 @@
   <h3>
     (<%= @reviews.count %>) Restaurant Reviews:
   </h3>
+  <%= paginate @reviews %>
 </legend>
 <ul>
   <% @reviews.each do |review| %>
