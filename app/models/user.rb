@@ -9,9 +9,9 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
-  extend FriendlyId
-  scope :active, -> {where(:active => true)}
-  friendly_id :email, :use => [:finders]
+  #extend FriendlyId
+  #scope :active, -> {where(:active => true)}
+  #friendly_id :email, :use => [:finders]
     
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
