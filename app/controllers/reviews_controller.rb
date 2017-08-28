@@ -3,14 +3,14 @@ class ReviewsController < ApplicationController
   before_action :require_login, except: [:index, :show]
 
   def index
-    @users = User.all.alphabetical_order #need for user filter
+    @users = User.all.alphabetical_order.page(params[:page]) #need for user filter
     if params[:user_id]
-      @reviews = User.find(params[:user_id]).reviews #Show all reviews for link_to specific user
+      @reviews = User.find(params[:user_id]).reviews.page(params[:page]) #Show all reviews for link_to specific user
     elsif params[:user]
-      @reviews = Review.by_user(params[:user]) #Filter to search reviews by user
+      @reviews = Review.by_user(params[:user]).page(params[:page]) #Filter box to search reviews by user
     elsif params[:rating]
       if params[:rating] == "Excellent"
-        @reviews = Review.top_reviews(params[:rating]).order_by_date_visited
+        @reviews = Review.top_reviews(params[:rating]).order_by_date_visited.page(params[:page])
       end
     else
       @reviews = Review.all.order_by_date_visited.page(params[:page]) #call AR method to order by most recent visit date
