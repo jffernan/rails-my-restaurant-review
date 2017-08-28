@@ -27,5 +27,7 @@ Rails.application.routes.draw do
   end
 
   get '/reviews/top_reviews', to: 'reviews#index'
+  
+  get "/users/:email", :to => "users#show", :constraints => { :email => /.+@.+\..*/ }
 
 end
