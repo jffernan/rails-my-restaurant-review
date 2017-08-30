@@ -1,8 +1,6 @@
-Cuisine.create(name: 'American')
-Cuisine.create(name: 'Fast Food')
-Cuisine.create(name: 'Chinese')
-Cuisine.create(name: 'Mexican')
-Cuisine.create(name: 'Steak')
+Cuisine.create(name: 'Italian')
+Cuisine.create(name: 'Greek')
+Cuisine.create(name: 'Burgers')
 Cuisine.create(name: 'Buffet')
 
 5.times do |n|
@@ -15,7 +13,7 @@ Cuisine.create(name: 'Buffet')
   restaurant_name = Faker::Company.name
   content =  Faker::Lorem.sentence
   cuisine_ids = ["Upscale", "American", "Fast Food", "Chinese", "Mexican", "Steak"].sample
-  #cuisine = ["Upscale", "American", "Fast Food", "Chinese", "Mexican", "Steak"].sample
+  cuisine_name = ["Upscale", "American", "Fast Food", "Chinese", "Mexican", "Steak"].sample
   cuisine = "Burgers"
   date_visited = Faker::Date.backward(185)
   rating = ["Excellent", "Good", "Average", "Poor"].sample
@@ -23,7 +21,6 @@ Cuisine.create(name: 'Buffet')
   Review.create!(user: user,
                 restaurant_name: restaurant_name,
                 content: content,
-                cuisine: cuisine,
                 date_visited: date_visited,
                 rating: rating)
 end
@@ -46,7 +43,6 @@ end
   Review.create!(user: user,
                 restaurant_name: restaurant_name,
                 content: content,
-                cuisine: cuisine,
                 date_visited: date_visited,
                 rating: rating)
 end
@@ -69,7 +65,6 @@ end
   Review.create!(user: user,
                 restaurant_name: restaurant_name,
                 content: content,
-                cuisine: cuisine,
                 date_visited: date_visited,
                 rating: rating)
 end
@@ -92,7 +87,6 @@ end
   Review.create!(user: user,
                 restaurant_name: restaurant_name,
                 content: content,
-                cuisine: cuisine,
                 date_visited: date_visited,
                 rating: rating)
 end
@@ -115,7 +109,6 @@ end
   Review.create!(user: user,
                 restaurant_name: restaurant_name,
                 content: content,
-                cuisine: cuisine,
                 date_visited: date_visited,
                 rating: rating)
 end

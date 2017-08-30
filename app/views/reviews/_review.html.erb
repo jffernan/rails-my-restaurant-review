@@ -1,5 +1,5 @@
 <li>
-  <%= link_to review.try(:restaurant).try(:name), review %> <!--AR .try method to keep DRY instead of if nil-->
+  <%= link_to review.try(:restaurant).try(:name).upcase_first, review %> <!--AR .try method to keep DRY instead of if nil-->
   was visited by
     <% if current_user == review.user %>
       <b>you</b>
