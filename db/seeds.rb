@@ -1,8 +1,3 @@
-Cuisine.create(name: 'Italian')
-Cuisine.create(name: 'Greek')
-Cuisine.create(name: 'Burgers')
-Cuisine.create(name: 'Buffet')
-
 5.times do |n|
   email = Faker::Internet.unique.safe_email
   password = "password"
@@ -112,3 +107,8 @@ end
                 date_visited: date_visited,
                 rating: rating)
 end
+
+Cuisine.create(name: 'Italian')
+Cuisine.create(name: 'Greek')
+Cuisine.create(name: 'Burgers')
+Cuisine.create(name: 'Buffet')

@@ -4,7 +4,7 @@
 </legend>
 </br>
 <ul>
-  <li>Name: <b><%= @restaurant.name %> Restaurant</b></li>
+  <li>Name: <b><%= @restaurant.name.upcase_first %> Restaurant</b></li>
     <br/>
   <li>Cuisine Type(s): <!--show ALL cuisines from ALL reviews of specific restaurant-->
     <%= @restaurant.cuisines.map{|cuisine| cuisine.name}.join(', ').to_s + "." %>

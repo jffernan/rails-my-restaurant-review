@@ -34,6 +34,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     if @review.save
+      @review.restaurant_name = @review.restaurant_name.upcase_first
       redirect_to @review, success: "New review created!" #Goto Review show page
     else
       flash.now[:alert] = "Save Review unsuccesful! Please try again!"
