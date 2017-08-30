@@ -3,8 +3,10 @@ class Restaurant < ApplicationRecord
   has_many :users, through: :reviews
   has_many :cuisines, through: :reviews
 
+  before_save { self.name = name.upcase_first }
   validates :name, presence: true
-
+  validates :name, uniqueness: { case_sensitive: false }
+  
   def restaurant_name
     self.restaurant.name if self.restaurant
   end
