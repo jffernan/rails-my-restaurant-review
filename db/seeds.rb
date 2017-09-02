@@ -17,7 +17,7 @@
                 rating: rating)
 end
 
-Cuisine.create!(name: 'Pizza')
-Cuisine.create!(name: 'Deli')
-Cuisine.create!(name: 'Burgers')
-Cuisine.create!(name: 'Buffet')
+Cuisine.create(name: 'Pizza')
+Cuisine.create(name: 'Deli')
+Cuisine.create(name: 'Burgers')
+Cuisine.create(name: 'Buffet')
