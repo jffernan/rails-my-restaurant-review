@@ -7,7 +7,7 @@
                password_confirmation: password)
   restaurant_name = Faker::Company.name
   content =  Faker::Lorem.sentence
-  cuisine_name = ["Upscale", "American", "Fast Food", "Chinese", "Mexican", "Steak"].sample
+  cuisine_name = ["Upscale", "American", "Fast Food", "Chinese", "Mexican", "Steak", "Pizza", "Deli", "Burgers"].sample
   review_cuisine = Cuisine.find_or_create_by :name => cuisine_name
   date_visited = Faker::Date.backward(125)
   rating = ["Excellent", "Good", "Average", "Poor"].sample
@@ -18,8 +18,3 @@
                 date_visited: date_visited,
                 rating: rating)
 end
-
-Cuisine.create(name: 'Pizza')
-Cuisine.create(name: 'Deli')
-Cuisine.create(name: 'Burgers')
-Cuisine.create(name: 'Buffet')
