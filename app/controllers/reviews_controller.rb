@@ -15,6 +15,9 @@ class ReviewsController < ApplicationController
     else
       @reviews = Review.all.order_by_date_visited.page(params[:page]) #call AR method to order by most recent visit date
     end
+    @reviews = @restaurant.reviews
+      render 'reviews/index', :layout => false
+      render :json => @reviews
   end
 
   def show
