@@ -1,3 +1,9 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).ready(function() {
+  $("a.load_reviews").on("click", function(e) {
+    $.get(this.href).success(function(json) {
+      ol$.html(" ")
+    json.forEach(function(review) {
+      ol$.append("<li>" + review.content + "</li>");
+  e.preventDefault();
+  })
+})
