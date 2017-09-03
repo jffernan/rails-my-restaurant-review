@@ -6,7 +6,7 @@
 <ul>
   <% @reviews.each do |review| %>
     <li>
-      <%= link_to review.try(:restaurant).try(:name), review %>
+      <%= link_to review.try(:restaurant).try(:name), restaurant_reviews_path(review.restaurant) %>
       visited on <%= review.date_visited.strftime("%m/%d/%Y") %>
       by
       <% if current_user == review.user %>
@@ -14,7 +14,8 @@
       <% else %>
         <%= link_to review.user.email, user_reviews_path(review.user) %>
       <% end %>&emsp;
-      (Posted <%= time_ago_in_words(review.updated_at) %> ago.)
+      (Posted <%= time_ago_in_words(review.updated_at) %> ago.)&emsp;
+      <%= link_to "Read Review", review %>
     </li>
   <% end %>
 </ul>

@@ -27,8 +27,8 @@
   <li>For more info about this restaurant, 'click' to web search for:
     <a href = 'http://www.<%= "#{@restaurant.name}" %>.com'><%= @restaurant.name %></a>
   </li>
-  <br/>
   <% if logged_in? %>
+    <br/>
     <li><%= link_to "Submit New Review", new_review_path %></li>
   <% end %>
 </ul>

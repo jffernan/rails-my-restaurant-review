@@ -33,6 +33,7 @@
   <br/>
 <% if current_user != @review.user %> <!--show only another's username-->
   <li>Reviewed by: <b><%= @review.user.email %></b></li>
+  <br/>
 <% end %>
   <li>
     For more info about this restaurant, 'click' to web search for:

@@ -6,7 +6,8 @@
   <ol>
     <% @restaurants.each do |restaurant| %>
       <li>
-        <%= link_to restaurant.name, restaurant %>
+        <%= link_to restaurant.name, restaurant %>&emsp;
+        <%= link_to "Read Reviews", restaurant %>
       </li>
     <% end %>
   </ol>
