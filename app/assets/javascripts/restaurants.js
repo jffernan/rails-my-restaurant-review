@@ -1,9 +1,15 @@
 $(document).ready(function() {
-  $("a.load_reviews").on("click", function(e) {
-    $.get(this.href).success(function(json) {
-      ol$.html(" ")
-    json.forEach(function(review) {
-      ol$.append("<li>" + review.content + "</li>");
-  e.preventDefault();
+  $("a.load_reviews").on("click", function(e){
+ //Send AJAX get request
+    $.ajax({
+      method: "GET",
+      url: this.href
+    }).done(function(response) {
+ //get response
+      $("div.reviews").html(response)
+ //Load data into html
+    });
+
+    e.preventDefault();
   })
 })
