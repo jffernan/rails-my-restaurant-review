@@ -10,9 +10,11 @@
   <li>
     Comments: "<%= @review.content %>"
   </li>
+  <br/>
   <li>Cuisine(s):
     <%= @review.cuisines.map{|cuisine| cuisine.name}.join(', ').to_s + "." %>
   </li>
+  <br/>
   <li>Rating:
     <% if @review.rating == "Excellent" %>
       <b>**<%= link_to "#{@review.rating}", reviews_path(rating: "Excellent") %>**</b>
@@ -24,8 +26,11 @@
       <b>*<%= @review.rating %></b>
     <% end %>
   </li>
+  <br/>
   <li><%= @review.date_visited.strftime("Date Visited: %m/%d/%Y") %></li>
+  <br/>
   <li><%= @review.updated_at.strftime("Date Reviewed: %m/%d/%Y") %></li>
+  <br/>
 <% if current_user != @review.user %> <!--show only another's username-->
   <li>Reviewed by: <b><%= @review.user.email %></b></li>
 <% end %>
@@ -33,6 +38,7 @@
     For more info about this restaurant, 'click' to web search for:
     <a href = 'http://www.<%= "#{@current_restaurant.name}" %>.com'><%= @current_restaurant.name %></a>
   </li>
+  <br/>
   <li>
       <%= link_to "Edit Review", edit_user_review_path(@review.user, @review) if @review.user %>
   </li>

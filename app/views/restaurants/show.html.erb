@@ -18,14 +18,12 @@
         <%= render @reviews %>
       </ol>
   <% end %>
-  <br/>
   <li>
-      <%= link_to "Load Reviews", restaurant_reviews_path(@current_restaurant), :class => "load_reviews" %>
+      <%= link_to "Load Reviews", restaurant_reviews_path(@restaurant), :class => "load_reviews" %>
   </li>
     <div class="reviews">
 	    <ol></ol>
     </div>
-  <br/>
   <li>For more info about this restaurant, 'click' to web search for:
     <a href = 'http://www.<%= "#{@restaurant.name}" %>.com'><%= @restaurant.name %></a>
   </li>
