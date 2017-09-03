@@ -36,13 +36,6 @@
   <li>
       <%= link_to "Edit Review", edit_user_review_path(@review.user, @review) if @review.user %>
   </li>
-  <li>
-      <%= link_to "Load Reviews", restaurant_path(@current_restaurant), :class => "load_reviews" %>
-  </li>
-    <div class="reviews">
-	<ol></ol>
-</div>
-
 </ul>
 </fieldset>
 <br/>
