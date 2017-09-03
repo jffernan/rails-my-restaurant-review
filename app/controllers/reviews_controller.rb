@@ -4,9 +4,6 @@ class ReviewsController < ApplicationController
 
   def index
     @users = User.all.alphabetical_order.page(params[:page]) #need for user filter
-    #@reviews = @restaurant.reviews
-    #render 'reviews/index', :layout => false
-    #render :json => @reviews
     if params[:user_id]
       @reviews = User.find(params[:user_id]).reviews.page(params[:page]) #Show all reviews for link_to specific user
     elsif params[:user]
