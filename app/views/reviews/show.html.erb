@@ -41,7 +41,11 @@
   </li>
   <br/>
   <li>
-      <%= link_to "Edit Review", edit_user_review_path(@review.user, @review) if @review.user %>
+    <%= link_to "Edit Review", edit_user_review_path(@review.user, @review) if @review.user %>
+  </li>
+  <br/>
+  <li>
+    <%= link_to "Load Reviews For This Restaurant", restaurant_reviews_path(@review.restaurant) %>
   </li>
 </ul>
 </fieldset>
