@@ -14,16 +14,18 @@
     <li>(<%= @restaurant.reviews.count %>) Reviews Submitted:
     </li>
     <br/>
-      <ol>
+            <!--<ol>
         <%= render @reviews %>
-      </ol>
+      </ol>-->
   <% end %>
   <li>
       <%= link_to "Load Reviews", restaurant_reviews_path(@restaurant), :class => "load_reviews" %>
   </li>
+
     <div class="reviews">
-	    <ol></ol>
+      <ol></ol>
     </div>
+
   <li>For more info about this restaurant, 'click' to web search for:
     <a href = 'http://www.<%= "#{@restaurant.name}" %>.com'><%= @restaurant.name %></a>
   </li>
