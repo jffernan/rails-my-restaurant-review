@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
       @reviews = User.find(params[:user_id]).reviews.page(params[:page])#Show all reviews for link_to specific user
     elsif params[:restaurant_id]
       @reviews = Restaurant.find(params[:restaurant_id]).reviews.page(params[:page])#Show all reviews for link_to specific restaurant
+      render 'reviews/index', :layout => false
     elsif params[:user]
       @reviews = Review.by_user(params[:user]).page(params[:page]) #Filter box to search reviews by user
     elsif params[:rating]
