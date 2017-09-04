@@ -45,8 +45,11 @@
   </li>
   <br/>
   <li>
-    <%= link_to "Load More Reviews", restaurant_reviews_path(@review.restaurant) %>
+    <%= link_to "Load More Reviews", restaurant_reviews_path(@review.restaurant), :class => "load_reviews" %>
   </li>
+  <div class="reviews">
+    <ol></ol>
+  </div>
 </ul>
 </fieldset>
 <br/>
