@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :restaurants, except: [:new, :create, :edit, :update, :destroy]
 
   resources :restaurants, only: [:show. :index] do
-    resources :reviews, only: [:show. :index]
+    resources :reviews, only: [:show, :index]
   end
 
   #testing friendly_id gem
