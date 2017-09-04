@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $("a.load_reviews").on("click", function(e){
- //Send AJAX get request
+ //Send AJAX LOW-LEVEL get request
     $.ajax({
       method: "GET",
       url: this.href
