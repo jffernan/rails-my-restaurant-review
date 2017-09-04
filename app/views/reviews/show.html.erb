@@ -45,15 +45,8 @@
   </li>
   <br/>
   <li>
-    <%= link_to "Load Reviews For This Restaurant", restaurant_reviews_path(@review.restaurant) %>
+    <%= link_to "Load More Reviews", restaurant_reviews_path(@review.restaurant) %>
   </li>
 </ul>
 </fieldset>
 <br/>
-<% if current_user == @review.user %><!--review belongs to current user or not?-->
-  <%= link_to "Back", user_path(current_user) %>
-<% else %>
-  <%= link_to "Back", reviews_path %>
-<% end %>
-<%= render '/users/links' %>
-<%= link_to "New Review", new_user_review_path(@review.user, @review) if @review.user %>

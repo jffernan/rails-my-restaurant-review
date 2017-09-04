@@ -26,10 +26,17 @@
         <strong><%= content_tag :div, msg, class: name %></strong>
       <% end -%>
     </nav>
-
     <div class = "container">
       <h1>My Restaurant Review</h1>
       <%= yield %>
+      <footer>
+        <%= link_to "Back", root_path %>
+        <% if !logged_in? %>
+          <%= link_to "Log In", login_path %>
+        <% end %>
+        <%= render '/users/links' %>
+        <%= render '/reviews/links' %>
+      </footer>
     </div>
   </body>
 </html>

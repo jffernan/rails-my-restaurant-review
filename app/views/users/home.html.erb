@@ -2,9 +2,7 @@
 <p>
   Here you can post reviews of your favorite (and not so favorite) restaurants.  Bon appetit!
 </p>
-<% if !logged_in? %>
-  <%= link_to "Log In", login_path %>
-<% else %>
+<% if logged_in? %>
 <fieldset>
 <legend>
   <h4>
@@ -18,7 +16,6 @@
       <li><%= link_to "(U)pdate your review", user_path(current_user) %></li>
       <li><%= link_to "(D)elete your review", user_path(current_user) %></li>
     </ul>
-  </fieldset>
-<br/>
-<%= link_to 'User Page', user_path(current_user) %>
+</fieldset>
 <% end %>
+<br/>

@@ -4,13 +4,19 @@
 </legend>
 </br>
 <ul>
-  <li>Name: <b><%= @restaurant.name.upcase_first %> Restaurant</b></li>
-    <br/>
-  <li>Cuisine Type(s): <!--show ALL cuisines from ALL reviews of specific restaurant-->
+  <li>
+    <b>Restaurant Name:</b>&ensp;
+    <%= @restaurant.name.upcase_first %>
+  </li>
+  <br/>
+  <li>
+    <b>Cuisine Type(s):</b>&ensp; <!--show ALL cuisines from ALL reviews of specific restaurant-->
     <%= @restaurant.cuisines.map{|cuisine| cuisine.name}.join(', ').to_s + "." %>
   </li>
-    <br/>
-  <li>Total Reviews Submitted: (<%= @restaurant.reviews.count %>)
+  <br/>
+  <li>
+    <b>Total Reviews Submitted:</b>&ensp;
+    (<%= @restaurant.reviews.count %>)
   </li>
   <br/>
   <li>
@@ -19,7 +25,7 @@
     <div class="reviews">
       <ol></ol>
     </div>
-  <li>For more info about this restaurant, 'click' to web search for:
+  <li><b>More info, 'click' to search for:</b>&ensp;
     <a href = 'http://www.<%= "#{@restaurant.name}" %>.com'><%= @restaurant.name %></a>
   </li>
   <% if logged_in? %>
@@ -29,9 +35,3 @@
 </ul>
 </fieldset>
 <br/>
-<% if logged_in? %>
-  <%= render '/reviews/links' %>
-<% else %>
-  <%= link_to "Back", restaurants_path %>
-<% end %>
-<%= link_to "All Reviews", reviews_path %>
