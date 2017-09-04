@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
       @reviews = Review.by_user(params[:user]).page(params[:page]) #Filter box to search reviews by user
     elsif params[:restaurant_id]
       @reviews = Restaurant.find(params[:restaurant_id]).reviews.page(params[:page])#Show all reviews for link_to specific restaurant
-      render 'reviews/index', :layout => false
+      render 'index', :layout => false
     elsif params[:rating]
       if params[:rating] == "Excellent"
         @reviews = Review.top_reviews(params[:rating]).order_by_date_visited.page(params[:page])
