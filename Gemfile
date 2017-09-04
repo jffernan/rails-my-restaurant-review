@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#use ActiveModel::Serializer
+gem 'active_model_serializers'
 #add admin features
 gem 'activeadmin', github: 'activeadmin'
 #paginate index pages
