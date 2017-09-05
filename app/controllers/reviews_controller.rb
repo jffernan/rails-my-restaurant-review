@@ -28,10 +28,10 @@ class ReviewsController < ApplicationController
       format.json { render json: @review}
     end
   end
-  
+
   def review_data
     review = Review.find(params[:id])
-    render json: review
+    render json: @review
   end
 
   def new
@@ -46,7 +46,8 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     if @review.save
       @review.restaurant_name = @review.restaurant_name.upcase_first
-      redirect_to @review, success: "New review created!" #Goto Review show page
+      render json: @review, status: 201 #Not go to Review show page
+      #redirect_to @review, success: "New review created!"
     else
       flash.now[:alert] = "Save Review unsuccesful! Please try again!"
       render 'new'

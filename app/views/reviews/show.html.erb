@@ -1,6 +1,6 @@
 <fieldset>
 <legend>
-  <h3 class="restaurantName"> 
+  <h3 class="restaurantName">
     <% if current_user == @review.user %>
     Your
     <% end %>
@@ -41,7 +41,7 @@
   <br/>
 <% if current_user != @review.user %> <!--show only another's username-->
   <li class="userEmail">
-    Reviewed by: 
+    Reviewed by:
     <b><%= @review.user.email %></b>
   </li>
   <br/>
@@ -77,8 +77,8 @@ $(function () {
       $(".reviewBody").text(data["content"]);
       $(".reviewCuisines").text(data["cuisines"]);
       $(".reviewRating").text(data["rating"]);
-      $(".reviewDateVisited").text(data["date_visited"]);
-      $(".reviewUpdatedAt").text(data["updated_at"]);
+      $(".reviewDateVisited").date(data["date_visited"]);
+      $(".reviewUpdatedAt").date(data["updated_at"]);
       $(".userEmail").text(data["user"]["email"]);
 // re-set the id to current on the link
       $(".js-next").attr("data-id", data["id"]);
@@ -86,4 +86,3 @@ $(function () {
   });
 });
 </script>
-
