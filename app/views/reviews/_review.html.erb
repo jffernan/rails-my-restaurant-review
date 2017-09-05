@@ -1,4 +1,5 @@
-<li><%= review.id %>: <%= review.restaurant_name %></li>
+<%= review.id %>: <%= link_to review.try(:restaurant).try(:name), review %>
+visited on <%= review.date_visited.strftime("%m/%d/%Y") %>, 
 <div id="body-<%= review.id %>"><%= truncate review.content %></div> 
 
 <button class="js-more" data-id="<%= review.id %>">More...</button>
