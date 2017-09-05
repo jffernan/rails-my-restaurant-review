@@ -7,8 +7,7 @@
 <ul>
   <% @reviews.each do |review| %>
     <li>
-      <%= link_to review.try(:restaurant).try(:name), review %>
-      visited on <%= review.date_visited.strftime("%m/%d/%Y") %>
+      <%= render partial: "review", locals: {review: review} %>
       by
       <% if current_user == review.user %>
         <b><%= link_to "you", user_reviews_path(review.user) %></b>
