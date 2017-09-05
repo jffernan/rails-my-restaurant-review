@@ -7,13 +7,13 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @reviews = @restaurant.reviews
+    @cuisines = @restaurant.cuisines
+    
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @restaurant}
     end
-
-    @reviews = @restaurant.reviews
-    @cuisines = @restaurant.cuisines
   end
 
   private
