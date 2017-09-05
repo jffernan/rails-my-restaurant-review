@@ -29,5 +29,7 @@ Rails.application.routes.draw do
 
   #testing friendly_id gem
   #get "/users/:email", :to => "users#show", :constraints => { :email => /.+@.+\..*/ } 
+  
+  get '/reviews/:id/review_data', to: 'reviews#review_data'
 
 end
