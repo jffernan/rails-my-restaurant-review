@@ -28,7 +28,7 @@ $(function () {
   $(".js-more").on('click', function() {
     var id = $(this).data("id");
     $.getJSON("/reviews/" + id + "/review_data", function(data) {
-      $("#body-" + id).html(data[“content”]);
+      $("#body-" + id).html(data["content"]);
     });
   });
 });
