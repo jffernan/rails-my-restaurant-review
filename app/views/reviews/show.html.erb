@@ -1,21 +1,25 @@
 <fieldset>
 <legend>
-  <h3><% if current_user == @review.user %>
+  <h3 class="restaurantName"> 
+    <% if current_user == @review.user %>
     Your
     <% end %>
-    Review of "<%= link_to "#{@current_restaurant.name.upcase_first}", restaurant_path(@current_restaurant) %> Restaurant":</h3>
+    Review of "<%= link_to "#{@current_restaurant.name.upcase_first}", restaurant_path(@current_restaurant) %> Restaurant"
+  </h3>
 </legend>
 <br/>
 <ul>
-  <li>
+  <li class="reviewBody">
     Comments: "<%= @review.content %>"
   </li>
   <br/>
-  <li>Cuisine(s):
+  <li class="reviewCuisines">
+    Cuisine(s):
     <%= @review.cuisines.map{|cuisine| cuisine.name}.join(', ').to_s + "." %>
   </li>
   <br/>
-  <li>Rating:
+  <li class="reviewRating">
+    Rating:
     <% if @review.rating == "Excellent" %>
       <b>**<%= link_to "#{@review.rating}", reviews_path(rating: "Excellent") %>**</b>
     <% elsif @review.rating == "Good" %>
@@ -27,12 +31,19 @@
     <% end %>
   </li>
   <br/>
-  <li><%= @review.date_visited.strftime("Date Visited: %m/%d/%Y") %></li>
+  <li class="reviewDateVisited">
+    <%= @review.date_visited.strftime("Date Visited: %m/%d/%Y") %>
+  </li>
   <br/>
-  <li><%= @review.updated_at.strftime("Date Reviewed: %m/%d/%Y") %></li>
+  <li class="reviewUpdatedAt">
+    <%= @review.updated_at.strftime("Date Reviewed: %m/%d/%Y") %>
+  </li>
   <br/>
 <% if current_user != @review.user %> <!--show only another's username-->
-  <li>Reviewed by: <b><%= @review.user.email %></b></li>
+  <li class="userEmail">
+    Reviewed by: 
+    <b><%= @review.user.email %></b>
+  </li>
   <br/>
 <% end %>
   <li>
@@ -50,6 +61,29 @@
   <div class="reviews">
     <ol></ol>
   </div>
+  <li>
+    <a href="#" class="js-next" data-id="<%=@review.id%>">Next...</a>
+  </li>
 </ul>
 </fieldset>
 <br/>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $(".js-next").on("click", function() {
+    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.getJSON("/reviews/" + nextId + "/review_data", function(data) {
+      $(".restaurantName").text(data["restaurant"]["name"]);
+      $(".reviewBody").text(data["content"]);
+      $(".reviewCuisines").text(data["cuisines"]);
+      $(".reviewRating").text(data["rating"]);
+      $(".reviewDateVisited").text(data["date_visited"]);
+      $(".reviewUpdatedAt").text(data["updated_at"]);
+      $(".userEmail").text(data["user"]["email"]);
+// re-set the id to current on the link
+      $(".js-next").attr("data-id", data["id"]);
+    });
+  });
+});
+</script>
+
