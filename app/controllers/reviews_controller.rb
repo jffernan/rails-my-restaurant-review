@@ -20,13 +20,13 @@ class ReviewsController < ApplicationController
   end
 
   def show
-      respond_to do |format|
+    @current_restaurant ||= Restaurant.find_by(id: @review[:restaurant_id])
+    @review.restaurant_id = @current_restaurant.id #Keep track of current_restaurant when goto to Restaurant directory
+
+    respond_to do |format|
       format.html { render :show }
       format.json { render json: @review}
     end
-
-    @current_restaurant ||= Restaurant.find_by(id: @review[:restaurant_id])
-    @review.restaurant_id = @current_restaurant.id #Keep track of current_restaurant when goto to Restaurant directory
   end
 
   def new
