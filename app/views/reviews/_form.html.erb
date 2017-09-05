@@ -71,12 +71,12 @@
       var posting = $.post('/reviews', values);
 
       posting.done(function(data) {
-        var post = data;
-        $("#restaurantName").text(post["restaurant"]["name"]);
-        $("#reviewBody").text(post["content"]);
-        $("#reviewCuisines").text(post["cuisines"]);
-        $("#reviewRating").text(post["rating"]);
-        $("#reviewDateVisited").date(post["date_visited"]);
+        var review = data;
+        $("#restaurantName").text(review["restaurant"]["name"]);
+        $("#reviewBody").text(review["content"]);
+        $("#reviewCuisines").text(review["cuisines"]);
+        $("#reviewRating").text(review["rating"]);
+        $("#reviewDateVisited").date(review["date_visited"]);
       });
     });
   });
