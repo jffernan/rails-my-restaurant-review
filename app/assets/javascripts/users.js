@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
   $("a.load_reviews").on("click", function(e){
  //Send AJAX LOW-LEVEL get request
     $.ajax({
