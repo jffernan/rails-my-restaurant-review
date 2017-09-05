@@ -6,7 +6,7 @@
                password:              password,
                password_confirmation: password)
   restaurant_name = Faker::Company.name
-  content =  Faker::Lorem.sentence
+  content =  Faker::Lorem.paragraph(3, true, 3)
   cuisine_name = ["Upscale", "American", "Fast Food", "Chinese", "Mexican", "Steak", "Pizza", "Deli", "Burgers"].sample
   review_cuisine = Cuisine.find_or_create_by :name => cuisine_name
   date_visited = Faker::Date.backward(125)
