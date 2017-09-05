@@ -1,3 +1,4 @@
-<h1><%= review.id %>: <%= review.restaurant_name %></h2>
-<div id="data-<%= review.id %>"><%= truncate review.content %></div> 
+<li><%= review.id %>: <%= review.restaurant_name %></li>
+<div id="body-<%= review.id %>"><%= truncate review.content %></div> 
+
 <button class="js-more" data-id="<%= review.id %>">More...</button>
