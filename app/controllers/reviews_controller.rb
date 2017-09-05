@@ -28,6 +28,11 @@ class ReviewsController < ApplicationController
       format.json { render json: @review}
     end
   end
+  
+  def review_data
+    review = Review.find(params[:id])
+    render json: review
+  end
 
   def new
     @review = Review.new(user_id: params[:user_id])
