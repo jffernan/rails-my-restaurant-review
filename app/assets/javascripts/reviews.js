@@ -17,11 +17,10 @@ $(function() {
 //reviews/index.html.erb for 'More' reviews link on Index Page
 $(function () {
   $(".js-more").on('click', function() {
-    console.log("You clicked this");
     var id = $(this).data("id");
     $.get("/reviews/" + id + ".json", function(data) {
       var review = data;
-      $("#body-" + id).html(review["content"]);
+      $("#body-" + id).html("Comments: " + '"' + review["content"] + '"');
     });
   });
 });
@@ -33,7 +32,7 @@ $(function () {
     $.get("/reviews/" + nextId + ".json", function(data) {
       var review = data;
       $(".restaurantName").text(review["restaurant"]["name"]);
-      $(".reviewBody").text("Comments: " + review["content"]);
+      $(".reviewBody").text("Comments: " + '"' + review["content"] + '"');
       $(".reviewCuisines").text("Cuisines:" + review["cuisine"]["name"]);
       $(".reviewRating").text(review["rating"]);
       $(".reviewDateVisited").date(review["date_visited"]);
@@ -58,7 +57,7 @@ $(function () {
       posting.done(function(data) {
         var review = data;
         $("#restaurantName").text("Review Saved For: " + review["restaurant"]["name"]);
-        $("#reviewBody").text("Comments: " + review["content"]);
+        $("#reviewBody").text("Comments: " + '"' + review["content"] + '"');
         $("#reviewCuisines").text("Cuisines: " + review["cuisine"]["name"]);
         $("#reviewRating").text(review["rating"]);
         $("#reviewDateVisited").date(review["date_visited"]);
