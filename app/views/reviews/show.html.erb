@@ -66,23 +66,3 @@
 </ul>
 </fieldset>
 <br/>
-
-<script type="text/javascript" charset="utf-8">
-$(function () {
-  $(".js-next").on("click", function() {
-    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/reviews/" + nextId + ".json", function(data) {
-      var review = data;
-      $(".restaurantName").text(review["restaurant"]["name"]);
-      $(".reviewBody").text("Comments:" + '<span>"' + review["content"] + '"</span>');
-      $(".reviewCuisines").text("Cuisines:" + review["cuisine"]["name"]);
-      $(".reviewRating").text(review["rating"]);
-      $(".reviewDateVisited").date(review["date_visited"]);
-      $(".reviewUpdatedAt").date(review["updated_at"]);
-      $(".userEmail").text(review["user"]["email"]);
-// re-set the id to current on the link
-      $(".js-next").attr("data-id", review["id"]);
-    });
-  });
-});
-</script>

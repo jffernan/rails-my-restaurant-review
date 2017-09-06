@@ -44,11 +44,10 @@
     <div class="field">
       <%= f.label :date_visited, "Date Visited (or today, #{Time.now.strftime("%m/%d/%Y")}):" %> &ensp;
       <%= f.date_field :date_visited %>
-      <br></br>
+      </br>
     </div>
     <div class="actions">
       <%= f.submit "Save Review" %>
-      </br>
     </div>
 <% end %>
 
@@ -59,31 +58,3 @@
   <span id="reviewRating"></span>
   <span id="reviewDateVisited"></span>
 </div>
-
-<div id="productResult">
-  <h2 id="productName"></h2>
-  <span id="productPrice"></span>
-  <p id="productDescription"></p>
-</div>
-
-<script type="text/javascript" charset="utf-8">
-  $(function () {
-    $('form').submit(function(event) {
-      //prevent form from submitting the default way
-      event.preventDefault();
-
-      var values = $(this).serialize();
-
-      var posting = $.post('/reviews', values);
-
-      posting.done(function(data) {
-        var review = data;
-        $("#restaurantName").text(review["restaurant"]["name"]);
-        $("#reviewBody").text(review["content"]);
-        $("#reviewCuisines").text(review["cuisines"]);
-        $("#reviewRating").text(review["rating"]);
-        $("#reviewDateVisited").date(review["date_visited"]);
-      });
-    });
-  });
-</script>

@@ -8,6 +8,7 @@
   <% @reviews.each do |review| %>
     <li>
       <%= render partial: "review", locals: {review: review} %>
+      <br/>
     </li>
   <% end %>
 </ul>
