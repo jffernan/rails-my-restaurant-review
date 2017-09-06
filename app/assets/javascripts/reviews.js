@@ -28,8 +28,7 @@ $(function () {
 
 //reviews/show.html.erb for 'Next' review button on Show Page
 $(function () {
-  $(".js-next").on("click", function(e) {
-    e.preventDefault();
+  $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/reviews/" + nextId + ".json", function(data) {
       var review = data;
