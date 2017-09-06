@@ -1,7 +1,7 @@
 //reviews/index.html.erb for 'Load Reviews' link on Show Page
 $(function() {
   $("a.load_reviews").on("click", function(e) {
-    e.preventDefault();p
+    e.preventDefault();
  //Send AJAX HIGH-LEVEL get request
   $.get(this.href).success(function(json) {
     var $ol = $("div.reviews ol")
@@ -33,7 +33,7 @@ $(function () {
     $.get("/reviews/" + nextId + ".json", function(data) {
       var review = data;
       $(".restaurantName").text(review["restaurant"]["name"]);
-      $(".reviewBody").text("Comments:" + review["content"]);
+      $(".reviewBody").text("Comments: " + review["content"]);
       $(".reviewCuisines").text("Cuisines:" + review["cuisine"]["name"]);
       $(".reviewRating").text(review["rating"]);
       $(".reviewDateVisited").date(review["date_visited"]);
