@@ -46,9 +46,9 @@ $(function () {
 
 //reviews/_form.html.erb for New review form to render on same New page
   $(function () {
-    $('form').submit(function(e) {
+    $('form').submit(function(event) {
       //prevent form from submitting the default way
-      e.preventDefault();
+      event.preventDefault();
 
       var values = $(this).serialize();
 
