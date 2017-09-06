@@ -57,9 +57,9 @@ $(function () {
 
       posting.done(function(data) {
         var review = data;
-        $("#restaurantName").text(review["restaurant"]["name"]);
-        $("#reviewBody").text(review["content"]);
-        $("#reviewCuisines").text(review["cuisines"]);
+        $("#restaurantName").text("Review Saved For: " + review["restaurant"]["name"]);
+        $("#reviewBody").text("Comments: " + review["content"]);
+        $("#reviewCuisines").text("Cuisines: " + review["cuisine"]["name"]);
         $("#reviewRating").text(review["rating"]);
         $("#reviewDateVisited").date(review["date_visited"]);
       });
