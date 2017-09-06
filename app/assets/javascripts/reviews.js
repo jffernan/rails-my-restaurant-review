@@ -16,8 +16,8 @@ $(function() {
 
 //reviews/index.html.erb for 'More' reviews link on Index Page
 $(function () {
-  $(".js-more").on('click', function(e) {
-    e.preventDefault();
+  $(".js-more").on('click', function() {
+    console.log("You clicked this");
     var id = $(this).data("id");
     $.get("/reviews/" + id + ".json", function(data) {
       var review = data;
