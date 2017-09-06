@@ -1,10 +1,7 @@
 <fieldset>
 <legend>
-  <h3 class="restaurantName">
-    <% if current_user == @review.user %>
-    Your
-    <% end %>
-    Review of "<%= link_to "#{@current_restaurant.name.upcase_first}", restaurant_path(@current_restaurant) %> Restaurant"
+  <h3 class="restaurantName">Restaurant Name:
+  <%= link_to "#{@current_restaurant.name.upcase_first}", restaurant_path(@current_restaurant) %>
   </h3>
 </legend>
 <br/>
