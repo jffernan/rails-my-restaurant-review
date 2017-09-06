@@ -16,8 +16,9 @@ $(function() {
 $(function () {
   $(".js-more").on('click', function() {
     var id = $(this).data("id");
-    $.get("/reviews/" + id + "/review_data", function(data) {
-      $("#body-" + id).html(data["content"]);
+    $.get("/reviews/" + id + ".json", function(data) {
+      var review = data;
+      $("#body-" + id).html(review["content"]);
     });
   });
 });
