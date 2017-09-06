@@ -6,11 +6,15 @@
   <li>
     <% if logged_in? %>
       <%= link_to "You", user_path(current_user) %>
+      - Review Count:
+      (<%= current_user.reviews.count %>)
     <% end %>
   </li>
   <% @users.each do |user| %>
     <li>
       <%= link_to user.email.upcase_first, user %>
+      - Review Count:
+      (<%= user.reviews.count %>)
     </li>
   <% end %>
 </ul>
