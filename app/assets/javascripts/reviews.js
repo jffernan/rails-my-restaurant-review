@@ -1,6 +1,7 @@
 //reviews/index.html.erb for 'Load Reviews' link on Show Page
 $(function() {
   $("a.load_reviews").on("click", function(e) {
+    e.preventDefault();p
  //Send AJAX HIGH-LEVEL get request
   $.get(this.href).success(function(json) {
     var $ol = $("div.reviews ol")
@@ -10,13 +11,13 @@ $(function() {
     });
   });
  //Load response into HTML of page
-   e.preventDefault();
  });
 });
 
 //reviews/index.html.erb for 'More' reviews link on Index Page
 $(function () {
-  $(".js-more").on('click', function() {
+  $(".js-more").on('click', function(e) {
+    e.preventDefault();
     var id = $(this).data("id");
     $.get("/reviews/" + id + ".json", function(data) {
       var review = data;
@@ -27,7 +28,8 @@ $(function () {
 
 //reviews/show.html.erb for 'Next' review button on Show Page
 $(function () {
-  $(".js-next").on("click", function() {
+  $(".js-next").on("click", function(e) {
+    e.preventDefault();
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/reviews/" + nextId + ".json", function(data) {
       var review = data;
@@ -46,9 +48,9 @@ $(function () {
 
 //reviews/_form.html.erb for New review form to render on same New page
   $(function () {
-    $('form').submit(function(event) {
+    $('form').submit(function(e) {
       //prevent form from submitting the default way
-      event.preventDefault();
+      e.preventDefault();
 
       var values = $(this).serialize();
 
