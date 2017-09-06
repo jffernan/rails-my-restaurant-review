@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
     @users = User.all.alphabetical_order.page(params[:page]) #need for user filter
     if params[:user_id]
       @reviews = User.find(params[:user_id]).reviews.page(params[:page])#Show all reviews for link_to specific user
+      render :layout => false
     elsif params[:restaurant_id]
       @reviews = Restaurant.find(params[:restaurant_id]).reviews.page(params[:page])#Show all reviews for link_to specific restaurant
       #render :json => @reviews
