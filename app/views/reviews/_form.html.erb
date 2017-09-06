@@ -58,3 +58,25 @@
   <span id="reviewRating"></span>
   <span id="reviewDateVisited"></span>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+    $('form').submit(function(event) {
+      //prevent form from submitting the default way
+      event.preventDefault();
+
+      var values = $(this).serialize();
+
+      var posting = $.post('/reviews', values);
+
+      posting.done(function(data) {
+        var review = data;
+        $("#restaurantName").text(review["restaurant"]["name"]);
+        $("#reviewBody").text("Comments: " + '"' + review["content"] + '"');
+        $("#reviewCuisines").text("Cuisines: " + review["cuisine"]["name"]);
+        $("#reviewRating").text("Rating: " + review["rating"]);
+        $("#reviewDateVisited").date("Date Visited: " + review["date_visited"]);
+      });
+    });
+  });
+  </script>

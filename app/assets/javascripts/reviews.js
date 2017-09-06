@@ -43,24 +43,3 @@ $(function () {
     });
   });
 });
-
-//reviews/_form.html.erb for New review form to render on same New page
-  $(function () {
-    $('form').submit(function(event) {
-      //prevent form from submitting the default way
-      event.preventDefault();
-
-      var values = $(this).serialize();
-
-      var posting = $.post('/reviews', values);
-
-      posting.done(function(data) {
-        var review = data;
-        $("#restaurantName").text("Review Saved For: " + review["restaurant"]["name"]);
-        $("#reviewBody").text("Comments: " + '"' + review["content"] + '"');
-        $("#reviewCuisines").text("Cuisines: " + review["cuisine"]["name"]);
-        $("#reviewRating").text(review["rating"]);
-        $("#reviewDateVisited").date(review["date_visited"]);
-      });
-    });
-  });
