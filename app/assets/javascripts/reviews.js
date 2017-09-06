@@ -34,7 +34,7 @@ $(function () {
     $.get("/reviews/" + nextId + ".json", function(data) {
       var review = data;
       $(".restaurantName").text(review["restaurant"]["name"]);
-      $(".reviewBody").text("Comments:" + '<span>"' + review["content"] + '"</span>');
+      $(".reviewBody").text("Comments:" + " + review["content"] + ");
       $(".reviewCuisines").text("Cuisines:" + review["cuisine"]["name"]);
       $(".reviewRating").text(review["rating"]);
       $(".reviewDateVisited").date(review["date_visited"]);
