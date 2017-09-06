@@ -15,14 +15,3 @@
 <%= paginate @reviews, window:2 %>
 </fieldset>
 <br/>
-
-<script type="text/javascript" charset="utf-8">
-$(function () {
-  $(".js-more").on('click', function() {
-    var id = $(this).data("id");
-    $.get("/reviews/" + id + "/review_data", function(data) {
-      $("#body-" + id).html(data["content"]);
-    });
-  });
-});
-</script>
