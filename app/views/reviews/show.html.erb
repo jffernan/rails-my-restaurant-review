@@ -61,9 +61,8 @@
   <div class="reviews">
     <ol></ol>
   </div>
-  <li>
-    <a href="#" class="js-next" data-id="<%=@review.id%>">Next Review...</a>
-  </li>
+  <button class="js-next" data-id="<%=@review.id%>">Next Review...
+  </button>
 </ul>
 </fieldset>
 <br/>
@@ -72,16 +71,17 @@
 $(function () {
   $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.getJSON("/reviews/" + nextId + "/review_data", function(data) {
-      $(".restaurantName").text(data["restaurant"]["name"]);
-      $(".reviewBody").text(data["content"]);
-      $(".reviewCuisines").text(data["cuisines"]);
-      $(".reviewRating").text(data["rating"]);
-      $(".reviewDateVisited").date(data["date_visited"]);
-      $(".reviewUpdatedAt").date(data["updated_at"]);
-      $(".userEmail").text(data["user"]["email"]);
+    $.get("/reviews/" + nextId + ".json", function(data) {
+      var review = data;
+      $(".restaurantName").text(review["restaurant"]["name"]);
+      $(".reviewBody").text("Comments:" + review["content"]);
+      $(".reviewCuisines").text("Cuisines:" + review["cuisine"]["name"]);
+      $(".reviewRating").text(review["rating"]);
+      $(".reviewDateVisited").date(review["date_visited"]);
+      $(".reviewUpdatedAt").date(review["updated_at"]);
+      $(".userEmail").text(review["user"]["email"]);
 // re-set the id to current on the link
-      $(".js-next").attr("data-id", data["id"]);
+      $(".js-next").attr("data-id", review["id"]);
     });
   });
 });

@@ -8,13 +8,6 @@
   <% @reviews.each do |review| %>
     <li>
       <%= render partial: "review", locals: {review: review} %>
-      by
-      <% if current_user == review.user %>
-        <b><%= link_to "you", user_reviews_path(review.user) %></b>
-      <% else %>
-        <%= link_to review.user.email, user_reviews_path(review.user) %>
-      <% end %>&emsp;
-      (Posted <%= time_ago_in_words(review.updated_at) %> ago.)&emsp;
     </li>
   <% end %>
 </ul>
@@ -27,7 +20,7 @@
 $(function () {
   $(".js-more").on('click', function() {
     var id = $(this).data("id");
-    $.getJSON("/reviews/" + id + "/review_data", function(data) {
+    $.get("/reviews/" + id + "/review_data", function(data) {
       $("#body-" + id).html(data["content"]);
     });
   });
