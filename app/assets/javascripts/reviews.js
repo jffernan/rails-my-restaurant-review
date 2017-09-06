@@ -1,8 +1,7 @@
 //reviews/index.html.erb for 'Load Reviews' link on Show Page
 $(function() {
   $("a.load_reviews").on("click", function(e) {
-    e.preventDefault();
- //Send AJAX HIGH-LEVEL get request
+   //Send AJAX HIGH-LEVEL get request
   $.get(this.href).success(function(json) {
     var $ol = $("div.reviews ol")
     $ol.html(" ")
@@ -11,6 +10,7 @@ $(function() {
     });
   });
  //Load response into HTML of page
+  e.preventDefault();
  });
 });
 
