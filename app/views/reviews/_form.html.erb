@@ -52,11 +52,11 @@
 <% end %>
 
 <div id="reviewResult">
-  <h3 id="restaurantName"></h3>
-  <span id="reviewBody"></span>
-  <span id="reviewCuisines"></span>
-  <span id="reviewRating"></span>
-  <span id="reviewDateVisited"></span>
+  <h4 id="restaurantName"></h4>
+  <p id="reviewBody"></p>
+  <p id="reviewCuisines"></p>
+  <p id="reviewRating"></p>
+  <p id="reviewDateVisited"></p>
 </div>
 
 <script type="text/javascript" charset="utf-8">
@@ -71,11 +71,11 @@ $(function () {
 
       posting.done(function(data) {
         var review = data;
-        $("#restaurantName").(review["restaurant"]["name"]);
-        $("#reviewBody").text("Comments: " + '"' + review["content"] + '"');
-        $("#reviewCuisines").text("Cuisines: " + review["cuisine"]["name"]);
+        $("#restaurantName").text("Review Saved For: " + review["restaurant"]["name"]);
+        $("#reviewBody").text("Comments: " + review["content"]);
+        //$("#reviewCuisines").text(review["cuisines"]["name"]);
         $("#reviewRating").text("Rating: " + review["rating"]);
-        $("#reviewDateVisited").date("Date Visited: " + review["date_visited"]);
+        $("#reviewDateVisited").text(review["date_visited"]);
       });
     });
   });
