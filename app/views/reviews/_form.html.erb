@@ -75,12 +75,12 @@ $(function () {
         $("#reviewBody").text("Comments: " + review["content"]);
         $("#reviewCuisines").text(review["cuisines"]["name"]);
         $("#reviewRating").text("Rating: " + review["rating"]);
-        var split = (review["date_visited"]).split(' ');
+        var split = text(review["date_visited"]).split(' ');
         var date = split.splice(1,2);
         var year = split.splice(0);
         date.push(year);
         date = date.join('/');
-        $("#reviewDateVisited").text(`Date Visited:` + `${date}`);
+        $("#reviewDateVisited").text(`${date}`);
       });
     });
   });
