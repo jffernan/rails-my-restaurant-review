@@ -30,7 +30,8 @@ $(function () {
   $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/reviews/" + nextId + ".json", function(data) {
-      var review = data; //how to create link_to in js
+      var review = data; //rn=text(review["restaurant"]["name"])
+      //$(".restaurantName").html('<a href=' + "/reviews/:id" + '>'+text(rn)+'</a>');
       $(".restaurantName").text("Restaurant Name: " + review["restaurant"]["name"]);
       $(".reviewBody").text("Comments: " + '"' + review["content"] + '"');
       $(".reviewCuisines").text("Cuisines:" + review["cuisine"]["name"]);
