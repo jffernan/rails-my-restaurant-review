@@ -56,7 +56,7 @@
   <p id="reviewBody"></p>
   <p id="reviewCuisines"></p>
   <p id="reviewRating"></p>
-  <p id="reviewDateVisited"></p>
+  <span id="reviewDateVisited"></span>
 </div>
 
 <script type="text/javascript" charset="utf-8">
@@ -73,9 +73,14 @@ $(function () {
         var review = data;
         $("#restaurantName").text("Review Saved For: " + review["restaurant"]["name"]);
         $("#reviewBody").text("Comments: " + review["content"]);
-        //$("#reviewCuisines").text(review["cuisines"]["name"]);
+        $("#reviewCuisines").text(review["cuisines"]["name"]);
         $("#reviewRating").text("Rating: " + review["rating"]);
-        $("#reviewDateVisited").text(review["date_visited"]);
+        var split = (review["date_visited"]).split(' ');
+        var date = split.splice(1,2);
+        var year = split.splice(0);
+        date.push(year);
+        date = date.join('/');
+        $("#reviewDateVisited").text(`Date Visited:` + `${date}`);
       });
     });
   });
