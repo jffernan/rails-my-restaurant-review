@@ -4,7 +4,7 @@ Welcome to My Restaurant Review Rails app where you can signup for a User accoun
 
 ## Installation
 
-To use this app, clone from GitHub 'git clone git@github.com:jffernan/rails-my-restaurant-review' , then run `bundle install`, and run `rails server` or 'rails s'. Last, click on the http link to open my app in your browser.
+To use this app, clone from GitHub 'git clone git@github.com:jffernan/rails-my-restaurant-review', 'cd' to the new directory, then run `bundle install`, and last, run `rails server` or 'rails s'. Last, click on the http link to open my app in your browser. If you run 'rake db:seed' in the terminal, this will seed the database with fake Users & Reviews.
 
 ## Contributing
 
