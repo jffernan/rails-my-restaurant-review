@@ -71,10 +71,12 @@ $(function () {
 
       posting.done(function(data) {
         var review = data;
+        var name = $("#restaurantName").text(review["restaurant"]["name"]);
+        document.getElementById("restaurantName").innerHTML = `Your Review Saved For: ${name}!`;
         $("#restaurantName").text("Review Saved For: " + review["restaurant"]["name"]);
-        $("#reviewBody").text("Comments: " + review["content"]);
+        $("#reviewBody").text("You commented " + review["content"]);
         $("#reviewCuisines").text(review["cuisines"]["name"]);
-        $("#reviewRating").text("Rating: " + review["rating"]);
+        $("#reviewRating").text("You gave a rating of: " + review["rating"] + review["restaurant"]["name"]);
         var split = text(review["date_visited"]).split(' ');
         var date = split.splice(1,2);
         var year = split.splice(0);
