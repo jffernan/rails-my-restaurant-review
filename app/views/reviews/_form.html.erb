@@ -56,7 +56,8 @@
   <p id="reviewBody"></p>
   <p id="reviewCuisines"></p>
   <p id="reviewRating"></p>
-  <span id="reviewDateVisited"></span>
+  <p id="reviewDateVisited"></p>
+  <h4 id="reviewConfirm"></h4>
 </div>
 
 <script type="text/javascript" charset="utf-8">
@@ -73,11 +74,14 @@ $(function () {
         var review = data;
         var name = $("#restaurantName").text(review["restaurant"]["name"] + ".");
         //document.getElementById("restaurantName") = `Your Review Saved For: ${name}`;
+        $('#restaurantName').css({ 'font-weight': 'bold' });
         $("#restaurantName").text("Your Review Saved For: " + '"' + review["restaurant"]["name"] + '"' + ".");
-        $("#reviewBody").text("You commented: " + '"' + review["content"] + '"');
-        //$("#reviewCuisines").text(review["cuisines"]["name"]);
+        $("#reviewBody").text("You commented: " + '"' + review["content"] + '"' + ".");
+        //$(".reviewCuisines").text(review["cuisine"]["name"]);
         $("#reviewRating").text("You gave a " + '"' + review["rating"] + '"' + " rating for " + '"' +review["restaurant"]["name"] + '"' + ".");
-        $("#reviewDateVisited").text("Date Visited: " + review["date_visited"] + ".");
+        //$("#reviewDateVisited").text("Date Visited: " + review["date_visited"] + ".");
+        $('#reviewConfirm').css({ 'font-weight': 'bold' });
+        $('#reviewConfirm').text("THANK YOU for posting your restaurant review!");
       });
     });
   });
