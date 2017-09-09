@@ -77,6 +77,17 @@ $(function () {
         $("#reviewBody").text("You commented " + review["content"]);
         $("#reviewCuisines").text(review["cuisines"]["name"]);
         $("#reviewRating").text("You gave a rating of: " + review["rating"] + review["restaurant"]["name"]);
+        
+        function Review(rating) {
+          this.rating = rating;
+          this.name = name;
+        }
+        Review.prototype.showRating = function() {
+        document.getElementById("reviewRating") = ("You gave a rating of " + this.rating);
+        }
+        var userRating = new Review(text(review["rating"]);
+        userRating.showRating ();
+
         var split = text(review["date_visited"]).split(' ');
         var date = split.splice(1,2);
         var year = split.splice(0);
