@@ -21,8 +21,9 @@
       <%= f.text_area :content, placeholder: "Enter Review Comments:", rows: 5, cols: 100 %>
       <br></br> <!--Following user submits nested_attribute, cuisine -->
     </div>
+
     <div class="col-md-4 cuisinecheckbox">
-      <%= f.label :cuisine, "Choose Cuisine(s):" %> &ensp;
+      <b>Choose Cuisine(s): </b>&ensp;
       <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name %>
       <%= f.fields_for :cuisines, @review.cuisines.build do |cuisine_form| %>
         <%= cuisine_form.text_field :name, placeholder: "Enter New Cuisine:" %>
@@ -30,7 +31,7 @@
       <br></br>
     </div>
     <div class="col-md-4 ratingradiobuttons">
-      Restaurant Rating: &ensp;
+      <b>Restaurant Rating: </b>&ensp;
       <%= f.radio_button :rating, 'Excellent' %>
       <%= f.label :rating, 'Excellent', value: 'Excellent' %>
       <%= f.radio_button :rating, 'Good' %>

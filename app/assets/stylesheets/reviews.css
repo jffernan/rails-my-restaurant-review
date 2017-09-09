@@ -5,3 +5,7 @@
 .ratingradiobuttons input[type="radio"] + label {
     margin-right: 10px;
 }
+
+.field label {
+   font-weight : bold;
+ }
