@@ -25,6 +25,8 @@
     <div class="col-md-4 cuisinecheckbox">
       <b>Choose Cuisine(s): </b>&ensp;
       <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name %>
+    </div>
+    <div class="field">
       <%= f.fields_for :cuisines, @review.cuisines.build do |cuisine_form| %>
         <%= cuisine_form.text_field :name, placeholder: "Enter New Cuisine:" %>
       <% end %>
@@ -51,6 +53,17 @@
       <%= f.submit "Save Review" %>
     </div>
 <% end %>
+
+<script>
+$(function(){
+    $(".field").focus(function(){
+        $(this).css("background-color", "#cccccc");
+    });
+    $(".field").blur(function(){
+        $(this).css("background-color", "#ffffff");
+    });
+});
+</script>
 
 <div id="reviewResult">
   <h4 id="restaurantName"></h4>
