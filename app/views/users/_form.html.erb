@@ -1,3 +1,14 @@
+<script>
+$(document).ready(function(){
+    $(".field").focus(function(){
+        $(this).css("background-color", "#cccccc");
+    });
+    $(".field").blur(function(){
+        $(this).css("background-color", "#ffffff");
+    });
+});
+</script>
+
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -13,14 +24,20 @@
     </div>
   <% end %>
   <br/>
+<div class="field">
   <%= f.label :email %>
   <%= f.text_field :email %>
   <br></br>
+</div>
+<div class="field">
   <%= f.label :password %>
   <%= f.password_field :password %>
   <br></br>
+</div>
+<div class="field">
   <%= f.label :password_confirmation, "Confirm Password" %>
   <%= f.password_field :password_confirmation %>
   <br></br>
+</div>
   <%= f.submit "Save User" %>
   <% end %>
