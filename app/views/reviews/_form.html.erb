@@ -21,7 +21,7 @@
       <%= f.text_area :content, placeholder: "Enter Review Comments:", rows: 5, cols: 100 %>
       <br></br> <!--Following user submits nested_attribute, cuisine -->
     </div>
-    <div class="field">
+    <div class="col-md-4 cuisinecheckbox">
       <%= f.label :cuisine, "Choose Cuisine(s):" %> &ensp;
       <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name %>
       <%= f.fields_for :cuisines, @review.cuisines.build do |cuisine_form| %>
@@ -29,7 +29,7 @@
       <% end %>
       <br></br>
     </div>
-    <div class="field">
+    <div class="col-md-4 ratingradiobuttons">
       Restaurant Rating: &ensp;
       <%= f.radio_button :rating, 'Excellent' %>
       <%= f.label :rating, 'Excellent', value: 'Excellent' %>
@@ -57,7 +57,7 @@
   <p id="reviewCuisines"></p>
   <p id="reviewRating"></p>
   <p id="reviewDateVisited"></p>
-  <h4 id="reviewConfirm"></h4>
+  <h4 id="reviewThankYou"></h4>
 </div>
 
 <script type="text/javascript" charset="utf-8">
@@ -72,16 +72,15 @@ $(function () {
 
       posting.done(function(data) {
         var review = data;
-        var name = $("#restaurantName").text(review["restaurant"]["name"] + ".");
-        //document.getElementById("restaurantName") = `Your Review Saved For: ${name}`;
+        var name = $("#restaurantName").text(review["restaurant"]["name"]);
         $('#restaurantName').css({ 'font-weight': 'bold' });
-        $("#restaurantName").text("Your Review Saved For: " + '"' + review["restaurant"]["name"] + '"' + ".");
-        $("#reviewBody").text("You commented: " + '"' + review["content"] + '"' + ".");
+        $("#restaurantName").text("Your Review Saved For: " + '"' + review["restaurant"]["name"] + '."');
+        $("#reviewBody").text("You commented: " + '"' + review["content"] + '."');
         //$(".reviewCuisines").text(review["cuisine"]["name"]);
-        $("#reviewRating").text("You gave a " + '"' + review["rating"] + '"' + " rating for " + '"' +review["restaurant"]["name"] + '"' + ".");
+        $("#reviewRating").text("You gave " + '"' + review["rating"] + '"' + " rating for " + '"' +review["restaurant"]["name"] + '."');
         //$("#reviewDateVisited").text("Date Visited: " + review["date_visited"] + ".");
-        $('#reviewConfirm').css({ 'font-weight': 'bold' });
-        $('#reviewConfirm').text("THANK YOU for posting your restaurant review!");
+        $('#reviewThankYou').css({ 'font-weight': 'bold' });
+        $('#reviewThankYou').text("THANK YOU for posting your restaurant review!");
       });
     });
   });
