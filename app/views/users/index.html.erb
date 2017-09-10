@@ -2,7 +2,7 @@
 <legend>
   <h3>Users Directory</h3>
 </legend>
-<ul>
+<ol>
   <li>
     <% if logged_in? %>
       <%= link_to "You", user_path(current_user) %>
@@ -17,7 +17,7 @@
       (<b><%= user.reviews.count %></b>)
     </li>
   <% end %>
-</ul>
+</ol>
 <%= page_entries_info @users %>
 <%= paginate @users, window:2 %>
 </fieldset>
