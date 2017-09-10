@@ -1,16 +1,29 @@
+<script>
+$(document).ready(function(){
+    $(".field").focus(function(){
+        $(this).css("background-color", "#cccccc");
+    });
+    $(".field").blur(function(){
+        $(this).css("background-color", "#ffffff");
+    });
+});
+</script>
+
 <fieldset>
 <legend>
   <h3>Log In</h3>
 </legend>
 <%= form_for(:session, url: login_path) do |f| %><!--:user login-->
   <br/> <!-- errors message will not work w/ form_for since no AR object -->
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <br></br>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br></br>
-  <%= f.submit "Login" %>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+    <%= f.submit "Login" %>
 <% end %>
 </fieldset>
 <br></br>
