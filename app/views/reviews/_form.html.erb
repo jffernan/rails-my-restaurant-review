@@ -90,9 +90,9 @@ $(function () {
         $('#restaurantName').css({ 'font-weight': 'bold' });
         $("#restaurantName").text("Your Review Saved For: " + '"' + review["restaurant"]["name"] + '."');
         $("#reviewBody").text("You commented: " + '"' + review["content"] + '."');
-        $("#reviewCuisines").val(review["cuisine"]["name"]);
+        //$("#reviewCuisines").val(review["cuisine"]["name"]);
         $("#reviewRating").text("You gave " + '"' + review["rating"] + '"' + " rating for " + '"' +review["restaurant"]["name"] + '."');
-        $("#reviewDateVisited").text("Date Visited: " + review["date_visited"].val() + ".");
+        //$("#reviewDateVisited").text("Date Visited: " + review["date_visited"].val() + ".");
         $('#reviewThankYou').css({ 'font-weight': 'bold' });
         $('#reviewThankYou').text("THANK YOU for posting your restaurant review!");
       });
