@@ -1,7 +1,6 @@
 <fieldset>
 <legend>
   <h3 id="restaurantName" class="restaurantName">Restaurant Name:
-    <% review.id %>
     <%= link_to "#{@current_restaurant.name.upcase_first}", restaurant_path(@current_restaurant) %>
   </h3>
 </legend>
