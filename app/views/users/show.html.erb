@@ -4,7 +4,7 @@
 </legend>
 <br/>
 <ul>
-  <li>Current Email: 
+  <li>Current Email:
     <%= @user.email %>
   </li>
   <br/>
@@ -15,12 +15,12 @@
   </li>
   <br/>
   <% end %>
-  <div class="reviews">
     <li>
       <%= link_to "Load Reviews", user_reviews_path(@user), :class => "load_reviews" %>
-    </li>   
+    </li>
+  <div class="reviews">
+    <ul></ul>
   </div>
-  <br/>
   <% if current_user == @user %>
   <li>
     <%= link_to "Submit New Review", new_user_review_path(@user) %>

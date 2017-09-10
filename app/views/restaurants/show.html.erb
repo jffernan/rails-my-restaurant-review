@@ -19,12 +19,12 @@
     (<%= @restaurant.reviews.count %>)
   </li>
   <br/>
+  <li>
+    <%= link_to "Load Reviews", restaurant_reviews_path(@restaurant), :class => "load_reviews" %>
+  </li>
   <div class="reviews">
-    <li>
-      <%= link_to "Load Reviews", restaurant_reviews_path(@restaurant), :class => "load_reviews" %>
-    </li>   
+    <ul></ul>
   </div>
-  </br>
   <li><b>More info, 'click' to search for:</b>&ensp;
     <a href = 'http://www.<%= "#{@restaurant.name}" %>.com'><%= @restaurant.name %></a>
   </li>
