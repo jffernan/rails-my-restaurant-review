@@ -1,14 +1,14 @@
 $(document).ready(function() {
   $("a.load_reviews").on("click", function(e){
-//Send AJAX LOW-LEVEL get request
-  $.ajax({
-    method: "GET",
-    url: this.href
-  }).done(function(response) {
-//get response
-    $("div.reviews").html(response)
-//Load data into html
+//Send AJAX HIGH-LEVEL get request
+  $.get(this.href).success(function(json) {
+    var $li = $("div.reviews li")
+    $li.html(" ")
+    json.forEach(function(review) {
+      $li.append("<li>" + review + "</li>");
+    });
   });
-  e.preventDefault();      
-  })
-})
+ //Load response into HTML of page
+  e.preventDefault();
+ });
+});
