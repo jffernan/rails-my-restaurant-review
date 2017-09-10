@@ -7,14 +7,14 @@
     <% if logged_in? %>
       <%= link_to "You", user_path(current_user) %>
       - Review Count:
-      (<%= current_user.reviews.count %>)
+    (<b><%= current_user.reviews.count %></b>)
     <% end %>
   </li>
   <% @users.each do |user| %>
     <li>
       <%= link_to user.email.upcase_first, user %>
       - Review Count:
-      (<%= user.reviews.count %>)
+      (<b><%= user.reviews.count %></b>)
     </li>
   <% end %>
 </ul>
