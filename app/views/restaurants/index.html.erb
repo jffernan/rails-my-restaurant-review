@@ -8,6 +8,8 @@
     <% @restaurants.each do |restaurant| %>
       <li>
         <%= link_to restaurant.name, restaurant %>
+        - Review Count:
+        (<b><%= restaurant.reviews.count %></b>)
       </li>
     <% end %>
   </ol>
