@@ -15,12 +15,12 @@
   </li>
   <br/>
   <% end %>
-  <li>
+  <div class="reviews">
+    <li>
       <%= link_to "Load Reviews", user_reviews_path(@user), :class => "load_reviews" %>
-  </li>
-    <div class="reviews">
-      <ol></ol>
-    </div>
+    </li>   
+  </div>
+  <br/>
   <% if current_user == @user %>
   <li>
     <%= link_to "Submit New Review", new_user_review_path(@user) %>
