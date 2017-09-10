@@ -52,12 +52,12 @@
     <%= link_to "Edit Review", edit_user_review_path(@review.user, @review) if @review.user %>
   </li>
   <br/>
-  <li>
-    <%= link_to "Load More Reviews", restaurant_reviews_path(@review.restaurant), :class => "load_reviews" %>
-  </li>
   <div class="reviews">
-    <ol></ol>
+    <li>
+    <%= link_to "Load More Reviews", restaurant_reviews_path(@review.restaurant), :class => "load_reviews" %>
+    </li>
   </div>
+  </br>
   <button class="js-next" data-id="<%=@review.id%>">Next Review...
   </button>
 </ul>
