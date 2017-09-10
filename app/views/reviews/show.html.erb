@@ -1,7 +1,8 @@
 <fieldset>
 <legend>
   <h3 id="restaurantName" class="restaurantName">Restaurant Name:
-  <%= link_to "#{@current_restaurant.name.upcase_first}", restaurant_path(@current_restaurant) %>
+    <% review.id %>
+    <%= link_to "#{@current_restaurant.name.upcase_first}", restaurant_path(@current_restaurant) %>
   </h3>
 </legend>
 <br/>
@@ -58,8 +59,7 @@
     </li>
   </div>
   </br>
-  <button class="js-next" data-id="<%=@review.id%>">Next Review...
-  </button>
+  <button class="js-next" data-id="<%= review.id %>">Next Review...</button>
 </ul>
 </fieldset>
 <br/>
