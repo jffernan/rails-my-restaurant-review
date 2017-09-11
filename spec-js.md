@@ -7,7 +7,7 @@ Specs:
 - [x] Include at least one has_many relationship in information rendered via JSON and appended to the DOM. => User has_many Reviews.  A specifc user's reviews are rendered on the User show page.
 - [x] Use your Rails API and a form to create a resource and render the response without a page refresh. => New Review form.
 - [x] Translate JSON responses into js model objects => AJAX post request of create a New Review rendered on the same page below the form.
-- [x] At least one of the js model objects must have at least one method added by your code to the prototype. AJAX post request of create a New Review, which renders the new instance of the review on the same page below the form.
+- [x] At least one of the js model objects must have at least one method added by your code to the prototype. AJAX post request of create a New Review, with new method 'showRating' displaying rating in a confirmation message on the same page below the form.
 
 Confirm
 - [x] You have a large number of small Git commits => done.
