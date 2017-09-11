@@ -13,10 +13,6 @@ class UsersController < ApplicationController
   def show
     @reviews = @user.reviews
     
-    respond_to do |format|
-      format.html { render :show }
-      format.json { render json: @user}
-    end
   end
 
   def new
