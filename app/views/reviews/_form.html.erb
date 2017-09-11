@@ -91,6 +91,7 @@ $(function () {
         $("#reviewBody").text("You commented: " + '"' + review["content"] + '".');
         //$("#reviewCuisines").val(review["cuisine"]["name"]);
         $(function(){
+          //New showRating method created via jQuery on Review prototype w/ bold formats on rating & name attributes.
           $.extend({
             showRating: function() {
               //$("#reviewRating").text("You gave " + '"' + review["rating"] + '"' + " rating for " + '"' + review["restaurant"]["name"] + '."')
@@ -98,7 +99,7 @@ $(function () {
               var txt2 = $("<b></b>").text(review["rating"]);
               var txt3 = '" rating for ';             // Create text with jQuery
               var txt4 = $("<b></b>").text(review["restaurant"]["name"] + '.');
-              $('#reviewRating').append(txt1, txt2, txt3, txt4);      // Append text to Thank you Paragraph
+              $('#reviewRating').append(txt1, txt2, txt3, txt4);      // Append text to Review Rating message
             }
           });
           $.showRating();
