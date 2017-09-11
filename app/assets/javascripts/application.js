@@ -15,4 +15,4 @@
 //= require_tree .
 //= reviews
 //= restaurants
-//= users
+//= active_admin
