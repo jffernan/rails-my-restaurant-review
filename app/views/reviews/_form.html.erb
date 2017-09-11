@@ -87,7 +87,6 @@ $(function () {
 
       posting.done(function(data) {
         var review = data;
-        var name = $("#restaurantName").text(review["restaurant"]["name"]);
         $('#restaurantName').css({ 'font-weight': 'bold' });
         $("#restaurantName").text("Your Review Saved For: " + '"' + review["restaurant"]["name"] + '."');
         $("#reviewBody").text("You commented: " + '"' + review["content"] + '".');
@@ -95,8 +94,9 @@ $(function () {
         $("#reviewRating").text("You gave " + '"' + review["rating"] + '"' + " rating for " + '"' + review["restaurant"]["name"] + '."');
         //$("#reviewDateVisited").text("Date Visited: " + review["date_visited"].val() + ".");
         var txt1 = $("<b></b>").text("THANK YOU ");         // Create text with jQuery
-        var txt2 = "for posting at My Restaurant Review!";   // Create text with HTML
-        $('#reviewThankYou').append(txt1, txt2);            // Append text to Thank you Paragraph
+        var txt2 = "for posting at ";                       // Create text with HTML
+        var txt3 = $("<b></b>").text("My Restaurant Review!");           
+        $('#reviewThankYou').append(txt1, txt2, txt3);      // Append text to Thank you Paragraph
       });
     });
   });
