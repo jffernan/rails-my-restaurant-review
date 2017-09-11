@@ -69,6 +69,7 @@ $(function(){
   <h4 id="restaurantName"></h4>
   <p id="reviewBody"></p>
   <p id="reviewCuisines"></p>
+  <p id="message"></p>
   <p id="reviewRating"></p>
   <p id="reviewDateVisited"></p>
   <h4 id="reviewThankYou"></h4>
@@ -93,8 +94,9 @@ $(function () {
         //$("#reviewCuisines").val(review["cuisine"]["name"]);
         $("#reviewRating").text("You gave " + '"' + review["rating"] + '"' + " rating for " + '"' + review["restaurant"]["name"] + '."');
         //$("#reviewDateVisited").text("Date Visited: " + review["date_visited"].val() + ".");
-        $('#reviewThankYou').css({ 'font-weight': 'bold' });
-        $('#reviewThankYou').text("THANK YOU for posting your restaurant review!");
+        var txt1 = $("<b></b>").text("THANK YOU ");         // Create text with jQuery
+        var txt2 = "for posting your restaurant review!";   // Create text with HTML
+        $('#reviewThankYou').append(txt1, txt2);            // Append text to Thank you Paragraph
       });
     });
   });
