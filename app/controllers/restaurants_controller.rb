@@ -9,11 +9,6 @@ class RestaurantsController < ApplicationController
   def show
     @reviews = @restaurant.reviews
     @cuisines = @restaurant.cuisines
-    
-    respond_to do |format|
-      format.html { render :show }
-      format.json { render json: @restaurant}
-    end
   end
 
   private
