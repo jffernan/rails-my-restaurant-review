@@ -94,7 +94,12 @@ $(function () {
         $(function(){
           $.extend({
             showRating: function() {
-              $("#reviewRating").text("You gave " + '"' + review["rating"] + '"' + " rating for " + '"' + review["restaurant"]["name"] + '."')
+              //$("#reviewRating").text("You gave " + '"' + review["rating"] + '"' + " rating for " + '"' + review["restaurant"]["name"] + '."')
+              var txt1 = 'You gave "';                       // Create text with HTML
+              var txt2 = $("<b></b>").text(review["rating"]);
+              var txt3 = '" rating for ';             // Create text with jQuery
+              var txt4 = $("<b></b>").text(review["restaurant"]["name"] + '.');
+              $('#reviewRating').append(txt1, txt2, txt3, txt4);      // Append text to Thank you Paragraph
             }
           });
           $.showRating();
