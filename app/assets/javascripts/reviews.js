@@ -30,7 +30,7 @@ $(function () {
   $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/reviews/" + nextId + ".json", function(data) {
-      var review = data; //val()Get value of form fields
+       //val()Get value of form fields
 //text() Get text content of selected element
 //html() Get HTML content of selected element
       $('.restName').css({ 'font-weight': 'bold' });
