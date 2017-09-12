@@ -19,7 +19,7 @@
                 rating: rating)
 end
 
-10.times do |n|
+5.times do |n|
   email = Faker::Internet.unique.safe_email
   password = "password"
   password_confirmation = "password"
