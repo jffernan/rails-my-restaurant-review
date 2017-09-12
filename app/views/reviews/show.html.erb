@@ -1,64 +1,85 @@
 <fieldset>
 <legend>
-  <h3 class="restaurantName">Restaurant Name:
-    <%= link_to "#{@current_restaurant.name.upcase_first}", restaurant_path(@current_restaurant) %>
-  </h3>
+  <h3>Review Page</h3>
 </legend>
 <br/>
 <ul>
-  <li class="reviewBody">
-    Comments: "<%= @review.content %>"
+  <li>Restaurant Name:&ensp;
+    <span class="restName"><b><%= @review.restaurant_name %></b></span>
+    <!--<b><%= link_to "#{@current_restaurant.name.upcase_first}", restaurant_path(@current_restaurant) %></b>-->
   </li>
   <br/>
-  <li class="reviewCuisines">
-    Cuisine(s):
-    <%= @review.cuisines.map{|cuisine| cuisine.name}.join(', ').to_s + "." %>
+  <li>Comments:&ensp;
+    "<span class="reviewBody"><%= @review.content %></span>"
   </li>
   <br/>
-  <li class="reviewRating">
-    Rating:
-    <% if @review.rating == "Excellent" %>
-      <b>**<%= link_to "#{@review.rating}", reviews_path(rating: "Excellent") %>**</b>
-    <% elsif @review.rating == "Good" %>
-      <b>**<%= @review.rating %>*</b>
-    <% elsif @review.rating == "Average" %>
-      <b>*<%= @review.rating %>*</b>
-    <% else %>
-      <b>*<%= @review.rating %></b>
-    <% end %>
+  <li>Cuisine(s):&ensp;
+    <span class="reviewCuisines">
+      <%= @review.cuisines.map{|cuisine| cuisine.name}.join(', ').to_s + "." %>
+    </span>
   </li>
   <br/>
-  <li class="reviewDateVisited">
-    <%= @review.date_visited.strftime("Date Visited: %m/%d/%Y") %>
+  <li>Rating:&ensp;
+    <span class="reviewRating">
+      <% if @review.rating == "Excellent" %>
+        <b><%= link_to "#{@review.rating}", reviews_path(rating: "Excellent") %></b>
+      <% elsif @review.rating == "Good" %>
+        <b><%= @review.rating %></b>
+      <% elsif @review.rating == "Average" %>
+        <b><%= @review.rating %></b>
+      <% else %>
+        <b><%= @review.rating %></b>
+      <% end %>
+    </span>
   </li>
   <br/>
-  <li class="reviewUpdatedAt">
-    <%= @review.updated_at.strftime("Date Reviewed: %m/%d/%Y") %>
+  <li>Date Visited:&ensp;
+    <span class="reviewDateVisited">
+      <%= @review.date_visited.strftime('%m/%d/%Y') %>
+    </span>
+  </li>
+  <br/>
+  <li>Date Reviewed:&ensp;
+    <span class="reviewUpdatedAt">
+      <%= @review.updated_at.strftime('%m/%d/%Y') %>
+    </span>
   </li>
   <br/>
 <% if current_user != @review.user %> <!--show only another's username-->
-  <li class="userEmail">
-    Reviewed by:
-    <b><%= @review.user.email %></b>
+  <li>Reviewed by:&ensp;
+    <span class="userEmail">
+      <b><%= @review.user.email %></b>
+    </span>
   </li>
   <br/>
 <% end %>
-  <li>
-    For more info about this restaurant, 'click' to web search for:
-    <a href = 'http://www.<%= "#{@current_restaurant.name}" %>.com'><%= @current_restaurant.name %></a>
-  </li>
-  <br/>
-  <li>
-    <%= link_to "Edit Review", edit_user_review_path(@review.user, @review) if @review.user %>
-  </li>
-  <br/>
-  <li>
-    <%= link_to "Load More Reviews", restaurant_reviews_path(@review.restaurant), :class => "load_reviews" %>
-  </li>
-  <div class="reviews">
-    <ul></ul>
-  </div>
-  <button class="js-next" data-id="<%= @review.id %>">Next Review...</button>
+  <button class="js-next" data-id="<%= @review.id %>">
+    Next Review...
+  </button>
 </ul>
+</fieldset>
+<br/>
+<fieldset>
+<legend>
+  <h3>More</h3>
+</legend>
+<br/>
+<li>For more info about this restaurant, 'click' to web search for:
+  <span class = "search">
+    <a href = 'http://www.<%= "#{@review.restaurant_name}" %>.com'>
+    <%= @review.restaurant_name %></a>
+  </span>
+</li>
+<br/>
+<li>
+  <%= link_to "Edit Review", edit_user_review_path(@review.user, @review) if @review.user %>
+</li>
+<br/>
+<li>
+  <%= link_to "Load More Reviews", restaurant_reviews_path(@review.restaurant), :class => "load_reviews" %>
+</li>
+<div class="reviews">
+  <ul></ul>
+</div>
 </fieldset>
 <br/>
