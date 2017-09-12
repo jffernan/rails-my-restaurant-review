@@ -31,17 +31,17 @@ $(function () {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/reviews/" + nextId + ".json", function(data) {
       var review = data; //val()Get value of form fields
-      //$(".restaurantName").html('<a href=' + "/reviews/:id" + '>'+text(rn)+'</a>');
-//text() Get text content of selected element or html() Get HTML content of selected element
+//text() Get text content of selected element
+//html() Get HTML content of selected element
       $('.restName').css({ 'font-weight': 'bold' });
       $(".restName").html(review["restaurant"]["name"]);
       $(".reviewBody").text(review["content"]);
       $(".reviewCuisines").val(review["cuisines"]["name"]);
       $('.reviewRating').css({ 'font-weight': 'bold' });
       $(".reviewRating").text(review["rating"]);
-      //$(".reviewDateVisited").text(review["date_visited"]);//text & val work
-      //var date = review["date_visited"]
-      //$.formatDateTime('mm/dd/yy', new Date(data));
+//$(".reviewDateVisited").text(review["date_visited"]);//text & val work
+//var date = review["date_visited"]
+//$.formatDateTime('mm/dd/yy', new Date(data));
       $(".reviewDateVisited").formatDateTime('mm/dd/yy');
       $(".reviewUpdatedAt").text(review["updated_at"]);
       $('.userEmail').css({ 'font-weight': 'bold' });
