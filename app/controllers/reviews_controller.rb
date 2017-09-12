@@ -22,6 +22,10 @@ class ReviewsController < ApplicationController
   def show
     @current_restaurant ||= Restaurant.find_by(id: @review[:restaurant_id])
     @review.restaurant_id = @current_restaurant.id #Keep track of current_restaurant when goto to Restaurant directory
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @review}
+    end
   end
 
   def review_data
