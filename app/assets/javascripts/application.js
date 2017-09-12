@@ -16,3 +16,4 @@
 //= reviews
 //= restaurants
 //= active_admin
+//= jquery.formatDateTime
