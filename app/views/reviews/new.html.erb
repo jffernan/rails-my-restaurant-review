@@ -31,10 +31,10 @@ $(function () {
       var values = $(this).serialize();
       var posting = $.post('/reviews', values);
       posting.done(function(data) {
-        var review = data;
+        //var review = data;
         $('#restaurantName').css({ 'font-weight': 'bold' });
-        $("#restaurantName").text("Your Review Saved For: " + review["restaurant"]["name"] + '.');
-        $("#reviewBody").text("You commented: " + '"' + review["content"] + '".');
+        $("#restaurantName").text("Your Review Saved For: " + data["restaurant"]["name"] + '.');
+        $("#reviewBody").text("You commented: " + '"' + data["content"] + '".');
         //$("#reviewCuisines").val(review["cuisine"]["name"]);
         $(function(){
           //New showRating method created via jQuery on Review prototype w/ bold formats on rating & name attributes.
@@ -42,9 +42,9 @@ $(function () {
             showRating: function() {
               //$("#reviewRating").text("You gave " + '"' + review["rating"] + '"' + " rating for " + '"' + review["restaurant"]["name"] + '."')
               var txt1 = 'You gave "';                       // Create text with HTML
-              var txt2 = $("<b></b>").text(review["rating"]);
+              var txt2 = $("<b></b>").text(data["rating"]);
               var txt3 = '" rating for ';             // Create text with jQuery
-              var txt4 = $("<b></b>").text(review["restaurant"]["name"] + '.');
+              var txt4 = $("<b></b>").text(data["restaurant"]["name"] + '.');
               $('#reviewRating').append(txt1, txt2, txt3, txt4);      // Append text to Review Rating message
             }
           });
