@@ -34,24 +34,24 @@ $(function () {
 //text() Get text content of selected element
 //html() Get HTML content of selected element
       $('.restName').css({ 'font-weight': 'bold' });
-      $(".restName").html(review["restaurant"]["name"]);
-      $(".reviewBody").text(review["content"]);
-      var cuisines = review["cuisines"];//["cuisines"]["name"]
+      $(".restName").html(data["restaurant"]["name"]);
+      $(".reviewBody").text(data["content"]);
+      var cuisines = data["cuisines"]["name"];  //["cuisines"]
       $(".reviewCuisines").text(cuisines);
       $('.reviewRating').css({ 'font-weight': 'bold' });
-      $(".reviewRating").text(review["rating"]);
-      var visitDate = review["date_visited"];
+      $(".reviewRating").text(data["rating"]);
+      var visitDate = data["date_visited"];
       var date = new Date(visitDate);
       var newDate = date.toString('MM/DD/YYYY');
       $(".reviewDateVisited").text(newDate);
       //$(".reviewDateVisited").text(review["date_visited"]);//text & val work
       //$(".reviewDateVisited").formatDateTime('mm/dd/yy', new Date(visitDate);
-      $(".reviewUpdatedAt").text(review["updated_at"]);
+      $(".reviewUpdatedAt").text(data["updated_at"]);
       $('.userEmail').css({ 'font-weight': 'bold' });
-      $(".userEmail").html(review["user"]["email"]);
-      $("a[href$='.com']").html(review["restaurant"]["name"]);
+      $(".userEmail").html(data["user"]["email"]);
+      $("a[href$='.com']").html(data["restaurant"]["name"]);
   // re-set the id to current on the link
-      $(".js-next").attr("data-id", review["id"]);
+      $(".js-next").attr("data-id", data["id"]);
     });
   });
 });
