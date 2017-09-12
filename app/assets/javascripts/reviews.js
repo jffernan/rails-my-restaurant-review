@@ -1,6 +1,6 @@
 //reviews/index.html.erb for 'Load Reviews' link on Show Page
 $(function() {
-  $("a.load_reviews").on("click", function(e) {   
+  $("a.load_reviews").on("click", function(e) {
 //Send AJAX HIGH-LEVEL get request
   $.get(this.href).success(function(json) {
     var $ul = $("div.reviews ul")
@@ -30,16 +30,21 @@ $(function () {
   $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/reviews/" + nextId + ".json", function(data) {
-      var review = data; //rn=text(review["restaurant"]["name"])
+      var review = data; //val()Get value of form fields
       //$(".restaurantName").html('<a href=' + "/reviews/:id" + '>'+text(rn)+'</a>');
-      $(".restaurantName").text("Restaurant Name: " + review["restaurant"]["name"]);
-      $(".reviewBody").text("Comments: " + '"' + review["content"] + '"');
-      $(".reviewCuisines").text("Cuisines:" + review["cuisine"]["name"]);
+//text() Get text content of selected element or html() Get HTML content of selected element
+      $('.restName').css({ 'font-weight': 'bold' });
+      $(".restName").html(review["restaurant"]["name"]);
+      $(".reviewBody").text(review["content"]);
+      $(".reviewCuisines").val(review["cuisines"]["name"]);
+      $('.reviewRating').css({ 'font-weight': 'bold' });
       $(".reviewRating").text(review["rating"]);
-      $(".reviewDateVisited").date(review["date_visited"]);
-      $(".reviewUpdatedAt").date(review["updated_at"]);
-      $(".userEmail").text(review["user"]["email"]);
-// re-set the id to current on the link
+      $(".reviewDateVisited").text(review["date_visited"]);//text & val work
+      $(".reviewUpdatedAt").text(review["updated_at"]);
+      $('.userEmail').css({ 'font-weight': 'bold' });
+      $(".userEmail").html(review["user"]["email"]);
+      $("a[href$='.com']").html(review["restaurant"]["name"]);
+  // re-set the id to current on the link
       $(".js-next").attr("data-id", review["id"]);
     });
   });
