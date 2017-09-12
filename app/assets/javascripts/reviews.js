@@ -36,13 +36,16 @@ $(function () {
       $('.restName').css({ 'font-weight': 'bold' });
       $(".restName").html(review["restaurant"]["name"]);
       $(".reviewBody").text(review["content"]);
-      $(".reviewCuisines").val(review["cuisines"]["name"]);
+      var cuisines = review["cuisines"];//["cuisines"]["name"]
+      $(".reviewCuisines").text(cuisines);
       $('.reviewRating').css({ 'font-weight': 'bold' });
       $(".reviewRating").text(review["rating"]);
-//$(".reviewDateVisited").text(review["date_visited"]);//text & val work
-//var date = review["date_visited"]
-//$.formatDateTime('mm/dd/yy', new Date(data));
-      $(".reviewDateVisited").formatDateTime('mm/dd/yy');
+      var visitDate = review["date_visited"];
+      var date = new Date(visitDate);
+      var newDate = date.toString('MM/DD/YYYY');
+      $(".reviewDateVisited").text(newDate);
+      //$(".reviewDateVisited").text(review["date_visited"]);//text & val work
+      //$(".reviewDateVisited").formatDateTime('mm/dd/yy', new Date(visitDate);
       $(".reviewUpdatedAt").text(review["updated_at"]);
       $('.userEmail').css({ 'font-weight': 'bold' });
       $(".userEmail").html(review["user"]["email"]);

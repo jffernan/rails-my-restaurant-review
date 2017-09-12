@@ -34,13 +34,13 @@
   </li>
   <br/>
   <li>Date Visited:&ensp;
-    <span class="reviewDateVisited">
+    <span class="reviewDateVisited" data-dateformat="mm/dd/yy">
       <%= @review.date_visited.strftime('%m/%d/%Y') %>
     </span>
   </li>
   <br/>
   <li>Date Reviewed:&ensp;
-    <span class="reviewUpdatedAt">
+    <span class="reviewUpdatedAt" data-dateformat="mm/dd/yy">
       <%= @review.updated_at.strftime('%m/%d/%Y') %>
     </span>
   </li>
