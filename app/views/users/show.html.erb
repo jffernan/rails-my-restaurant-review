@@ -4,7 +4,7 @@
 </legend>
 <br/>
 <ul>
-  <li>Current Email:
+  <li><b>Current Email:</b>&ensp;
     <%= @user.email %>
   </li>
   <br/>
@@ -13,19 +13,16 @@
     <b>Total Reviews Submitted:</b>&ensp;
     (<%= @user.reviews.count %>)
   </li>
-  <br/>
   <ol>
     <%= render @reviews %>
-    <br/>
   </ol>
   <% end %>
-    
   <% if current_user == @user %>
   <li>
     <%= link_to "Submit New Review", new_user_review_path(@user) %>
   </li>
   <br/>
-  <li> Change User Settings:
+  <li><b>Change User Settings:</b>&ensp;
     <%= link_to "Edit User", edit_user_path %>
   </li>
   <% end %>

@@ -53,7 +53,6 @@
       <%= f.submit "Save Review" %>
     </div>
 <% end %>
-
 <script>
 $(function(){
     $("input").focus(function(){
@@ -79,11 +78,8 @@ $(function () {
     $('form').submit(function(event) {
       //prevent form from submitting the default way
       event.preventDefault();
-
       var values = $(this).serialize();
-
       var posting = $.post('/reviews', values);
-
       posting.done(function(data) {
         var review = data;
         $('#restaurantName').css({ 'font-weight': 'bold' });
@@ -107,7 +103,7 @@ $(function () {
         //$("#reviewDateVisited").text("Date Visited: " + review["date_visited"].val() + ".");
         var txt1 = $("<b></b>").text("THANK YOU ");         // Create text with jQuery
         var txt2 = "for posting at ";                       // Create text with HTML
-        var txt3 = $("<b></b>").text("My Restaurant Review!");           
+        var txt3 = $("<b></b>").text("My Restaurant Review!");
         $('#reviewThankYou').append(txt1, txt2, txt3);      // Append text to Thank you Paragraph
       });
     });
