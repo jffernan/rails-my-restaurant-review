@@ -39,7 +39,10 @@ $(function () {
       $(".reviewCuisines").val(review["cuisines"]["name"]);
       $('.reviewRating').css({ 'font-weight': 'bold' });
       $(".reviewRating").text(review["rating"]);
-      $(".reviewDateVisited").text(review["date_visited"]);//text & val work
+      //$(".reviewDateVisited").text(review["date_visited"]);//text & val work
+      //var date = review["date_visited"]
+      //$.formatDateTime('mm/dd/yy', new Date(data));
+      $(".reviewDateVisited").formatDateTime('mm/dd/yy');
       $(".reviewUpdatedAt").text(review["updated_at"]);
       $('.userEmail').css({ 'font-weight': 'bold' });
       $(".userEmail").html(review["user"]["email"]);
