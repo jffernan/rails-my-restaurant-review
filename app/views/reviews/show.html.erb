@@ -5,8 +5,10 @@
 <br/>
 <ul>
   <li>Restaurant Name:&ensp;
-    <span class="restName"><b><%= @review.restaurant_name %></b></span>
-    <!--<b><%= link_to "#{@current_restaurant.name.upcase_first}", restaurant_path(@current_restaurant) %></b>-->
+    <span class="restName">
+      <b><a href = "/restaurants/<%= @current_restaurant.id %>"><%= @current_restaurant.name %></a></b>
+      <b><%= @review.restaurant_name %></b>
+    </span>
   </li>
   <br/>
   <li>Comments:&ensp;
