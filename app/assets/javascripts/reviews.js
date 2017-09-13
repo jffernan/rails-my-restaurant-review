@@ -30,7 +30,7 @@ $(function () {
   $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/reviews/" + nextId + ".json", function(data) {
-       //val()Get value of form fields
+//val()Get value of form fields
 //text() Get text content of selected element
 //html() Get HTML content of selected element
       $('.restName').css({ 'font-weight': 'bold' });
@@ -43,10 +43,8 @@ $(function () {
       $(".reviewRating").text(data["rating"]);
       var visitDate = data["date_visited"];
       var date = new Date(visitDate);
-      var newDate = date.toString('MM/DD/YYYY');
+      var newDate = date.toLocaleDateString();
       $(".reviewDateVisited").text(newDate);
-      //$(".reviewDateVisited").text(review["date_visited"]);//text & val work
-      //$(".reviewDateVisited").formatDateTime('mm/dd/yy', new Date(visitDate);
       $(".reviewUpdatedAt").text(data["updated_at"]);
       $('.userEmail').css({ 'font-weight': 'bold' });
       $(".userEmail").html(data["user"]["email"]);
