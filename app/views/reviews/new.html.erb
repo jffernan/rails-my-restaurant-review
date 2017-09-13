@@ -39,11 +39,9 @@ $(function () {
 // New showRating method created via jQuery on Review PROTOTYPE w/ bold formats on rating & name attributes.
           $.extend({
             showRating: function() {
-              var txt1 = 'You gave "';
-              var txt2 = $("<b></b>").text(data["rating"]); // Create text with jQuery
-              var txt3 = '" rating for ';
-              var txt4 = $("<b></b>").text(data["restaurant"]["name"] + '.'); // Create text with jQuery
-              $('#reviewRating').append(txt1, txt2, txt3, txt4);      // Append text to Review Rating message
+              var txt1 = data["rating"];
+              var txt2 = data["restaurant"]["name"]; // Append template literal to Review Rating msg
+              $('#reviewRating').append(`You gave a rating of "<b>${txt1}</b>" for ${txt2}.`); 
             }
           });
           $.showRating();
