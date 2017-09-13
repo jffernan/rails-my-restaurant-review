@@ -31,28 +31,26 @@ $(function () {
       var values = $(this).serialize();
       var posting = $.post('/reviews', values);
       posting.done(function(data) {
-        //var review = data;
         $('#restaurantName').css({ 'font-weight': 'bold' });
         $("#restaurantName").text("Your Review Saved For: " + data["restaurant"]["name"] + '.');
         $("#reviewBody").text("You commented: " + '"' + data["content"] + '".');
         //$("#reviewCuisines").val(review["cuisine"]["name"]);
         $(function(){
-          //New showRating method created via jQuery on Review prototype w/ bold formats on rating & name attributes.
+// New showRating method created via jQuery on Review PROTOTYPE w/ bold formats on rating & name attributes.
           $.extend({
             showRating: function() {
-              //$("#reviewRating").text("You gave " + '"' + review["rating"] + '"' + " rating for " + '"' + review["restaurant"]["name"] + '."')
-              var txt1 = 'You gave "';                       // Create text with HTML
-              var txt2 = $("<b></b>").text(data["rating"]);
-              var txt3 = '" rating for ';             // Create text with jQuery
-              var txt4 = $("<b></b>").text(data["restaurant"]["name"] + '.');
+              var txt1 = 'You gave "';
+              var txt2 = $("<b></b>").text(data["rating"]); // Create text with jQuery
+              var txt3 = '" rating for ';
+              var txt4 = $("<b></b>").text(data["restaurant"]["name"] + '.'); // Create text with jQuery
               $('#reviewRating').append(txt1, txt2, txt3, txt4);      // Append text to Review Rating message
             }
           });
           $.showRating();
         });
-        var txt1 = "THANK YOU for posting at ";                       
+        var txt1 = "THANK YOU for posting at ";
         var txt2 = $("<b></b>").text("My Restaurant Review!"); // Create text with jQuery
-        $('#reviewThankYou').append(txt1, txt2);      // Append text to Thank you Paragraph
+        $('#reviewThankYou').append(txt1, txt2);               // Append text to Thank you Paragraph
         $(".reviewLink").html("<a href='/reviews/"+data['id'].toString()+"'>Continue To Review Page</a>");
       });
     });
