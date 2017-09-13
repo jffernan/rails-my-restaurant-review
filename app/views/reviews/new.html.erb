@@ -22,7 +22,7 @@ $(function(){
   <p id="reviewDateVisited"></p>
   <h4 id="reviewThankYou"></h4>
 </div>
-
+<div class="reviewLink"></div>
 <script type="text/javascript" charset="utf-8">
 $(function () {
     $('form').submit(function(event) {
@@ -53,6 +53,7 @@ $(function () {
         var txt1 = "THANK YOU for posting at ";                       
         var txt2 = $("<b></b>").text("My Restaurant Review!"); // Create text with jQuery
         $('#reviewThankYou').append(txt1, txt2);      // Append text to Thank you Paragraph
+        $(".reviewLink").html("<a href='/reviews/"+data['id'].toString()+"'>Continue To Review Page</a>");
       });
     });
   });
