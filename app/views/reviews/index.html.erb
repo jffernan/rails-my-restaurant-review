@@ -9,7 +9,7 @@
     <li>
       <% review.id %><%= link_to review.try(:restaurant).try(:name), review %>
       visited on
-      <%= review.date_visited.strftime("%m/%d/%Y") %>
+      <%= review.date_visited.strftime("%-m/%-d/%Y") %>
       by
       <% if current_user == review.user %>
         <b><%= link_to "you", user_reviews_path(review.user) %></b>

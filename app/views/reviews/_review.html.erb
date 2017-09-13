@@ -7,6 +7,6 @@
   <% else %>
     <b><%= review.user.email %></b>
   <% end %>
-  on <%= review.date_visited.strftime("%m/%d/%Y") %>.&ensp;
+  on <%= review.date_visited.strftime("%-m/%-d/%Y") %>.&ensp;
   (Posted <%= time_ago_in_words(review.updated_at) %> ago.)
 </li>
