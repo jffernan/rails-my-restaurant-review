@@ -35,7 +35,7 @@ $(function () {
 //html() Get HTML content of selected element
       $('.restName').css({ 'font-weight': 'bold' });
       //$(".restName").html(data["restaurant"]["name"]);
-      $(".restName").html("<a href='/restaurants/’>data["restaurant"]["name"]</a>");
+      $(".restName").html("<a href='/restaurants/"+current_restaurant['id'].toString()+"'>data["restaurant"]["name"]</a>");
       $(".reviewBody").text(data["content"]);
       var cuisines = data["cuisines"];  //["cuisines"]["name"]
       $(".reviewCuisines").text(cuisines);
