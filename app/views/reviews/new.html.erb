@@ -50,11 +50,9 @@ $(function () {
           });
           $.showRating();
         });
-        //$("#reviewDateVisited").text("Date Visited: " + review["date_visited"].val() + ".");
-        var txt1 = $("<b></b>").text("THANK YOU ");         // Create text with jQuery
-        var txt2 = "for posting at ";                       // Create text with HTML
-        var txt3 = $("<b></b>").text("My Restaurant Review!");
-        $('#reviewThankYou').append(txt1, txt2, txt3);      // Append text to Thank you Paragraph
+        var txt1 = "THANK YOU for posting at ";                       
+        var txt2 = $("<b></b>").text("My Restaurant Review!"); // Create text with jQuery
+        $('#reviewThankYou').append(txt1, txt2);      // Append text to Thank you Paragraph
       });
     });
   });
