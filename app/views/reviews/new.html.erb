@@ -34,7 +34,8 @@ $(function () {
         $('#restaurantName').css({ 'font-weight': 'bold' });
         $("#restaurantName").text("Your Review Saved For: " + data["restaurant"]["name"] + '.');
         $("#reviewBody").text("You commented: " + '"' + data["content"] + '".');
-        //$("#reviewCuisines").val(review["cuisine"]["name"]);
+        var cuisines = data["cuisines"]["name"]); \\["cuisine"]["name"]
+        $("#reviewCuisines").append(`You entered cuisine type(s) of "<b>${cuisines}</b>".`);
         $(function(){
 // New showRating method created via jQuery on Review PROTOTYPE w/ bold formats on rating & name attributes.
           $.extend({
