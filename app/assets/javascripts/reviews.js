@@ -36,7 +36,7 @@ $(function () {
       $('.restName').css({ 'font-weight': 'bold' });
       $(".restName").html(data["restaurant"]["name"]);
       $(".reviewBody").text(data["content"]);
-      var cuisines = data["cuisines"]["name"];  //["cuisines"]
+      var cuisines = data["cuisines"];  //["cuisines"]["name"]
       $(".reviewCuisines").text(cuisines);
       $('.reviewRating').css({ 'font-weight': 'bold' });
       $(".reviewRating").text(data["rating"]);
