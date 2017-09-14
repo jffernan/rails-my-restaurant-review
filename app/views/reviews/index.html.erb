@@ -6,30 +6,14 @@
  <br/>
 <ul>
   <% @reviews.each do |review| %>
-    <li>
-      <% review.id %><%= link_to review.try(:restaurant).try(:name), review %>
-      visited on
-      <%= review.date_visited.strftime("%-m/%-d/%Y") %>
-      by
-      <% if current_user == review.user %>
-        <b><%= link_to "you", user_reviews_path(review.user) %></b>
-      <% else %>
-        <%= link_to review.user.email, user_reviews_path(review.user) %>
-      <% end %>&emsp;
-      (Posted <%= time_ago_in_words(review.updated_at) %> ago.)
-      <div id="body-<%= review.id %>">&emsp;
-        Comments:&ensp;"<%= truncate review.content %>"&ensp;
-        <a href="#" class="js-more" data-id="<%= review.id %>">More...</a>&emsp;
-      </div>
-    <br/>
-    </li>
+    <%= render partial: "more", locals: {review: review} %>
   <% end %>
 </ul>
 <%= page_entries_info @reviews %>
 <%= paginate @reviews, window:2 %>
 </fieldset>
 <br/>
-<!--reviews/index.html.erb for 'More' reviews link on Index Page-->
+<!--reviews/index.html.erb for 'More' content on truncated reviews link on Index Page-->
 <script type="text/javascript" charset="utf-8">
 $(function () {
   $(".js-more").on('click', function() {
