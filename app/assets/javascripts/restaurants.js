@@ -3,7 +3,7 @@ $(function() {
 //Send AJAX HIGH-LEVEL get request
   $.get(this.href).success(function(json) {
     var $ul = $("div.reviews ul")
-    $ul.html(" ")
+    $ul.html("")
     json.forEach(function(review) {
       $ul.append("<li>" + review + "</li>");
     });
