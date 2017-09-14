@@ -36,23 +36,22 @@ $(function () {
         $("#reviewBody").text("You commented: " + '"' + data["content"] + '".');
         var cuisineType = data['["cuisines"]["name"]'];
         $("#reviewCuisines").append(`You entered cuisine type(s) of "<b>${cuisineType}</b>".`);
-        $(function(){// New showRating method created via jQuery on Review PROTOTYPE w/ bold formats on rating & name attributes.
-          $.extend({
-            showRating: function() {
-              var txt1 = data["rating"];
-              var txt2 = data["restaurant"]["name"]; // Append template literal to Review Rating msg
-              $('#reviewRating').append(`You gave a rating of "<b>${txt1}</b>" for ${txt2}.`);
-            }
-          });
-          $.showRating();
+//Following showRating method created via jQuery on Review PROTOTYPE w/ bold formats on rating & name attributes.
+        $.extend({
+          showRating: function() {
+            var txt1 = data["rating"];
+            var txt2 = data["restaurant"]["name"]; // Next append ES6 template literal to Review Rating msg
+            $('#reviewRating').append(`You gave a rating of "<b>${txt1}</b>" for ${txt2}.`);
+          }
         });
+        $.showRating();
         //var visitDate = data["date_visited"];
         //var date = new Date(visitDate);
         //var newDate = date.toLocaleDateString();
         //$("#reviewDateVisited").text("You dined at " + data["restaurant"]["name"] + " on " + newDate + '.');
         var txt1 = "THANK YOU for posting at ";
         var txt2 = $("<b></b>").text("My Restaurant Review!"); // Create text with jQuery
-        $('#reviewThankYou').append(txt1, txt2);               // Append text to Thank you Paragraph
+        $('#reviewThankYou').append(txt1, txt2); //Next append ES6 template literal to Thank you Paragraph
         $(".reviewLink").html("<a href='/reviews/"+data['id'].toString()+"'>Continue To Review Page</a>");
       });
     });
