@@ -13,18 +13,6 @@ $(function() {
   e.preventDefault();
  });
 });
-
-//reviews/index.html.erb for 'More' reviews link on Index Page
-$(function () {
-  $(".js-more").on('click', function() {
-    var id = $(this).data("id");
-    $.get("/reviews/" + id + ".json", function(data) {
-      var review = data;
-      $("#body-" + id).html("Comments: " + '"' + review["content"] + '"');
-    });
-  });
-});
-
 //reviews/show.html.erb for 'Next' review button on Show Page
 $(function () {
   $(".js-next").on("click", function() {
