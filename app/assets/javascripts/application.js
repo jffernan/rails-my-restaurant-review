@@ -15,5 +15,3 @@
 //= require_tree .
 //= reviews
 //= restaurants
-//= active_admin
-//= jquery.formatDateTime

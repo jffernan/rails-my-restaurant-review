@@ -54,9 +54,9 @@
   </li>
   <br/>
 <% end %>
-  <button class="js-next" data-id="<%= @review.id %>">
-    Next Review...
-  </button>
+<button class="js-next" data-id="<%= @review.id %>">
+  Next Review...
+</button>
 </ul>
 </fieldset>
 <br/>
@@ -78,9 +78,41 @@
 <br/>
 <li>
   <%= link_to "Load More Reviews", restaurant_reviews_path(@review.restaurant), :class => "load_reviews" %>
+  for <b><%= @current_restaurant.name %></b>.
 </li>
 <div class="reviews">
   <ul></ul>
 </div>
 </fieldset>
 <br/>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $(".js-next").on("click", function() {
+    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.get("/reviews/" + nextId + ".json", function(data) {
+//val()Get value of form fields
+//text() Get text content of selected element
+//html() Get HTML content of selected element
+      var review = data;
+      $('.restName').css({ 'font-weight': 'bold' });
+      $(".restName").html("<a href='/restaurants/"+current_restaurant['id'].toString()+"'>review["restaurant"]["name"]</a>");
+      $(".reviewBody").text(review["content"]);
+      //var cuisineType = review["cuisines"]["name"]; //["cuisine"]["name"]
+      //$(".reviewCuisines").append(cuisineType);
+      $('.reviewRating').css({ 'font-weight': 'bold' });
+      $(".reviewRating").text(review["rating"]);
+      var visitDate = review["date_visited"];
+      var date = new Date(visitDate);
+      var newDate = date.toLocaleDateString();
+      $(".reviewDateVisited").text(newDate);
+      $(".reviewUpdatedAt").text(review["updated_at"]);
+      $('.userEmail').css({ 'font-weight': 'bold' });
+      $(".userEmail").html(review["user"]["email"]);
+      $("a[href$='.com']").html(review["restaurant"]["name"]);
+  // re-set the id to current on the link
+      $(".js-next").attr("data-id", review["id"]);
+    });
+  });
+});
+</script>
