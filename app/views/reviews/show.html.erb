@@ -6,7 +6,7 @@
 <ul>
   <li>Restaurant Name:&ensp;
     <span class="restName">
-      <b><a href = "/restaurants/<%= @current_restaurant.id %>"><%= @current_restaurant.name %></a></b>
+      <a href = "/restaurants/<%= @current_restaurant.id %>"><%= @current_restaurant.name %></a>
     </span>
   </li>
   <br/>
@@ -78,7 +78,7 @@
 <br/>
 <li>
   <%= link_to "Load More Reviews", restaurant_reviews_path(@current_restaurant), :class => "load_more_reviews" %>
-  for <b><%= @current_restaurant.name %></b>.
+  for <span class="load_more"><b><%= @current_restaurant.name %></b>.</span>
 </li>
 <div class="reviews">
   <ul></ul>
@@ -91,26 +91,22 @@ $(function () {
   $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/reviews/" + nextId + ".json", function(data) {
-//val()Get value of form fields
-//text() Get text content of selected element
-//html() Get HTML content of selected element
       var review = data;
-      $('.restName').css({ 'font-weight': 'bold' });
-      $(".restName").html("<a href='/restaurants/"+current_restaurant['id'].toString()+"'>review["restaurant"]["name"]</a>");
-      $(".reviewBody").text(review["content"]);
-      //var cuisineType = review["cuisines"]["name"]; //["cuisine"]["name"]
-      //$(".reviewCuisines").append(cuisineType);
+      var rname = review["restaurant"]["name"];
+      $(".restName").html("<a href='/restaurants/"+data['id'].toString()+"'>"+rname+"</a>");
+      $(".reviewBody").html(review["content"]);
       $('.reviewRating').css({ 'font-weight': 'bold' });
-      $(".reviewRating").text(review["rating"]);
+      $(".reviewRating").html(review["rating"]);
       var visitDate = review["date_visited"];
       var date = new Date(visitDate);
       var newDate = date.toLocaleDateString();
-      $(".reviewDateVisited").text(newDate);
-      $(".reviewUpdatedAt").text(review["updated_at"]);
+      $(".reviewDateVisited").html(newDate);
+      $(".reviewUpdatedAt").html(review["updated_at"]);
       $('.userEmail').css({ 'font-weight': 'bold' });
       $(".userEmail").html(review["user"]["email"]);
       $("a[href$='.com']").html(review["restaurant"]["name"]);
-  // re-set the id to current on the link
+      $(".load_more").css({ 'font-weight': 'bold' });
+      $(".load_more").html(review["restaurant"]["name"]);
       $(".js-next").attr("data-id", review["id"]);
     });
   });
