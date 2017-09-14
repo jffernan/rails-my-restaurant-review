@@ -6,7 +6,7 @@
 <ul>
   <li>Restaurant Name:&ensp;
     <span class="restName">
-      <a href = "/restaurants/<%= @current_restaurant.id %>"><%= @current_restaurant.name %></a>
+      <%= link_to "#{@current_restaurant.name}", restaurant_path(@current_restaurant) %>
     </span>
   </li>
   <br/>
@@ -95,6 +95,8 @@ $(function () {
       var rname = review["restaurant"]["name"];
       $(".restName").html("<a href='/restaurants/"+data['id'].toString()+"'>"+rname+"</a>");
       $(".reviewBody").html(review["content"]);
+      //var cuisineType = review["cuisines"]["name"];
+      //$(".reviewCuisines").append(cuisineType);
       $('.reviewRating').css({ 'font-weight': 'bold' });
       $(".reviewRating").html(review["rating"]);
       var visitDate = review["date_visited"];
@@ -107,6 +109,7 @@ $(function () {
       $("a[href$='.com']").html(review["restaurant"]["name"]);
       $(".load_more").css({ 'font-weight': 'bold' });
       $(".load_more").html(review["restaurant"]["name"]);
+
       $(".js-next").attr("data-id", review["id"]);
     });
   });
