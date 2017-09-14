@@ -65,22 +65,24 @@
   <h3>More</h3>
 </legend>
 <br/>
+<% if current_user == @review.user %>
+  <li>
+    <%= link_to "Edit Review", edit_user_review_path(@review.user, @review) %>
+  </li>
+<br/>
+<% end %>
+<li>
+  <%= link_to "Load More Reviews", restaurant_reviews_path(@current_restaurant), :class => "load_more_reviews" %>
+  for <span class="load_more"><b><%= @current_restaurant.name %></b>.</span>
+</li>
+<div class="reviews"></div>
+</br>
 <li>For more info about this restaurant, 'click' to web search for:
   <span class = "search">
     <a href = 'http://www.<%= "#{@review.restaurant_name}" %>.com' data-confirm="Are you sure you want to leave my website?">
     <%= @review.restaurant_name %></a>
   </span>
 </li>
-<br/>
-<li>
-  <%= link_to "Edit Review", edit_user_review_path(@review.user, @review) if @review.user %>
-</li>
-<br/>
-<li>
-  <%= link_to "Load More Reviews", restaurant_reviews_path(@current_restaurant), :class => "load_more_reviews" %>
-  for <span class="load_more"><b><%= @current_restaurant.name %></b>.</span>
-</li>
-<div class="reviews"></div>
 <br/>
 </fieldset>
 <br/>
