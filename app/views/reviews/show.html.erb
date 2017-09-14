@@ -77,7 +77,7 @@
 </li>
 <br/>
 <li>
-  <%= link_to "Load More Reviews", restaurant_reviews_path(@review.restaurant), :class => "load_reviews" %>
+  <%= link_to "Load More Reviews", restaurant_reviews_path(@current_restaurant), :class => "load_reviews" %>
   for <b><%= @current_restaurant.name %></b>.
 </li>
 <div class="reviews">
