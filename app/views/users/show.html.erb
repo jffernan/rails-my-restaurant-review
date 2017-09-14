@@ -4,7 +4,7 @@
 </legend>
 <br/>
 <ul>
-  <li><b>Current Email:</b>&ensp;
+  <li><b>User Email:</b>&ensp;
     <%= @user.email %>
   </li>
   <br/>
@@ -13,6 +13,7 @@
     <b>Total Reviews Submitted:</b>&ensp;
     (<%= @user.reviews.count %>)
   </li>
+  </br>
   <ol>
     <%= render @reviews %>
   </ol>
