@@ -9,10 +9,10 @@ $(function() {
       $ul.append("<li>" + review + "</li>");
     });
   });
- //Load response into HTML of page
-  e.preventDefault();
+  e.preventDefault(); // Check placement + closing
  });
 });
+
 //reviews/show.html.erb for 'Next' review button on Show Page
 $(function () {
   $(".js-next").on("click", function() {
