@@ -1,14 +1,9 @@
-//reviews/index.html.erb for 'Load Reviews' link on Show Page
+//High-level AJAX GET request
 $(function() {
-  $("a.load_more_reviews").on("click", function(e) {
-//Send AJAX HIGH-LEVEL get request
-  $.get(this.href).success(function(json) {
-    var $ul = $("div.reviews ul")
-    $ul.html("")
-    json.forEach(function(review) {
-      $ul.append("<li>" + review + "</li>");
-    });
+  $(".load_more_reviews").on("click", function(e) {
+    $.get( this.href).done(function( response ) {
+      $(".reviews").html(response)
+    })
+    e.preventDefault();
   });
-  e.preventDefault(); // Check placement + closing
- });
 });

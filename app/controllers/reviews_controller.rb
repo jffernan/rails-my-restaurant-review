@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
       @reviews = User.find(params[:user_id]).reviews.page(params[:page])#Show all reviews for link_to specific user
     elsif params[:restaurant_id]
       @reviews = Restaurant.find(params[:restaurant_id]).reviews.page(params[:page])#Show all reviews for link_to specific restaurant
-      render :index, :layout => false
+      render :layout => false
     elsif params[:rating]
       if params[:rating] == "Excellent"
         @reviews = Review.top_reviews(params[:rating]).order_by_date_visited.page(params[:page])

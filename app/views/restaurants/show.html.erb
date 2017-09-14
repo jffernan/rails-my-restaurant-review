@@ -23,8 +23,8 @@
     <%= link_to "Load Reviews", restaurant_reviews_path(@restaurant), :class => "load_reviews" %>
   </li>
   <div class="reviews">
-    <ul></ul>
   </div>
+  <br/>
   <li><b>More info, 'click' to search for:</b>&ensp;
     <a href = 'http://www.<%= "#{@restaurant.name}" %>.com' data-confirm="Are you sure you want to leave my website?"><%= @restaurant.name %></a>
   </li>
