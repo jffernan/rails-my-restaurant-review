@@ -1,3 +1,13 @@
+//Select ALL input form fields to focus/blur color when on/off field
+$(function(){
+    $("input").focus(function(){
+        $(this).css("background-color", "#cccccc");
+    });
+    $("input").blur(function(){
+        $(this).css("background-color", "#ffffff");
+    });
+});
+
 //Click 'More' link to show full Review content from previous truncated on Index Page
 $(function () {
   $(".js-more").on('click', function() {
