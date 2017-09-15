@@ -23,7 +23,7 @@
     </div>
 
     <div class="col-md-4 cuisinecheckbox">
-      <b>Choose Cuisine(s): </b>&ensp;
+      <b>Choose Cuisine: </b>&ensp;
       <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name %>
     </div>
     <div class="field">

@@ -14,7 +14,7 @@
     "<span class="reviewBody"><%= @review.content %></span>"
   </li>
   <br/>
-  <li>Cuisine(s):&ensp;
+  <li>Cuisine:&ensp;
     <span class="reviewCuisines">
       <%= @review.cuisines.map{|cuisine| cuisine.name}.join(', ').to_s + "." %>
     </span>
@@ -96,8 +96,8 @@ $(function () {
       var rname = review["restaurant"]["name"];
       $(".restName").html("<a href='/restaurants/"+data['id'].toString()+"'>"+rname+"</a>");
       $(".reviewBody").html(review["content"]);
-      //var cuisineType = review["cuisines"]["name"];
-      //$(".reviewCuisines").append(cuisineType);
+      var cuisineType = review["cuisines"][0]["name"];
+      $(".reviewCuisines").html(cuisineType + ".");
       $('.reviewRating').css({ 'font-weight': 'bold' });
       $(".reviewRating").html(review["rating"]);
       var visitDate = review["date_visited"];

@@ -34,8 +34,8 @@ $(function () {
         $('#restaurantName').css({ 'font-weight': 'bold' });
         $("#restaurantName").text("Your Review Saved For: " + data["restaurant"]["name"] + '.');
         $("#reviewBody").text("You commented: " + '"' + data["content"] + '".');
-        var cuisineType = data['["cuisines"]["name"]'];
-        $("#reviewCuisines").append(`You entered cuisine type(s) of "<b>${cuisineType}</b>".`);
+        var cuisineType = data["cuisines"][0]["name"];
+        $("#reviewCuisines").html("You entered cuisine as: " + '"<b>' + cuisineType + '</b>."');
 //Following showRating method created via jQuery on Review PROTOTYPE w/ bold formats on rating & name attributes.
         $.extend({
           showRating: function() {
@@ -45,10 +45,10 @@ $(function () {
           }
         });
         $.showRating();
-        //var visitDate = data["date_visited"];
-        //var date = new Date(visitDate);
-        //var newDate = date.toLocaleDateString();
-        //$("#reviewDateVisited").text("You dined at " + data["restaurant"]["name"] + " on " + newDate + '.');
+        var visitDate = data["date_visited"];
+        var date = new Date(visitDate);
+        var newDate = date.toLocaleDateString();
+        $("#reviewDateVisited").text("You dined at " + data["restaurant"]["name"] + " on " + newDate + '.');
         var txt1 = "THANK YOU for posting at ";
         var txt2 = $("<b></b>").text("My Restaurant Review!"); // Create text with jQuery
         $('#reviewThankYou').append(txt1, txt2); //Next append ES6 template literal to Thank you Paragraph
