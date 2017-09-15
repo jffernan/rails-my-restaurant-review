@@ -1,4 +1,4 @@
-//Low-level AJAX request
+//Low-level interface AJAX request
 $(function() {
   $(".load_reviews").on("click", function(e) {
     $.ajax({
