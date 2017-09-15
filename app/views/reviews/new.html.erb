@@ -28,7 +28,7 @@ $(function () {
     $('form').submit(function(event) {
       //prevent form from submitting the default way
       event.preventDefault();
-      var values = $(this).serialize();
+      var values = $(this).serialize(); //jQuery method to .serialize form data of Review object instance into JSON string
       var posting = $.post('/reviews', values);
       posting.done(function(data) {
         $('#restaurantName').css({ 'font-weight': 'bold' });
