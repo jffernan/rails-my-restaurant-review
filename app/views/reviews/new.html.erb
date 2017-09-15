@@ -28,7 +28,7 @@ $(function(){
 
 <script type="text/javascript" charset="utf-8"> //Create New Review rendered on same page below New form
 $(function () {
-    $('form').submit(function(event) {
+    $('form').submit(function(event) {    //This is NOT User-Friendly; I will NOT refactor to reviews.js
       //prevent form from submitting the default way
       event.preventDefault();
       var values = $(this).serialize(); //jQuery method to .serialize form data of Review object instance into JSON string
