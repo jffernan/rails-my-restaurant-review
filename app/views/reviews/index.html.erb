@@ -13,14 +13,3 @@
 <%= paginate @reviews, window:2 %>
 </fieldset>
 <br/>
-<!--reviews/index.html.erb for 'More' content on truncated reviews link on Index Page-->
-<script type="text/javascript" charset="utf-8"> //Placed here to ensure js runs once
-$(function () {
-  $(".js-more").on('click', function() {
-    var id = $(this).data("id");
-    $.get("/reviews/" + id + ".json", function(data) {
-      $("#body-" + id).html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "Comments: " + '"' + data["content"] + '"');
-    });
-  });
-});
-</script>

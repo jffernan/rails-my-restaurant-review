@@ -23,24 +23,27 @@ $(function(){
   <h4 id="reviewThankYou"></h4>
 </div>
 <div class="reviewLink"></div>
-<script type="text/javascript" charset="utf-8">
+</fieldset>
+<br/>
+
+<script type="text/javascript" charset="utf-8"> //Create New Review rendered on same page below New form
 $(function () {
     $('form').submit(function(event) {
       //prevent form from submitting the default way
       event.preventDefault();
       var values = $(this).serialize(); //jQuery method to .serialize form data of Review object instance into JSON string
-      var posting = $.post('/reviews', values);
+      var posting = $.post('/reviews', values); //AJAX POST request
       posting.done(function(data) {
         $('#restaurantName').css({ 'font-weight': 'bold' });
         $("#restaurantName").text("Your Review Saved For: " + data["restaurant"]["name"] + '.');
         $("#reviewBody").text("You commented: " + '"' + data["content"] + '".');
         var cuisineType = data["cuisines"][0]["name"];
         $("#reviewCuisines").html("You entered cuisine as: " + '"<b>' + cuisineType + '</b>."');
-//Following showRating method created via jQuery on Review PROTOTYPE w/ bold formats on rating & name attributes.
+        //Following showRating method created via jQuery on Review PROTOTYPE w/ bold formats on rating & name attributes.
         $.extend({
           showRating: function() {
             var txt1 = data["rating"];
-            var txt2 = data["restaurant"]["name"]; // Next append ES6 template literal to Review Rating msg
+            var txt2 = data["restaurant"]["name"]; // Next line append ES6 template literal into Rating msg to DOM
             $('#reviewRating').append(`You gave a rating of "<b>${txt1}</b>" for ${txt2}.`);
           }
         });
@@ -56,6 +59,4 @@ $(function () {
       });
     });
   });
-  </script>
-  </fieldset>
-  <br/>
+</script>
