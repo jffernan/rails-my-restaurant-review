@@ -10,7 +10,7 @@
   </li>
   <br/>
   <li>
-    <b>Cuisine Type:</b>&ensp; <!--show ALL cuisines from ALL reviews of specific restaurant-->
+    <b>Cuisine:</b>&ensp; <!--show ALL cuisines from ALL reviews of specific restaurant-->
     <%= @restaurant.cuisines.map{|cuisine| cuisine.name}.join(', ').to_s + "." %>
   </li>
   <br/>
