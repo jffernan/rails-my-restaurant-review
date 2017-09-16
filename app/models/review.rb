@@ -3,6 +3,7 @@ class Review < ApplicationRecord
   belongs_to :restaurant
   has_many :review_cuisines
   has_many :cuisines, through: :review_cuisines
+  accepts_nested_attributes_for :cuisines, reject_if: proc { |cuisines| cuisines['name'].blank? } #reject_if: :all_blank
   
   before_save { self.restaurant_name = restaurant_name.upcase_first }
   
