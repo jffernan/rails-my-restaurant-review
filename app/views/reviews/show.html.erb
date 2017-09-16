@@ -79,7 +79,7 @@
 </br>
 <li>For more info about this restaurant, 'click' to web search for:
   <span class = "search">
-    <a href = 'http://www.<%= "#{@review.restaurant_name}" %>.com' data-confirm="Are you sure you want to leave my website?">
+    <a target="_blank" href = 'http://www.<%= "#{@review.restaurant_name}" %>.com' data-confirm="Are you sure you want to visit an external website?">
     <%= @review.restaurant_name %></a>
   </span>
 </li>
