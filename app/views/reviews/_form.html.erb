@@ -24,7 +24,7 @@
 
     <div class="col-md-4 cuisinecheckbox">
       <b>Choose Cuisine: </b>&ensp;
-      <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name, include_hidden: false %> #blank cuisine not save record
+      <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name, include_hidden: false %>
     </div>
     <div class="field">
       <%= f.fields_for :cuisines, @review.cuisines.build do |cuisine_form| %>
