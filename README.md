@@ -2,6 +2,12 @@
 
 Welcome to My Restaurant Review Rails app where you can signup for a User account to Create, Read, Update, and Delete reviews of restaurants that you have visited. Here you can build and keep track of all the restaurants you have dined at! You can also view restaurant reviews by other Users.  Thank you for using my app.
 
+Visit my blogs about the developement of my app:
+
+https://github.com/jffernan/jffernan.github.io/blob/master/_posts/2017-08-17-project_3_blog_rails_portfolio_project.markdown
+
+https://github.com/jffernan/jffernan.github.io/blob/master/_posts/2017-09-08-project_4_blog_rails_app_w_jquery_front_end.markdown
+
 ## Installation
 
 To use this app, clone from GitHub 'git clone git@github.com:jffernan/rails-my-restaurant-review', 'cd' to the new directory, then run `bundle install`, and last, run `rails server` or 'rails s'. Last, click on the http link to open my app in your browser. If you run 'rake db:seed' in the terminal, this will seed the database with fake Users & Reviews.
